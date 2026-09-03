@@ -211,54 +211,86 @@ export default function CertificatesSection() {
           ))}
         </div>
 
-        {/* Trust Badges Strip with Symmetrical Spacing */}
+        {/* Trust Badges Card Centered */}
         <div
+          className="cert-trust-card"
           style={{
+            maxWidth: '680px',
+            margin: '0 auto',
             backgroundColor: 'var(--primary-50)',
             borderRadius: '24px',
-            padding: '24px 32px',
-            border: '1px solid var(--primary-100)',
+            padding: '32px 28px',
+            border: '1.5px solid var(--primary-100)',
+            boxShadow: 'var(--shadow-sm)',
             display: 'flex',
+            flexDirection: 'column',
             alignItems: 'center',
-            justifyContent: 'space-between',
-            flexWrap: 'wrap',
-            gap: '20px',
-            textAlign: 'left',
+            justifyContent: 'center',
+            textAlign: 'center',
           }}
-          className="cert-trust-strip"
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', maxWidth: '680px' }}>
-            <div
-              style={{
-                width: '48px',
-                height: '48px',
-                borderRadius: '50%',
-                backgroundColor: 'var(--primary)',
-                color: '#FFFFFF',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                flexShrink: 0,
-              }}
-            >
-              <Award size={26} />
-            </div>
-            <div>
-              <h4 style={{ fontSize: '16px', fontWeight: 800, color: 'var(--primary-dark)', margin: 0 }}>
-                100% Certified & Verified Instruction
-              </h4>
-              <p style={{ fontSize: '13px', color: 'var(--text-muted)', margin: '4px 0 0' }}>
-                Every live class adheres to traditional yogic principles, correct anatomical alignment, and safe progression.
-              </p>
-            </div>
+          {/* Centered Badge Icon */}
+          <div
+            className="cert-trust-icon"
+            style={{
+              width: '52px',
+              height: '52px',
+              borderRadius: '50%',
+              backgroundColor: 'var(--primary)',
+              color: '#FFFFFF',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              boxShadow: '0 8px 20px rgba(194, 94, 26, 0.28)',
+              marginBottom: '14px',
+              flexShrink: 0,
+            }}
+          >
+            <Award size={26} />
           </div>
 
+          {/* Centered Text Content */}
+          <div style={{ maxWidth: '520px', margin: '0 auto 18px' }}>
+            <h4
+              style={{
+                fontSize: '18px',
+                fontWeight: 800,
+                color: 'var(--primary-dark)',
+                margin: '0 0 8px',
+                lineHeight: 1.3,
+              }}
+            >
+              100% Certified & Verified Instruction
+            </h4>
+            <p
+              style={{
+                fontSize: '13.5px',
+                color: 'var(--text-muted)',
+                margin: 0,
+                lineHeight: 1.6,
+              }}
+            >
+              Every live class adheres to traditional yogic principles, correct anatomical alignment, and safe progression.
+            </p>
+          </div>
+
+          {/* Centered CTA Button */}
           <a
             href="#free-demo"
-            className="btn btn-primary btn-sm"
-            style={{ flexShrink: 0 }}
+            className="btn btn-primary btn-sm cert-trust-btn"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '8px',
+              padding: '11px 26px',
+              fontSize: '13.5px',
+              fontWeight: 800,
+              boxShadow: '0 8px 20px -4px rgba(194, 94, 26, 0.4)',
+              borderRadius: '9999px',
+            }}
           >
-            <Sparkles size={14} style={{ color: '#FDE68A' }} />
+            <Sparkles size={15} style={{ color: '#FDE68A' }} />
             <span>Experience a Live Class</span>
           </a>
         </div>
@@ -424,10 +456,14 @@ export default function CertificatesSection() {
           .cert-grid-3 {
             grid-template-columns: 1fr !important;
           }
-          .cert-trust-strip {
-            flex-direction: column !important;
-            align-items: center !important;
-            text-align: center !important;
+          .cert-trust-card {
+            padding: 24px 16px !important;
+            border-radius: 20px !important;
+          }
+          .cert-trust-btn {
+            width: 100% !important;
+            max-width: 320px !important;
+            margin: 0 auto !important;
           }
         }
       `}</style>
