@@ -1,0 +1,16 @@
+{
+  "short_name": "Yoga Rohit",
+  "name": "Yoga With Rohit - Live Online Yoga Classes",
+  "icons": [
+    {
+      "src": "/images/rohit-splits-ganges.jpg",
+      "type": "image/jpeg",
+      "sizes": "192x192 512x512"
+    }
+  ],
+  "start_url": "/#app",
+  "background_color": "#23160D",
+  "theme_color": "#C25E1A",
+  "display": "standalone",
+  "orientation": "portrait"
+}

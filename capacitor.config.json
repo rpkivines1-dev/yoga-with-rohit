@@ -1,0 +1,13 @@
+{
+  "appId": "com.yogawithrohit.app",
+  "appName": "Yoga With Rohit",
+  "webDir": "dist",
+  "bundledWebRuntime": false,
+  "server": {
+    "androidScheme": "https",
+    "cleartext": true
+  },
+  "android": {
+    "allowMixedContent": true
+  }
+}

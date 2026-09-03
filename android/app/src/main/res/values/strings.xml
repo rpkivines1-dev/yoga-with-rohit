@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Yoga With Rohit</string>
+    <string name="title_activity_main">Yoga With Rohit</string>
+    <string name="package_name">com.yogawithrohit.app</string>
+    <string name="custom_url_scheme">com.yogawithrohit.app</string>
+</resources>

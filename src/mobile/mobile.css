@@ -1,0 +1,330 @@
+/* Mobile App Specific Styles & Phone Frame Layout */
+
+.mobile-app-wrapper {
+  --app-bg: #FAF6F0;
+  --app-card: #FFFFFF;
+  --app-primary: #C25E1A;
+  --app-primary-dark: #8C3E0B;
+  --app-accent: #D97706;
+  --app-sand: #F4EBE1;
+  --app-dark: #23160D;
+  --app-text: #2D241E;
+  --app-muted: #786B61;
+  --app-border: rgba(194, 94, 26, 0.15);
+
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  color: var(--app-text);
+  background-color: var(--app-bg);
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Device Shell Simulator on Desktop */
+.phone-simulator-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 54px);
+  padding: 24px 16px;
+  background: radial-gradient(circle at top right, #EFE6DC 0%, #D8CBBF 100%);
+}
+
+.iphone-frame {
+  width: 410px;
+  height: 840px;
+  max-height: 92vh;
+  background-color: #1F1F1F;
+  border-radius: 54px;
+  padding: 12px;
+  box-shadow: 0 35px 80px -15px rgba(35, 22, 13, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.iphone-screen {
+  flex: 1;
+  background-color: #FAF6F0;
+  border-radius: 42px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Android Frame on Desktop */
+.android-frame {
+  width: 410px;
+  height: 840px;
+  max-height: 92vh;
+  background-color: #1A1A1A;
+  border-radius: 40px;
+  padding: 10px;
+  box-shadow: 0 35px 80px -15px rgba(35, 22, 13, 0.45);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.android-screen {
+  flex: 1;
+  background-color: #FAF6F0;
+  border-radius: 32px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Fullscreen Native Mobile Mode */
+.fullscreen-mobile-container {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  background-color: #FAF6F0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Desktop Simulated Status Bar */
+.ios-status-bar {
+  height: 44px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #23160D;
+  position: relative;
+  z-index: 50;
+  background-color: #FAF6F0;
+}
+
+.dynamic-island {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 108px;
+  height: 26px;
+  background-color: #000000;
+  border-radius: 20px;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.android-status-bar {
+  height: 38px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #23160D;
+  position: relative;
+  z-index: 50;
+  background-color: #FAF6F0;
+}
+
+.camera-hole {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 13px;
+  height: 13px;
+  background-color: #000000;
+  border-radius: 50%;
+  z-index: 60;
+}
+
+/* Screen Content Area */
+.mobile-screen-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 84px;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Bottom Navigation Bar */
+.mobile-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 68px;
+  background-color: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(194, 94, 26, 0.15);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 8px;
+  padding-bottom: env(safe-area-inset-bottom, 6px);
+  z-index: 100;
+  box-shadow: 0 -4px 18px rgba(35, 22, 13, 0.06);
+}
+
+.mobile-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 12px;
+  color: #8C7E74;
+  font-size: 11px;
+  font-weight: 700;
+  transition: all 0.2s ease;
+  flex: 1;
+}
+
+.mobile-nav-item.active {
+  color: #C25E1A;
+}
+
+.mobile-nav-item.active svg {
+  transform: translateY(-2px);
+}
+
+/* Bottom Home Indicator Bar (Desktop iOS view only) */
+.ios-home-bar {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 130px;
+  height: 4.5px;
+  background-color: #23160D;
+  border-radius: 4px;
+  opacity: 0.8;
+  pointer-events: none;
+  z-index: 110;
+}
+
+/* Mobile Header Top App Bar */
+.mobile-app-header {
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #FAF6F0;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  border-bottom: 1px solid rgba(194, 94, 26, 0.08);
+}
+
+/* Mobile Cards */
+.mobile-card {
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  padding: 16px;
+  border: 1px solid rgba(194, 94, 26, 0.12);
+  box-shadow: 0 4px 14px rgba(69, 26, 3, 0.05);
+  margin-bottom: 14px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mobile-card:active {
+  transform: scale(0.985);
+}
+
+/* Quick Action Buttons */
+.quick-action-btn {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(194, 94, 26, 0.15);
+  border-radius: 16px;
+  padding: 12px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+}
+
+.quick-action-btn:active {
+  transform: scale(0.96);
+  background-color: #F4EBE1;
+}
+
+/* Control Switcher Bar at the top of Desktop IDE */
+.device-switcher-bar {
+  background-color: #23160D;
+  color: #FFFFFF;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 13px;
+  z-index: 200;
+}
+
+/* =========================================================================
+   NATIVE PHONE RESPONSIVE ADAPTATION (Real Mobile Devices <= 768px)
+   ========================================================================= */
+@media (max-width: 768px) {
+  /* On physical mobile phones, remove the outer phone shell & borders so it fills 100% of the screen natively */
+  .phone-simulator-container {
+    padding: 0 !important;
+    min-height: 100vh !important;
+    background: #FAF6F0 !important;
+  }
+
+  .iphone-frame,
+  .android-frame,
+  .fullscreen-mobile-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100vh !important;
+    max-height: 100vh !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: #FAF6F0 !important;
+  }
+
+  .iphone-screen,
+  .android-screen {
+    border-radius: 0 !important;
+  }
+
+  /* Hide simulated status bar on physical phones because the real OS status bar is already visible */
+  .ios-status-bar,
+  .android-status-bar,
+  .ios-home-bar {
+    display: none !important;
+  }
+
+  /* Fixed compact switcher header on mobile */
+  .device-switcher-bar {
+    padding: 8px 12px !important;
+    font-size: 12px !important;
+  }
+}
