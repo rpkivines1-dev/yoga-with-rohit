@@ -372,86 +372,160 @@ export default function ClassSchedule({ onSelectBatch }) {
           })}
         </div>
 
-        {/* Schedule Summary Master Table */}
+        {/* Schedule Summary Master Overview Card */}
         <div
+          className="schedule-overview-master-card"
           style={{
             backgroundColor: '#FAF6F0',
             borderRadius: '24px',
-            padding: '28px',
+            padding: '30px',
             border: '1.5px solid rgba(194, 94, 26, 0.14)',
             maxWidth: '920px',
             margin: '0 auto',
-            overflowX: 'auto',
+            boxShadow: 'var(--shadow-sm)',
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '18px', flexWrap: 'wrap', gap: '8px' }}>
-            <div>
-              <h4 style={{ fontSize: '17px', fontWeight: 800, color: 'var(--primary-dark)', margin: 0 }}>
+          {/* Header Centered */}
+          <div className="schedule-overview-header">
+            <div className="schedule-overview-titles">
+              <h4 style={{ fontSize: '18px', fontWeight: 800, color: 'var(--primary-dark)', margin: 0 }}>
                 Complete Live Class Schedule Overview
               </h4>
-              <p style={{ fontSize: '13px', color: 'var(--text-muted)', margin: '2px 0 0' }}>
+              <p style={{ fontSize: '13px', color: 'var(--text-muted)', margin: '4px 0 0' }}>
                 All 6 Morning Hatha & Evening Ashtanga batches in Eastern Standard Time
               </p>
             </div>
-            <span style={{ fontSize: '12.5px', color: 'var(--accent)', fontWeight: 700 }}>
-              Monday, Wednesday & Friday Live Batches
+            <span
+              className="schedule-overview-badge"
+              style={{
+                fontSize: '12px',
+                color: 'var(--accent)',
+                fontWeight: 800,
+                backgroundColor: '#FFFFFF',
+                padding: '6px 14px',
+                borderRadius: '9999px',
+                border: '1px solid rgba(180, 83, 9, 0.2)',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '5px',
+              }}
+            >
+              🗓️ Monday, Wednesday & Friday Live Batches
             </span>
           </div>
 
-          <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '580px' }}>
-            <thead>
-              <tr style={{ borderBottom: '2px solid rgba(194, 94, 26, 0.2)' }}>
-                <th style={{ padding: '10px 14px', fontSize: '12.5px', color: 'var(--text-muted)', textTransform: 'uppercase' }}>Program</th>
-                <th style={{ padding: '10px 14px', fontSize: '12.5px', color: 'var(--text-muted)', textTransform: 'uppercase' }}>Batch</th>
-                <th style={{ padding: '10px 14px', fontSize: '12.5px', color: 'var(--text-muted)', textTransform: 'uppercase' }}>Official Time (EST)</th>
-                <th style={{ padding: '10px 14px', fontSize: '12.5px', color: 'var(--text-muted)', textTransform: 'uppercase' }}>Local Time ({selectedTz})</th>
-                <th style={{ padding: '10px 14px', fontSize: '12.5px', color: 'var(--text-muted)', textTransform: 'uppercase', textAlign: 'right' }}>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {/* Traditional Hatha Yoga Rows */}
-              {YOGA_PROGRAMS[0].batches.map((b) => (
-                <tr key={b.id} style={{ borderBottom: '1px solid rgba(194, 94, 26, 0.08)' }}>
-                  <td style={{ padding: '12px 14px', fontWeight: 700, color: 'var(--primary)' }}>
-                    🧘 Traditional Hatha Yoga
-                  </td>
-                  <td style={{ padding: '12px 14px', fontWeight: 700, color: 'var(--text-main)' }}>{b.batchNumber}</td>
-                  <td style={{ padding: '12px 14px', fontWeight: 800, color: 'var(--primary-dark)' }}>{b.timeEST}</td>
-                  <td style={{ padding: '12px 14px', fontWeight: 700, color: 'var(--accent)' }}>{convertEST(b.hourEST, selectedTz)}</td>
-                  <td style={{ padding: '12px 14px', textAlign: 'right' }}>
-                    <button
-                      onClick={() => onSelectBatch({ ...b, programId: YOGA_PROGRAMS[0].id, programName: YOGA_PROGRAMS[0].name })}
-                      className="btn btn-outline btn-sm"
-                      style={{ padding: '6px 14px', fontSize: '12px' }}
-                    >
-                      Book
-                    </button>
-                  </td>
+          {/* Desktop / Tablet Table View (>= 768px) */}
+          <div className="schedule-overview-table-wrapper">
+            <table className="schedule-overview-table" style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
+              <thead>
+                <tr style={{ borderBottom: '2px solid rgba(194, 94, 26, 0.2)' }}>
+                  <th style={{ padding: '10px 14px', fontSize: '12px', color: 'var(--text-muted)', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>Program</th>
+                  <th style={{ padding: '10px 14px', fontSize: '12px', color: 'var(--text-muted)', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>Batch</th>
+                  <th style={{ padding: '10px 14px', fontSize: '12px', color: 'var(--text-muted)', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>Official Time (EST)</th>
+                  <th style={{ padding: '10px 14px', fontSize: '12px', color: 'var(--text-muted)', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>Local Time ({selectedTz})</th>
+                  <th style={{ padding: '10px 14px', fontSize: '12px', color: 'var(--text-muted)', textTransform: 'uppercase', textAlign: 'right', whiteSpace: 'nowrap' }}>Action</th>
                 </tr>
-              ))}
+              </thead>
+              <tbody>
+                {/* Traditional Hatha Yoga Rows */}
+                {YOGA_PROGRAMS[0].batches.map((b) => (
+                  <tr key={b.id} style={{ borderBottom: '1px solid rgba(194, 94, 26, 0.08)' }}>
+                    <td style={{ padding: '12px 14px', fontWeight: 700, color: 'var(--primary)', whiteSpace: 'nowrap' }}>
+                      🧘 Traditional Hatha Yoga
+                    </td>
+                    <td style={{ padding: '12px 14px', fontWeight: 700, color: 'var(--text-main)', whiteSpace: 'nowrap' }}>{b.batchNumber}</td>
+                    <td style={{ padding: '12px 14px', fontWeight: 800, color: 'var(--primary-dark)', whiteSpace: 'nowrap' }}>{b.timeEST}</td>
+                    <td style={{ padding: '12px 14px', fontWeight: 700, color: 'var(--accent)', whiteSpace: 'nowrap' }}>{convertEST(b.hourEST, selectedTz)}</td>
+                    <td style={{ padding: '12px 14px', textAlign: 'right', whiteSpace: 'nowrap' }}>
+                      <button
+                        onClick={() => onSelectBatch({ ...b, programId: YOGA_PROGRAMS[0].id, programName: YOGA_PROGRAMS[0].name })}
+                        className="btn btn-outline btn-sm"
+                        style={{ padding: '6px 14px', fontSize: '12px' }}
+                      >
+                        Book
+                      </button>
+                    </td>
+                  </tr>
+                ))}
 
-              {/* Ashtanga Vinyasa Primary Series Rows */}
-              {YOGA_PROGRAMS[1].batches.map((b) => (
-                <tr key={b.id} style={{ borderBottom: '1px solid rgba(194, 94, 26, 0.08)' }}>
-                  <td style={{ padding: '12px 14px', fontWeight: 700, color: 'var(--accent)' }}>
-                    🧘‍♂️ Ashtanga Vinyasa Primary Series
-                  </td>
-                  <td style={{ padding: '12px 14px', fontWeight: 700, color: 'var(--text-main)' }}>{b.batchNumber}</td>
-                  <td style={{ padding: '12px 14px', fontWeight: 800, color: 'var(--primary-dark)' }}>{b.timeEST}</td>
-                  <td style={{ padding: '12px 14px', fontWeight: 700, color: 'var(--accent)' }}>{convertEST(b.hourEST, selectedTz)}</td>
-                  <td style={{ padding: '12px 14px', textAlign: 'right' }}>
-                    <button
-                      onClick={() => onSelectBatch({ ...b, programId: YOGA_PROGRAMS[1].id, programName: YOGA_PROGRAMS[1].name })}
-                      className="btn btn-outline btn-sm"
-                      style={{ padding: '6px 14px', fontSize: '12px' }}
-                    >
-                      Book
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                {/* Ashtanga Vinyasa Primary Series Rows */}
+                {YOGA_PROGRAMS[1].batches.map((b) => (
+                  <tr key={b.id} style={{ borderBottom: '1px solid rgba(194, 94, 26, 0.08)' }}>
+                    <td style={{ padding: '12px 14px', fontWeight: 700, color: 'var(--accent)', whiteSpace: 'nowrap' }}>
+                      🧘‍♂️ Ashtanga Vinyasa Primary Series
+                    </td>
+                    <td style={{ padding: '12px 14px', fontWeight: 700, color: 'var(--text-main)', whiteSpace: 'nowrap' }}>{b.batchNumber}</td>
+                    <td style={{ padding: '12px 14px', fontWeight: 800, color: 'var(--primary-dark)', whiteSpace: 'nowrap' }}>{b.timeEST}</td>
+                    <td style={{ padding: '12px 14px', fontWeight: 700, color: 'var(--accent)', whiteSpace: 'nowrap' }}>{convertEST(b.hourEST, selectedTz)}</td>
+                    <td style={{ padding: '12px 14px', textAlign: 'right', whiteSpace: 'nowrap' }}>
+                      <button
+                        onClick={() => onSelectBatch({ ...b, programId: YOGA_PROGRAMS[1].id, programName: YOGA_PROGRAMS[1].name })}
+                        className="btn btn-outline btn-sm"
+                        style={{ padding: '6px 14px', fontSize: '12px' }}
+                      >
+                        Book
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Mobile Batch Cards View (< 768px) */}
+          <div className="schedule-overview-mobile-cards">
+            {/* Traditional Hatha Batches */}
+            {YOGA_PROGRAMS[0].batches.map((b) => (
+              <div key={`mob-${b.id}`} className="schedule-mob-card">
+                <div className="schedule-mob-card-top">
+                  <span className="schedule-mob-tag" style={{ color: 'var(--primary)' }}>🧘 Traditional Hatha</span>
+                  <span className="schedule-mob-batch-num">{b.batchNumber}</span>
+                </div>
+                <div className="schedule-mob-card-body">
+                  <div className="schedule-mob-time-item">
+                    <span className="schedule-mob-label">OFFICIAL TIME (EST)</span>
+                    <span className="schedule-mob-val est">{b.timeEST}</span>
+                  </div>
+                  <div className="schedule-mob-time-item">
+                    <span className="schedule-mob-label">LOCAL TIME ({selectedTz})</span>
+                    <span className="schedule-mob-val local">{convertEST(b.hourEST, selectedTz)}</span>
+                  </div>
+                </div>
+                <button
+                  onClick={() => onSelectBatch({ ...b, programId: YOGA_PROGRAMS[0].id, programName: YOGA_PROGRAMS[0].name })}
+                  className="btn btn-outline btn-sm schedule-mob-book-btn"
+                >
+                  Book {b.batchNumber} ({b.timeEST})
+                </button>
+              </div>
+            ))}
+
+            {/* Ashtanga Vinyasa Batches */}
+            {YOGA_PROGRAMS[1].batches.map((b) => (
+              <div key={`mob-${b.id}`} className="schedule-mob-card ashtanga">
+                <div className="schedule-mob-card-top">
+                  <span className="schedule-mob-tag" style={{ color: 'var(--accent)' }}>🧘‍♂️ Ashtanga Vinyasa</span>
+                  <span className="schedule-mob-batch-num">{b.batchNumber}</span>
+                </div>
+                <div className="schedule-mob-card-body">
+                  <div className="schedule-mob-time-item">
+                    <span className="schedule-mob-label">OFFICIAL TIME (EST)</span>
+                    <span className="schedule-mob-val est">{b.timeEST}</span>
+                  </div>
+                  <div className="schedule-mob-time-item">
+                    <span className="schedule-mob-label">LOCAL TIME ({selectedTz})</span>
+                    <span className="schedule-mob-val local">{convertEST(b.hourEST, selectedTz)}</span>
+                  </div>
+                </div>
+                <button
+                  onClick={() => onSelectBatch({ ...b, programId: YOGA_PROGRAMS[1].id, programName: YOGA_PROGRAMS[1].name })}
+                  className="btn btn-outline btn-sm schedule-mob-book-btn"
+                >
+                  Book {b.batchNumber} ({b.timeEST})
+                </button>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -515,6 +589,21 @@ export default function ClassSchedule({ onSelectBatch }) {
           outline: none;
           max-width: 320px;
         }
+        .schedule-overview-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 22px;
+          flex-wrap: wrap;
+          gap: 12px;
+        }
+        .schedule-overview-table-wrapper {
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+        .schedule-overview-mobile-cards {
+          display: none;
+        }
         @media (max-width: 960px) {
           .schedule-batch-grid {
             grid-template-columns: 1fr !important;
@@ -522,6 +611,100 @@ export default function ClassSchedule({ onSelectBatch }) {
           }
         }
         @media (max-width: 768px) {
+          .schedule-overview-master-card {
+            padding: 22px 14px !important;
+            border-radius: 20px !important;
+          }
+          .schedule-overview-header {
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center !important;
+            gap: 10px !important;
+            margin-bottom: 18px !important;
+          }
+          .schedule-overview-titles {
+            text-align: center !important;
+          }
+          .schedule-overview-badge {
+            margin: 0 auto !important;
+            text-align: center !important;
+          }
+          .schedule-overview-table-wrapper {
+            display: none !important;
+          }
+          .schedule-overview-mobile-cards {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 12px !important;
+            width: 100% !important;
+          }
+          .schedule-mob-card {
+            background-color: #FFFFFF !important;
+            border: 1px solid rgba(194, 94, 26, 0.16) !important;
+            border-radius: 16px !important;
+            padding: 14px 14px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 10px !important;
+            box-shadow: var(--shadow-sm) !important;
+          }
+          .schedule-mob-card-top {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            border-bottom: 1px solid rgba(0,0,0,0.06) !important;
+            padding-bottom: 8px !important;
+          }
+          .schedule-mob-tag {
+            font-size: 13px !important;
+            font-weight: 800 !important;
+          }
+          .schedule-mob-batch-num {
+            font-size: 12px !important;
+            font-weight: 800 !important;
+            background-color: var(--primary-50) !important;
+            color: var(--primary-dark) !important;
+            padding: 3px 10px !important;
+            border-radius: 9999px !important;
+          }
+          .schedule-mob-card-body {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 8px !important;
+            text-align: center !important;
+            padding: 4px 0 !important;
+          }
+          .schedule-mob-time-item {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 2px !important;
+          }
+          .schedule-mob-label {
+            font-size: 10px !important;
+            font-weight: 800 !important;
+            color: var(--text-muted) !important;
+            letter-spacing: 0.04em !important;
+            text-transform: uppercase !important;
+          }
+          .schedule-mob-val.est {
+            font-size: 14px !important;
+            font-weight: 800 !important;
+            color: var(--primary-dark) !important;
+          }
+          .schedule-mob-val.local {
+            font-size: 14px !important;
+            font-weight: 800 !important;
+            color: var(--accent) !important;
+          }
+          .schedule-mob-book-btn {
+            width: 100% !important;
+            text-align: center !important;
+            justify-content: center !important;
+            padding: 8px 12px !important;
+            font-size: 12.5px !important;
+            font-weight: 800 !important;
+            border-radius: 10px !important;
+          }
           .schedule-prog-header {
             flex-direction: column !important;
             align-items: center !important;
