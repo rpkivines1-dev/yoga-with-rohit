@@ -387,27 +387,35 @@ h1, h2, h3, h4, h5, h6 {
   text-align: left;
 }
 
-.form-label {
-  font-size: 13px;
+.label, .form-label {
+  font-size: 13.5px;
   font-weight: 700;
-  color: var(--text-main);
+  color: var(--primary-dark);
+  margin-bottom: 5px;
+  display: block;
+  text-align: left;
 }
 
-.form-input, .form-select, .form-textarea {
+/* Universal Input Styles (Both .input and .form-input) */
+.input, .form-input, .form-select, .form-textarea {
   width: 100%;
-  padding: 12px 16px;
+  box-sizing: border-box;
+  padding: 12px 14px;
   background-color: #FFFFFF;
-  border: 1.5px solid rgba(194, 94, 26, 0.2);
+  border: 1.5px solid rgba(194, 94, 26, 0.22);
   border-radius: var(--radius-md);
-  font-size: 14.5px;
+  font-size: 16px; /* 16px prevents iOS Safari from automatically zooming into inputs */
   color: var(--text-main);
   transition: all var(--transition-fast);
   outline: none;
+  font-family: inherit;
+  min-height: 46px;
+  touch-action: manipulation;
 }
 
-.form-input:focus, .form-select:focus, .form-textarea:focus {
+.input:focus, .form-input:focus, .form-select:focus, .form-textarea:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 3.5px rgba(194, 94, 26, 0.18);
+  box-shadow: 0 0 0 3.5px rgba(194, 94, 26, 0.2);
   background-color: #FFFFFF;
 }
 
@@ -416,18 +424,38 @@ h1, h2, h3, h4, h5, h6 {
   min-height: 110px;
 }
 
+/* Responsive Form Grids */
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.form-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 640px) {
+  .form-grid-2, .form-grid-3 {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+}
+
 /* Modals */
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(35, 22, 13, 0.78);
+  background: rgba(35, 22, 13, 0.82);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  padding: 20px;
+  padding: 16px;
   opacity: 0;
   visibility: hidden;
   transition: all 0.25s ease;
@@ -441,19 +469,32 @@ h1, h2, h3, h4, h5, h6 {
 .modal-container {
   background: #FFFFFF;
   border-radius: var(--radius-xl);
-  max-width: 600px;
+  max-width: 620px;
   width: 100%;
   max-height: 90vh;
+  max-height: 90dvh;
   overflow-y: auto;
   box-shadow: var(--shadow-xl);
   transform: scale(0.95);
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   border: 2px solid rgba(194, 94, 26, 0.16);
+  box-sizing: border-box;
 }
 
 .modal-overlay.active .modal-container {
   transform: scale(1);
+}
+
+@media (max-width: 640px) {
+  .modal-overlay {
+    padding: 10px !important;
+  }
+  .modal-container {
+    max-height: 92dvh !important;
+    border-radius: 20px !important;
+    width: 100% !important;
+  }
 }
 
 /* Toast */

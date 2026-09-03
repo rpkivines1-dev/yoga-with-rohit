@@ -240,6 +240,7 @@ export default function Navbar({ onOpenBooking, onOpenStudentPortal, onOpenAdmin
             <button
               onClick={onOpenStudentPortal}
               className="nav-myclasses-btn btn btn-outline btn-sm"
+              title="View your booked classes and live Zoom link"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -251,10 +252,12 @@ export default function Navbar({ onOpenBooking, onOpenStudentPortal, onOpenAdmin
                 color: 'var(--primary-dark)',
                 backgroundColor: '#FFFFFF',
                 borderRadius: '8px',
+                flexShrink: 0,
               }}
             >
               <Video size={14} style={{ color: 'var(--primary)' }} />
-              <span className="nav-myclasses-text">My Classes</span>
+              <span className="nav-myclasses-text-full">My Classes</span>
+              <span className="nav-myclasses-text-short">Classes</span>
             </button>
 
             {/* Admin Scheduler Button - Hidden on mobile, visible on desktop */}
@@ -599,28 +602,55 @@ export default function Navbar({ onOpenBooking, onOpenStudentPortal, onOpenAdmin
             width: 19px !important;
             height: 19px !important;
           }
+        .nav-myclasses-text-short {
+          display: none;
+        }
+
+        /* Standard Mobile: compact logo and clean title */
+        @media (max-width: 540px) {
+          .nav-brand-title {
+            font-size: 16px !important;
+          }
+          .nav-brand-subtitle {
+            font-size: 9.5px !important;
+          }
+          .nav-logo-icon {
+            width: 34px !important;
+            height: 34px !important;
+          }
+          .nav-logo-icon svg {
+            width: 19px !important;
+            height: 19px !important;
+          }
+          .nav-myclasses-text-full {
+            display: none !important;
+          }
+          .nav-myclasses-text-short {
+            display: inline !important;
+          }
           .nav-myclasses-btn {
             padding: 6px 10px !important;
             font-size: 12px !important;
           }
         }
 
-        /* Very narrow phones (< 390px): compact text */
-        @media (max-width: 390px) {
+        /* Very narrow phones (< 380px): compact text */
+        @media (max-width: 380px) {
           .nav-brand-title {
-            font-size: 14.5px !important;
+            font-size: 14px !important;
           }
           .nav-brand-subtitle {
             display: none !important;
           }
-          .nav-myclasses-text {
+          .nav-myclasses-text-short, .nav-myclasses-text-full {
             display: none !important;
           }
           .nav-myclasses-btn {
-            padding: 7px !important;
+            padding: 6px !important;
             width: 34px !important;
             height: 34px !important;
             justify-content: center !important;
+            border-radius: 8px !important;
           }
         }
       `}</style>

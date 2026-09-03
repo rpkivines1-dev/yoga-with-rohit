@@ -116,20 +116,21 @@ export default function BookingModal({ isOpen, onClose, initialData = {}, onSucc
   return (
     <div className="modal-overlay active" onClick={handleClose}>
       <div
-        className="modal-container"
+        className="modal-container booking-modal-card"
         onClick={(e) => e.stopPropagation()}
-        style={{ padding: '36px', maxWidth: '640px' }}
+        style={{ maxWidth: '640px' }}
       >
         {/* Modal Close Button */}
         <button
           onClick={handleClose}
           aria-label="Close modal"
+          className="modal-close-btn"
           style={{
             position: 'absolute',
-            top: '20px',
-            right: '20px',
-            width: '38px',
-            height: '38px',
+            top: '16px',
+            right: '16px',
+            width: '36px',
+            height: '36px',
             borderRadius: '50%',
             backgroundColor: 'var(--bg-sand)',
             color: 'var(--text-main)',
@@ -138,35 +139,36 @@ export default function BookingModal({ isOpen, onClose, initialData = {}, onSucc
             justifyContent: 'center',
             cursor: 'pointer',
             border: '1px solid rgba(194, 94, 26, 0.15)',
+            zIndex: 10,
           }}
         >
-          <X size={20} />
+          <X size={18} />
         </button>
 
         {!isSuccess ? (
           <div>
             {/* Modal Header */}
-            <div style={{ textAlign: 'left', marginBottom: '24px' }}>
-              <span className="badge badge-accent" style={{ marginBottom: '10px' }}>
-                <Sparkles size={13} />
+            <div style={{ textAlign: 'left', marginBottom: '20px', paddingRight: '36px' }}>
+              <span className="badge badge-accent" style={{ marginBottom: '8px', fontSize: '11px' }}>
+                <Sparkles size={12} />
                 <span>Live Online Class Booking & Scheduling</span>
               </span>
-              <h3 style={{ fontSize: '24px', fontWeight: 800, color: 'var(--primary-dark)', margin: 0 }}>
+              <h3 style={{ fontSize: '22px', fontWeight: 800, color: 'var(--primary-dark)', margin: 0, lineHeight: 1.2 }}>
                 Book Your Yoga Session
               </h3>
-              <p style={{ fontSize: '13.5px', color: 'var(--text-muted)', marginTop: '4px' }}>
+              <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginTop: '4px' }}>
                 Live classes streaming on <strong>Monday, Wednesday & Friday</strong> from Rishikesh with Rohit.
               </p>
             </div>
 
             {errorMessage && (
-              <div style={{ padding: '12px 16px', backgroundColor: '#FEE2E2', color: '#DC2626', borderRadius: '12px', fontSize: '13px', fontWeight: 700, marginBottom: '16px', textAlign: 'left' }}>
+              <div style={{ padding: '12px 14px', backgroundColor: '#FEE2E2', color: '#DC2626', borderRadius: '12px', fontSize: '13px', fontWeight: 700, marginBottom: '16px', textAlign: 'left' }}>
                 ⚠️ {errorMessage}
               </div>
             )}
 
             {/* 4-Step Booking Form */}
-            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px', textAlign: 'left' }}>
+            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '14px', textAlign: 'left' }}>
               {/* Program Selector */}
               <div>
                 <label className="label">1. Select Yoga Program</label>
@@ -183,7 +185,7 @@ export default function BookingModal({ isOpen, onClose, initialData = {}, onSucc
               </div>
 
               {/* Package Type & Batch Timing */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+              <div className="form-grid-2">
                 <div>
                   <label className="label">2. Class Package</label>
                   <select
@@ -231,7 +233,7 @@ export default function BookingModal({ isOpen, onClose, initialData = {}, onSucc
               </div>
 
               {/* Full Name & Email */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+              <div className="form-grid-2">
                 <div>
                   <label className="label">Full Name *</label>
                   <input
@@ -260,7 +262,7 @@ export default function BookingModal({ isOpen, onClose, initialData = {}, onSucc
               </div>
 
               {/* Phone & Country */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+              <div className="form-grid-2">
                 <div>
                   <label className="label">WhatsApp / Phone *</label>
                   <input
@@ -413,7 +415,7 @@ export default function BookingModal({ isOpen, onClose, initialData = {}, onSucc
                 textAlign: 'left',
               }}
             >
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px', marginBottom: '14px' }}>
+              <div className="form-grid-2" style={{ marginBottom: '14px' }}>
                 <div>
                   <div style={{ fontSize: '11px', fontWeight: 800, color: 'var(--text-muted)', textTransform: 'uppercase' }}>
                     Package Type
@@ -433,7 +435,7 @@ export default function BookingModal({ isOpen, onClose, initialData = {}, onSucc
                 </div>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px', borderTop: '1px dashed rgba(194, 94, 26, 0.2)', paddingTop: '12px' }}>
+              <div className="form-grid-2" style={{ borderTop: '1px dashed rgba(194, 94, 26, 0.2)', paddingTop: '12px' }}>
                 <div>
                   <div style={{ fontSize: '11px', fontWeight: 800, color: 'var(--text-muted)', textTransform: 'uppercase' }}>
                     Batch Timing
@@ -494,6 +496,24 @@ export default function BookingModal({ isOpen, onClose, initialData = {}, onSucc
           </div>
         )}
       </div>
+
+      <style>{`
+        .booking-modal-card {
+          padding: 32px 36px;
+        }
+        @media (max-width: 640px) {
+          .booking-modal-card {
+            padding: 24px 16px !important;
+          }
+        }
+        @media (max-width: 440px) {
+          .payment-summary-box {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 8px !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

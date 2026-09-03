@@ -210,9 +210,8 @@ export default function ContactSection() {
 
           {/* Right Column: Contact Message Form */}
           <div
-            className="glass-card"
+            className="glass-card contact-form-card"
             style={{
-              padding: '40px',
               borderRadius: '24px',
               backgroundColor: '#FAF8F5',
               border: '1.5px solid rgba(44, 94, 67, 0.12)',
@@ -346,10 +345,19 @@ export default function ContactSection() {
       </div>
 
       <style>{`
+        .contact-form-card {
+          padding: 36px 40px;
+        }
         @media (max-width: 900px) {
           .contact-grid {
             grid-template-columns: 1fr !important;
             gap: 40px !important;
+          }
+        }
+        @media (max-width: 640px) {
+          .contact-form-card {
+            padding: 22px 16px !important;
+            border-radius: 20px !important;
           }
         }
       `}</style>

@@ -478,7 +478,8 @@ export default function FreeDemoSection({ onBookingSuccess }) {
                   ) : (
                     <>
                       <Sparkles size={18} style={{ color: '#FDE68A' }} />
-                      <span>Book Free Demo ({currentProgramObj.name} • {formData.preferredBatch})</span>
+                      <span className="demo-btn-text-full">Book Free Demo ({currentProgramObj.name} • {formData.preferredBatch})</span>
+                      <span className="demo-btn-text-mobile">Book Free Demo Class ($0)</span>
                       <ArrowRight size={18} />
                     </>
                   )}
@@ -579,6 +580,9 @@ export default function FreeDemoSection({ onBookingSuccess }) {
       </div>
 
       <style>{`
+        .demo-btn-text-mobile {
+          display: none;
+        }
         @media (max-width: 768px) {
           .demo-card-container {
             padding: 24px 18px !important;
@@ -592,6 +596,18 @@ export default function FreeDemoSection({ onBookingSuccess }) {
           }
           .form-group {
             grid-column: span 1 !important;
+          }
+        }
+        @media (max-width: 640px) {
+          .demo-btn-text-full {
+            display: none !important;
+          }
+          .demo-btn-text-mobile {
+            display: inline !important;
+          }
+          .demo-card-container {
+            padding: 20px 14px !important;
+            border-radius: 20px !important;
           }
         }
       `}</style>

@@ -916,7 +916,7 @@ export default function AdminClassScheduler({ isOpen, onClose }) {
         {isFormOpen && (
           <div className="modal-overlay active" style={{ zIndex: 1000 }} onClick={() => setIsFormOpen(false)}>
             <div
-              className="modal-container"
+              className="modal-container admin-modal-card"
               onClick={(e) => e.stopPropagation()}
               style={{
                 maxWidth: '680px',
@@ -924,7 +924,6 @@ export default function AdminClassScheduler({ isOpen, onClose }) {
                 maxHeight: '88vh',
                 backgroundColor: '#FFFFFF',
                 borderRadius: '24px',
-                padding: '28px',
                 textAlign: 'left',
                 overflowY: 'auto',
                 position: 'relative',
@@ -955,7 +954,7 @@ export default function AdminClassScheduler({ isOpen, onClose }) {
 
               <form onSubmit={handleFormSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
                 {/* 1. Yoga Program & Batch */}
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+                <div className="form-grid-2">
                   <div>
                     <label className="label">Yoga Program</label>
                     <select
@@ -1008,7 +1007,7 @@ export default function AdminClassScheduler({ isOpen, onClose }) {
                 </div>
 
                 {/* 3. Date & Time */}
-                <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr 1fr', gap: '12px' }}>
+                <div className="form-grid-3">
                   <div>
                     <label className="label">Class Date</label>
                     <input
@@ -1165,6 +1164,18 @@ export default function AdminClassScheduler({ isOpen, onClose }) {
           </div>
         )}
       </div>
+
+      <style>{`
+        .admin-modal-card {
+          padding: 28px;
+        }
+        @media (max-width: 640px) {
+          .admin-modal-card {
+            padding: 20px 14px !important;
+            border-radius: 18px !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

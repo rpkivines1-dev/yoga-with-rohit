@@ -31,15 +31,13 @@ export default function StudentClassPortal({ isOpen, onClose, onOpenBooking, onO
   return (
     <div className="modal-overlay active" onClick={onClose}>
       <div
-        className="modal-container"
+        className="modal-container student-portal-dialog"
         onClick={(e) => e.stopPropagation()}
         style={{
           maxWidth: '820px',
-          width: '94%',
-          maxHeight: '88vh',
+          width: '96%',
           backgroundColor: '#FAF6F0',
-          borderRadius: '28px',
-          padding: '32px 28px',
+          borderRadius: '24px',
           display: 'flex',
           flexDirection: 'column',
           position: 'relative',
@@ -50,12 +48,13 @@ export default function StudentClassPortal({ isOpen, onClose, onOpenBooking, onO
         <button
           onClick={onClose}
           aria-label="Close portal"
+          className="portal-close-btn"
           style={{
             position: 'absolute',
-            top: '20px',
-            right: '20px',
-            width: '38px',
-            height: '38px',
+            top: '16px',
+            right: '16px',
+            width: '36px',
+            height: '36px',
             borderRadius: '50%',
             backgroundColor: '#FFFFFF',
             border: '1px solid rgba(194, 94, 26, 0.15)',
@@ -67,34 +66,36 @@ export default function StudentClassPortal({ isOpen, onClose, onOpenBooking, onO
             zIndex: 10,
           }}
         >
-          <X size={20} />
+          <X size={18} />
         </button>
 
         {/* Top Header Banner */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '18px', textAlign: 'left' }}>
+        <div className="portal-header-banner" style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px', textAlign: 'left', paddingRight: '36px' }}>
           <div
+            className="portal-header-icon"
             style={{
-              width: '50px',
-              height: '50px',
-              borderRadius: '16px',
+              width: '46px',
+              height: '46px',
+              borderRadius: '14px',
               background: 'linear-gradient(135deg, #C25E1A, #D97706)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               color: '#FFF',
               boxShadow: '0 8px 20px rgba(194, 94, 26, 0.3)',
+              flexShrink: 0,
             }}
           >
-            <Video size={26} />
+            <Video size={24} />
           </div>
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <h2 style={{ fontSize: '22px', fontWeight: 800, color: 'var(--primary-dark)', margin: 0 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+              <h2 className="portal-title" style={{ fontSize: '20px', fontWeight: 800, color: 'var(--primary-dark)', margin: 0, lineHeight: 1.2 }}>
                 Student Dashboard & Live Portal
               </h2>
-              <span className="badge badge-primary" style={{ fontSize: '11px' }}>Student Session</span>
+              <span className="badge badge-primary" style={{ fontSize: '10.5px' }}>Student Session</span>
             </div>
-            <p style={{ fontSize: '13px', color: 'var(--text-muted)', margin: '2px 0 0' }}>
+            <p style={{ fontSize: '12.5px', color: 'var(--text-muted)', margin: '2px 0 0' }}>
               Welcome back, <strong>Sarah Jenkins</strong> • Instructor: <strong>Rohit (Rishikesh)</strong>
             </p>
           </div>
@@ -154,39 +155,39 @@ export default function StudentClassPortal({ isOpen, onClose, onOpenBooking, onO
             </div>
 
             {/* Package Details Grid */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px', backgroundColor: 'rgba(255, 255, 255, 0.05)', borderRadius: '14px', padding: '12px 16px', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+            <div className="portal-package-grid" style={{ backgroundColor: 'rgba(255, 255, 255, 0.05)', borderRadius: '14px', padding: '12px 14px', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
               <div>
-                <div style={{ fontSize: '10.5px', color: 'rgba(255, 255, 255, 0.6)', textTransform: 'uppercase', fontWeight: 700 }}>
+                <div style={{ fontSize: '10px', color: 'rgba(255, 255, 255, 0.6)', textTransform: 'uppercase', fontWeight: 700 }}>
                   Selected Batch
                 </div>
-                <div style={{ fontSize: '13px', fontWeight: 800, color: '#FFF', marginTop: '2px' }}>
+                <div style={{ fontSize: '12.5px', fontWeight: 800, color: '#FFF', marginTop: '2px' }}>
                   {activeMonthly.batch}
                 </div>
               </div>
 
               <div>
-                <div style={{ fontSize: '10.5px', color: 'rgba(255, 255, 255, 0.6)', textTransform: 'uppercase', fontWeight: 700 }}>
+                <div style={{ fontSize: '10px', color: 'rgba(255, 255, 255, 0.6)', textTransform: 'uppercase', fontWeight: 700 }}>
                   Class Days
                 </div>
-                <div style={{ fontSize: '13px', fontWeight: 800, color: '#FDE68A', marginTop: '2px' }}>
+                <div style={{ fontSize: '12.5px', fontWeight: 800, color: '#FDE68A', marginTop: '2px' }}>
                   Mon, Wed, Fri
                 </div>
               </div>
 
               <div>
-                <div style={{ fontSize: '10.5px', color: 'rgba(255, 255, 255, 0.6)', textTransform: 'uppercase', fontWeight: 700 }}>
+                <div style={{ fontSize: '10px', color: 'rgba(255, 255, 255, 0.6)', textTransform: 'uppercase', fontWeight: 700 }}>
                   Price Paid
                 </div>
-                <div style={{ fontSize: '13px', fontWeight: 800, color: '#4ADE80', marginTop: '2px' }}>
+                <div style={{ fontSize: '12.5px', fontWeight: 800, color: '#4ADE80', marginTop: '2px' }}>
                   $50 / Month
                 </div>
               </div>
 
               <div>
-                <div style={{ fontSize: '10.5px', color: 'rgba(255, 255, 255, 0.6)', textTransform: 'uppercase', fontWeight: 700 }}>
+                <div style={{ fontSize: '10px', color: 'rgba(255, 255, 255, 0.6)', textTransform: 'uppercase', fontWeight: 700 }}>
                   Active Period
                 </div>
-                <div style={{ fontSize: '12.5px', fontWeight: 700, color: '#FFF', marginTop: '2px' }}>
+                <div style={{ fontSize: '12px', fontWeight: 700, color: '#FFF', marginTop: '2px' }}>
                   {activeMonthly.membershipStart || 'Sep 2'} – {activeMonthly.membershipExpiry || 'Oct 2'}
                 </div>
               </div>
@@ -196,26 +197,37 @@ export default function StudentClassPortal({ isOpen, onClose, onOpenBooking, onO
 
         {/* Filter Navigation Tabs */}
         <div
+          className="portal-tabs-wrapper"
           style={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            marginBottom: '16px',
+            marginBottom: '14px',
             borderBottom: '1px solid rgba(194, 94, 26, 0.15)',
-            paddingBottom: '10px',
-            flexWrap: 'wrap',
+            paddingBottom: '8px',
             gap: '8px',
+            flexWrap: 'wrap',
           }}
         >
-          <div style={{ display: 'flex', gap: '8px' }}>
+          <div
+            className="portal-tabs-scroll"
+            style={{
+              display: 'flex',
+              gap: '6px',
+              overflowX: 'auto',
+              paddingBottom: '2px',
+              maxWidth: '100%',
+              WebkitOverflowScrolling: 'touch',
+            }}
+          >
             {activeMonthly && (
               <button
                 onClick={() => setFilterTab('monthly')}
                 style={{
-                  padding: '6px 14px',
+                  padding: '6px 12px',
                   borderRadius: '9999px',
                   border: 'none',
-                  fontSize: '13px',
+                  fontSize: '12.5px',
                   fontWeight: 800,
                   backgroundColor: filterTab === 'monthly' ? 'var(--primary)' : '#FFFFFF',
                   color: filterTab === 'monthly' ? '#FFFFFF' : 'var(--text-muted)',
@@ -223,24 +235,29 @@ export default function StudentClassPortal({ isOpen, onClose, onOpenBooking, onO
                   display: 'flex',
                   alignItems: 'center',
                   gap: '6px',
+                  whiteSpace: 'nowrap',
+                  flexShrink: 0,
                 }}
               >
-                <Calendar size={14} />
-                <span>My 12 Monthly Classes (Mon, Wed, Fri)</span>
+                <Calendar size={13} />
+                <span className="monthly-tab-full">My 12 Monthly Classes (Mon, Wed, Fri)</span>
+                <span className="monthly-tab-short">12 Classes</span>
               </button>
             )}
 
             <button
               onClick={() => setFilterTab('upcoming')}
               style={{
-                padding: '6px 14px',
+                padding: '6px 12px',
                 borderRadius: '9999px',
                 border: 'none',
-                fontSize: '13px',
+                fontSize: '12.5px',
                 fontWeight: 800,
                 backgroundColor: filterTab === 'upcoming' ? 'var(--primary)' : '#FFFFFF',
                 color: filterTab === 'upcoming' ? '#FFFFFF' : 'var(--text-muted)',
                 cursor: 'pointer',
+                whiteSpace: 'nowrap',
+                flexShrink: 0,
               }}
             >
               Upcoming ({upcomingBookings.length})
@@ -249,17 +266,19 @@ export default function StudentClassPortal({ isOpen, onClose, onOpenBooking, onO
             <button
               onClick={() => setFilterTab('all')}
               style={{
-                padding: '6px 14px',
+                padding: '6px 12px',
                 borderRadius: '9999px',
                 border: 'none',
-                fontSize: '13px',
+                fontSize: '12.5px',
                 fontWeight: 800,
                 backgroundColor: filterTab === 'all' ? 'var(--primary)' : '#FFFFFF',
                 color: filterTab === 'all' ? '#FFFFFF' : 'var(--text-muted)',
                 cursor: 'pointer',
+                whiteSpace: 'nowrap',
+                flexShrink: 0,
               }}
             >
-              All History ({studentBookings.length})
+              History ({studentBookings.length})
             </button>
           </div>
 
@@ -268,11 +287,11 @@ export default function StudentClassPortal({ isOpen, onClose, onOpenBooking, onO
               onClose();
               if (onOpenBooking) onOpenBooking({ plan: 'daily', title: 'Daily Yoga Class ($5)' });
             }}
-            className="btn btn-outline btn-sm"
-            style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', fontSize: '12px', padding: '6px 12px' }}
+            className="btn btn-outline btn-sm portal-book-next-btn"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', fontSize: '11.5px', padding: '6px 10px', whiteSpace: 'nowrap' }}
           >
-            <PlusCircle size={14} />
-            <span>Book Next Class ($5)</span>
+            <PlusCircle size={13} />
+            <span>Book Next ($5)</span>
           </button>
         </div>
 
@@ -292,21 +311,21 @@ export default function StudentClassPortal({ isOpen, onClose, onOpenBooking, onO
                 return (
                   <div
                     key={sc.classNumber}
+                    className="portal-class-item"
                     style={{
                       backgroundColor: '#FFFFFF',
                       borderRadius: '16px',
-                      padding: '14px 18px',
+                      padding: '14px 16px',
                       border: isDone ? '1px solid rgba(22, 163, 74, 0.3)' : '1.5px solid rgba(194, 94, 26, 0.12)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'space-between',
-                      gap: '14px',
-                      flexWrap: 'wrap',
+                      gap: '12px',
                       textAlign: 'left',
                       opacity: isDone ? 0.75 : 1,
                     }}
                   >
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flex: 1, minWidth: 0 }}>
                       <div
                         style={{
                           width: '36px',
@@ -325,15 +344,15 @@ export default function StudentClassPortal({ isOpen, onClose, onOpenBooking, onO
                         {isDone ? <Check size={18} /> : `#${sc.classNumber}`}
                       </div>
 
-                      <div>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                          <span style={{ fontSize: '14px', fontWeight: 800, color: 'var(--text-main)' }}>
+                      <div style={{ minWidth: 0 }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                          <span style={{ fontSize: '13.5px', fontWeight: 800, color: 'var(--text-main)' }}>
                             {sc.day}, {sc.date}
                           </span>
                           <span
                             className="badge"
                             style={{
-                              fontSize: '10.5px',
+                              fontSize: '10px',
                               backgroundColor: isDone ? '#DCFCE7' : '#FEF3C7',
                               color: isDone ? '#16A34A' : '#B45309',
                             }}
@@ -341,18 +360,18 @@ export default function StudentClassPortal({ isOpen, onClose, onOpenBooking, onO
                             {isDone ? '✓ Completed' : 'Upcoming'}
                           </span>
                         </div>
-                        <div style={{ fontSize: '12px', color: 'var(--text-muted)', marginTop: '2px' }}>
-                          {activeMonthly.programName} • {activeMonthly.batch} • Live Zoom / Meet
+                        <div style={{ fontSize: '11.5px', color: 'var(--text-muted)', marginTop: '2px', wordBreak: 'break-word' }}>
+                          {activeMonthly.programName} • {activeMonthly.batch} • Live HD
                         </div>
                       </div>
                     </div>
 
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <div className="portal-class-actions" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                       {!isDone && (
                         <button
                           onClick={() => handleSimulateCompleteClass(activeMonthly.id, sc.classNumber)}
                           className="btn btn-outline btn-sm"
-                          style={{ fontSize: '11px', padding: '4px 8px' }}
+                          style={{ fontSize: '11px', padding: '5px 8px' }}
                           title="Simulate class completion to test counter"
                         >
                           Mark Done
@@ -374,8 +393,8 @@ export default function StudentClassPortal({ isOpen, onClose, onOpenBooking, onO
           ) : (
             /* TAB 2 & 3: Standard Bookings List */
             (filterTab === 'upcoming' ? upcomingBookings : studentBookings).length === 0 ? (
-              <div style={{ textAlign: 'center', padding: '40px 20px', backgroundColor: '#FFFFFF', borderRadius: '20px' }}>
-                <Calendar size={40} style={{ color: 'var(--primary-light)', margin: '0 auto 12px' }} />
+              <div style={{ textAlign: 'center', padding: '36px 18px', backgroundColor: '#FFFFFF', borderRadius: '20px' }}>
+                <Calendar size={38} style={{ color: 'var(--primary-light)', margin: '0 auto 12px' }} />
                 <h4 style={{ fontSize: '16px', fontWeight: 800, color: 'var(--primary-dark)', margin: '0 0 6px' }}>
                   No Booked Classes Found
                 </h4>
@@ -396,28 +415,28 @@ export default function StudentClassPortal({ isOpen, onClose, onOpenBooking, onO
               (filterTab === 'upcoming' ? upcomingBookings : studentBookings).map((booking) => (
                 <div
                   key={booking.id}
+                  className="portal-booking-card"
                   style={{
                     backgroundColor: '#FFFFFF',
                     borderRadius: '20px',
-                    padding: '18px 20px',
+                    padding: '16px 18px',
                     border: '1.5px solid rgba(194, 94, 26, 0.12)',
                     boxShadow: 'var(--shadow-sm)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    gap: '16px',
-                    flexWrap: 'wrap',
+                    gap: '14px',
                     textAlign: 'left',
                   }}
                 >
                   {/* Class Details */}
-                  <div style={{ flex: 1, minWidth: '240px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px', flexWrap: 'wrap' }}>
                       <span
                         style={{
-                          padding: '4px 10px',
+                          padding: '3px 8px',
                           borderRadius: '6px',
-                          fontSize: '11px',
+                          fontSize: '10.5px',
                           fontWeight: 800,
                           backgroundColor: booking.programId === 'ashtanga-vinyasa' ? '#FEF3C7' : '#F4EBE1',
                           color: booking.programId === 'ashtanga-vinyasa' ? '#B45309' : 'var(--primary-dark)',
@@ -426,16 +445,16 @@ export default function StudentClassPortal({ isOpen, onClose, onOpenBooking, onO
                         {booking.programName}
                       </span>
 
-                      <span style={{ fontSize: '11.5px', color: 'var(--text-muted)' }}>
-                        Booking ID: <strong>{booking.id}</strong>
+                      <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
+                        ID: <strong>{booking.id}</strong>
                       </span>
                     </div>
 
-                    <h4 style={{ fontSize: '16px', fontWeight: 800, color: 'var(--text-main)', margin: '0 0 6px' }}>
+                    <h4 style={{ fontSize: '15px', fontWeight: 800, color: 'var(--text-main)', margin: '0 0 6px' }}>
                       {booking.classTitle || booking.programName}
                     </h4>
 
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px', fontSize: '12.5px', color: 'var(--text-muted)' }}>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', fontSize: '12px', color: 'var(--text-muted)' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                         <Calendar size={13} style={{ color: 'var(--primary)' }} />
                         <span>{booking.date} ({booking.dayName || 'Class Day'})</span>
@@ -443,7 +462,7 @@ export default function StudentClassPortal({ isOpen, onClose, onOpenBooking, onO
 
                       <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                         <Clock size={13} style={{ color: 'var(--primary)' }} />
-                        <span><strong>{booking.batch}</strong> ({booking.startTime || '06:30'} - {booking.endTime || '07:30'} EST)</span>
+                        <span><strong>{booking.batch}</strong></span>
                       </div>
 
                       <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
@@ -454,7 +473,7 @@ export default function StudentClassPortal({ isOpen, onClose, onOpenBooking, onO
                   </div>
 
                   {/* Gatekeeper Join Action */}
-                  <div>
+                  <div className="portal-booking-actions">
                     <JoinClassGatekeeper
                       booking={booking}
                       onOpenClassroomSimulator={onOpenLiveRoom}
@@ -466,6 +485,77 @@ export default function StudentClassPortal({ isOpen, onClose, onOpenBooking, onO
           )}
         </div>
       </div>
+
+      <style>{`
+        .student-portal-dialog {
+          padding: 28px 24px;
+          max-height: 88vh;
+        }
+        .monthly-tab-short {
+          display: none;
+        }
+        .portal-package-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 12px;
+        }
+        @media (max-width: 640px) {
+          .student-portal-dialog {
+            padding: 18px 14px !important;
+            max-height: 92dvh !important;
+            border-radius: 20px !important;
+          }
+          .portal-header-icon {
+            width: 38px !important;
+            height: 38px !important;
+            border-radius: 10px !important;
+          }
+          .portal-header-icon svg {
+            width: 20px !important;
+            height: 20px !important;
+          }
+          .portal-title {
+            font-size: 17px !important;
+          }
+          .portal-package-grid {
+            grid-template-columns: 1fr 1fr !important;
+            gap: 10px !important;
+          }
+          .monthly-tab-full {
+            display: none !important;
+          }
+          .monthly-tab-short {
+            display: inline !important;
+          }
+          .portal-class-item {
+            flex-direction: column !important;
+            align-items: stretch !important;
+            gap: 12px !important;
+            padding: 12px 14px !important;
+          }
+          .portal-class-actions {
+            width: 100% !important;
+            display: flex !important;
+            justify-content: space-between !important;
+            border-top: 1px dashed rgba(194, 94, 26, 0.15) !important;
+            padding-top: 10px !important;
+          }
+          .portal-booking-card {
+            flex-direction: column !important;
+            align-items: stretch !important;
+            gap: 12px !important;
+            padding: 14px 12px !important;
+          }
+          .portal-booking-actions {
+            width: 100% !important;
+            border-top: 1px dashed rgba(194, 94, 26, 0.15) !important;
+            padding-top: 10px !important;
+          }
+          .portal-book-next-btn {
+            display: none !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

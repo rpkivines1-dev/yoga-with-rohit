@@ -131,11 +131,10 @@ export default function JoinClassGatekeeper({ booking, onOpenClassroomSimulator 
       {isJoinModalOpen && (
         <div className="modal-overlay active" onClick={() => setIsJoinModalOpen(false)}>
           <div
-            className="modal-container"
+            className="modal-container gatekeeper-modal"
             onClick={(e) => e.stopPropagation()}
             style={{
               maxWidth: '520px',
-              padding: '30px 24px',
               backgroundColor: '#FFFFFF',
               borderRadius: '24px',
               textAlign: 'center',
@@ -262,6 +261,18 @@ export default function JoinClassGatekeeper({ booking, onOpenClassroomSimulator 
           </div>
         </div>
       )}
+
+      <style>{`
+        .gatekeeper-modal {
+          padding: 28px 22px;
+        }
+        @media (max-width: 640px) {
+          .gatekeeper-modal {
+            padding: 20px 14px !important;
+            border-radius: 20px !important;
+          }
+        }
+      `}</style>
     </>
   );
 }
