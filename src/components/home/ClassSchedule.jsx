@@ -74,36 +74,26 @@ export default function ClassSchedule({ onSelectBatch }) {
           </div>
         </div>
 
-        {/* Program Filter Tabs & Timezone Switcher Bar */}
+        {/* Program Filter Tabs & Timezone Switcher Bar Centered */}
         <div
           style={{
             maxWidth: '920px',
             margin: '0 auto 48px',
             backgroundColor: 'var(--bg-sand)',
-            padding: '16px 24px',
             borderRadius: '24px',
             border: '1.5px solid rgba(194, 94, 26, 0.14)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: '16px',
-            flexWrap: 'wrap',
           }}
           className="schedule-control-bar"
         >
-          {/* Program Tabs */}
-          <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+          {/* Program Tabs Row Centered */}
+          <div className="schedule-tabs-row">
             <button
               onClick={() => setSelectedProgramId('all')}
+              className={`schedule-tab-btn ${selectedProgramId === 'all' ? 'active' : ''}`}
               style={{
-                padding: '9px 18px',
-                borderRadius: '9999px',
-                fontSize: '13.5px',
-                fontWeight: 800,
                 backgroundColor: selectedProgramId === 'all' ? 'var(--primary)' : '#FFFFFF',
                 color: selectedProgramId === 'all' ? '#FFFFFF' : 'var(--text-main)',
                 border: '1px solid rgba(194, 94, 26, 0.2)',
-                transition: 'all 0.2s ease',
               }}
             >
               All 6 Batches
@@ -111,18 +101,11 @@ export default function ClassSchedule({ onSelectBatch }) {
 
             <button
               onClick={() => setSelectedProgramId('traditional-hatha')}
+              className={`schedule-tab-btn ${selectedProgramId === 'traditional-hatha' ? 'active' : ''}`}
               style={{
-                padding: '9px 18px',
-                borderRadius: '9999px',
-                fontSize: '13.5px',
-                fontWeight: 800,
                 backgroundColor: selectedProgramId === 'traditional-hatha' ? 'var(--primary)' : '#FFFFFF',
                 color: selectedProgramId === 'traditional-hatha' ? '#FFFFFF' : 'var(--text-main)',
                 border: '1px solid rgba(194, 94, 26, 0.2)',
-                transition: 'all 0.2s ease',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px',
               }}
             >
               <Sun size={15} style={{ color: selectedProgramId === 'traditional-hatha' ? '#FDE68A' : '#D97706' }} />
@@ -131,18 +114,11 @@ export default function ClassSchedule({ onSelectBatch }) {
 
             <button
               onClick={() => setSelectedProgramId('ashtanga-vinyasa')}
+              className={`schedule-tab-btn ${selectedProgramId === 'ashtanga-vinyasa' ? 'active' : ''}`}
               style={{
-                padding: '9px 18px',
-                borderRadius: '9999px',
-                fontSize: '13.5px',
-                fontWeight: 800,
                 backgroundColor: selectedProgramId === 'ashtanga-vinyasa' ? 'var(--accent)' : '#FFFFFF',
                 color: selectedProgramId === 'ashtanga-vinyasa' ? '#FFFFFF' : 'var(--text-main)',
                 border: '1px solid rgba(180, 83, 9, 0.3)',
-                transition: 'all 0.2s ease',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px',
               }}
             >
               <Flame size={15} style={{ color: selectedProgramId === 'ashtanga-vinyasa' ? '#FFFFFF' : '#B45309' }} />
@@ -150,25 +126,17 @@ export default function ClassSchedule({ onSelectBatch }) {
             </button>
           </div>
 
-          {/* Timezone Converter */}
-          <div className="schedule-tz-converter" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <span style={{ fontSize: '13px', fontWeight: 700, color: 'var(--text-muted)' }}>
-              Convert:
-            </span>
+          {/* Timezone Converter Centered */}
+          <div className="schedule-tz-converter">
+            <div className="schedule-tz-label">
+              <Globe size={15} style={{ color: 'var(--primary)', flexShrink: 0 }} />
+              <span>Convert Timezone:</span>
+            </div>
             <select
               value={selectedTz}
               onChange={(e) => setSelectedTz(e.target.value)}
-              className="form-select schedule-tz-select"
-              style={{
-                padding: '8px 14px',
-                fontSize: '13px',
-                fontWeight: 700,
-                backgroundColor: '#FFFFFF',
-                borderRadius: '10px',
-                border: '1.5px solid var(--primary)',
-                color: 'var(--primary-dark)',
-                cursor: 'pointer',
-              }}
+              className="schedule-tz-select"
+              aria-label="Select Timezone"
             >
               {TIMEZONE_OPTIONS.map((tz) => (
                 <option key={tz.code} value={tz.code}>
@@ -486,28 +454,106 @@ export default function ClassSchedule({ onSelectBatch }) {
       </div>
 
       <style>{`
+        .schedule-control-bar {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          gap: 14px;
+          padding: 20px 24px;
+          box-shadow: var(--shadow-sm);
+        }
+        .schedule-tabs-row {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          flex-wrap: wrap;
+          width: 100%;
+        }
+        .schedule-tab-btn {
+          padding: 9px 18px;
+          border-radius: 9999px;
+          font-size: 13.5px;
+          font-weight: 800;
+          transition: all 0.2s ease;
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          cursor: pointer;
+        }
+        .schedule-tz-converter {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          flex-wrap: wrap;
+          width: 100%;
+          padding-top: 12px;
+          border-top: 1px solid rgba(194, 94, 26, 0.12);
+        }
+        .schedule-tz-label {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          font-size: 13px;
+          font-weight: 700;
+          color: var(--text-muted);
+        }
+        .schedule-tz-select {
+          padding: 8px 14px;
+          font-size: 13px;
+          font-weight: 700;
+          background-color: #FFFFFF;
+          border-radius: 12px;
+          border: 1.5px solid var(--primary);
+          color: var(--primary-dark);
+          cursor: pointer;
+          outline: none;
+          max-width: 320px;
+        }
         @media (max-width: 960px) {
           .schedule-batch-grid {
             grid-template-columns: 1fr !important;
             gap: 20px !important;
           }
+        }
+        @media (max-width: 640px) {
           .schedule-control-bar {
-            flex-direction: column !important;
-            align-items: center !important;
-            text-align: center !important;
-            padding: 16px 14px !important;
+            padding: 16px 12px !important;
+            border-radius: 20px !important;
+            gap: 12px !important;
           }
-          .schedule-control-bar > div:first-child {
+          .schedule-tabs-row {
+            gap: 8px !important;
             justify-content: center !important;
+          }
+          .schedule-tab-btn {
+            font-size: 12px !important;
+            padding: 7px 12px !important;
           }
           .schedule-tz-converter {
-            width: 100% !important;
+            flex-direction: column !important;
+            align-items: center !important;
             justify-content: center !important;
-            margin: 6px auto 0 !important;
+            text-align: center !important;
+            gap: 8px !important;
+            width: 100% !important;
+            padding-top: 10px !important;
+          }
+          .schedule-tz-label {
+            justify-content: center !important;
+            font-size: 12.5px !important;
           }
           .schedule-tz-select {
-            max-width: 260px !important;
+            width: 100% !important;
+            max-width: 300px !important;
             text-align: center !important;
+            text-align-last: center !important;
+            font-size: 12.5px !important;
+            padding: 8px 10px !important;
+            border-radius: 10px !important;
           }
         }
       `}</style>
