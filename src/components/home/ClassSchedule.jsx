@@ -168,8 +168,9 @@ export default function ClassSchedule({ onSelectBatch }) {
                     flexWrap: 'wrap',
                     gap: '16px',
                   }}
+                  className="schedule-prog-header"
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '16px', maxWidth: '720px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '16px', maxWidth: '720px' }} className="schedule-prog-info">
                     <div
                       style={{
                         width: '52px',
@@ -183,12 +184,13 @@ export default function ClassSchedule({ onSelectBatch }) {
                         flexShrink: 0,
                         boxShadow: 'var(--shadow-md)',
                       }}
+                      className="schedule-prog-icon"
                     >
                       {isHatha ? <Sun size={26} /> : <Flame size={26} />}
                     </div>
 
-                    <div>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
+                    <div className="schedule-prog-text">
+                      <div className="schedule-prog-tag-row" style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
                         <span
                           style={{
                             fontSize: '11px',
@@ -211,7 +213,7 @@ export default function ClassSchedule({ onSelectBatch }) {
                   </div>
 
                   <span
-                    className="badge"
+                    className="badge schedule-prog-badge"
                     style={{
                       backgroundColor: '#FFFFFF',
                       color: isHatha ? 'var(--primary-dark)' : 'var(--accent-hover)',
@@ -517,6 +519,42 @@ export default function ClassSchedule({ onSelectBatch }) {
           .schedule-batch-grid {
             grid-template-columns: 1fr !important;
             gap: 20px !important;
+          }
+        }
+        @media (max-width: 768px) {
+          .schedule-prog-header {
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center !important;
+            padding: 24px 18px !important;
+            gap: 16px !important;
+            border-radius: 20px !important;
+          }
+          .schedule-prog-info {
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center !important;
+            gap: 12px !important;
+            max-width: 100% !important;
+          }
+          .schedule-prog-icon {
+            margin: 0 auto !important;
+          }
+          .schedule-prog-text {
+            text-align: center !important;
+          }
+          .schedule-prog-tag-row {
+            justify-content: center !important;
+          }
+          .schedule-prog-badge {
+            margin: 0 auto !important;
+            text-align: center !important;
+            display: inline-flex !important;
+            justify-content: center !important;
+            width: auto !important;
+            max-width: 100% !important;
+            border-radius: 9999px !important;
+            padding: 6px 16px !important;
           }
         }
         @media (max-width: 640px) {
