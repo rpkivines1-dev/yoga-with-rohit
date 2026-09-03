@@ -213,10 +213,13 @@ export default function About({ onOpenBooking }) {
             </div>
 
             {/* Action Buttons */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '16px' }}>
+            <div
+              style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '16px' }}
+              className="about-action-buttons"
+            >
               <button
                 onClick={() => setShowMoreModal(true)}
-                className="btn btn-outline"
+                className="btn btn-outline about-btn"
               >
                 <BookOpen size={16} />
                 <span>Learn More About Rohit</span>
@@ -224,7 +227,7 @@ export default function About({ onOpenBooking }) {
 
               <button
                 onClick={() => onOpenBooking({ plan: 'demo', title: 'Free Demo Online Yoga Class' })}
-                className="btn btn-primary"
+                className="btn btn-primary about-btn"
               >
                 <Sparkles size={16} style={{ color: '#FDE68A' }} />
                 <span>Book Free Demo Online Yoga Class</span>
@@ -331,6 +334,26 @@ export default function About({ onOpenBooking }) {
           .about-grid {
             grid-template-columns: 1fr !important;
             gap: 40px !important;
+          }
+        }
+        @media (max-width: 768px) {
+          .about-action-buttons {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 100% !important;
+            margin: 0 auto !important;
+            gap: 12px !important;
+          }
+          .about-btn {
+            width: 100% !important;
+            max-width: 360px !important;
+            justify-content: center !important;
+            text-align: center !important;
+            margin: 0 auto !important;
+            display: inline-flex !important;
+            align-items: center !important;
           }
         }
       `}</style>
