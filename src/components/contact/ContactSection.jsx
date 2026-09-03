@@ -4,14 +4,14 @@
 
 import React, { useState } from 'react';
 import { useHotel } from '../../context/HotelContext';
-import { 
-  MapPin, 
-  Phone, 
-  Mail, 
-  Clock, 
-  Send, 
-  Navigation, 
-  CheckCircle2, 
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  Send,
+  Navigation,
+  CheckCircle2,
   Sparkles,
   HelpCircle
 } from 'lucide-react';
@@ -130,7 +130,7 @@ export const ContactSection = () => {
                     {hotelInfo.phone}
                   </p>
                   <p style={{ fontSize: '0.78rem', color: 'var(--gold-700)', marginTop: '0.25rem' }}>
-                    Available 24 Hours Daily
+                    Available 12 Hours Daily
                   </p>
                 </div>
               </div>
