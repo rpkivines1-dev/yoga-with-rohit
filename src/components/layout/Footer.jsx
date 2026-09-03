@@ -41,24 +41,26 @@ export default function Footer({ onOpenBooking, onOpenStudentPortal, onOpenAdmin
       }}
     >
       <div className="container-custom">
-        {/* Top CTA Banner */}
+        {/* Top CTA Banner Centered */}
         <div
           style={{
             backgroundColor: 'var(--primary-dark)',
             borderRadius: '24px',
-            padding: '36px 40px',
+            padding: '40px 32px',
             marginBottom: '56px',
             display: 'flex',
+            flexDirection: 'column',
             alignItems: 'center',
-            justifyContent: 'space-between',
-            flexWrap: 'wrap',
-            gap: '24px',
+            justifyContent: 'center',
+            textAlign: 'center',
             boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4)',
-            border: '1px solid rgba(245, 158, 11, 0.2)',
+            border: '1.5px solid rgba(245, 158, 11, 0.25)',
+            maxWidth: '860px',
+            margin: '0 auto 56px',
           }}
           className="footer-cta-banner"
         >
-          <div>
+          <div style={{ maxWidth: '640px', margin: '0 auto 22px', textAlign: 'center' }}>
             <span
               style={{
                 fontSize: '12px',
@@ -67,37 +69,53 @@ export default function Footer({ onOpenBooking, onOpenStudentPortal, onOpenAdmin
                 letterSpacing: '0.12em',
                 textTransform: 'uppercase',
                 display: 'block',
-                marginBottom: '6px',
+                marginBottom: '8px',
+                textAlign: 'center',
               }}
             >
               Start Your Holistic Journey Today
             </span>
             <h3
               style={{
-                fontSize: '26px',
+                fontSize: 'clamp(22px, 3.5vw, 28px)',
                 fontWeight: 800,
                 color: '#FFFFFF',
-                margin: 0,
+                margin: '0 0 10px',
                 fontFamily: 'var(--font-heading)',
+                lineHeight: 1.25,
+                textAlign: 'center',
               }}
             >
               Ready to Practice Authentic Live Online Yoga?
             </h3>
             <p
               style={{
-                fontSize: '14px',
-                color: 'rgba(255, 255, 255, 0.8)',
-                margin: '6px 0 0',
+                fontSize: '14.5px',
+                color: 'rgba(255, 255, 255, 0.85)',
+                margin: 0,
+                lineHeight: 1.6,
+                textAlign: 'center',
               }}
             >
               Join Rohit live from Rishikesh. Free demo available with instant Zoom access.
             </p>
           </div>
 
-          <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+          <div className="footer-cta-btn-wrap" style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
             <button
               onClick={() => onOpenBooking({ plan: 'demo', title: 'Free Demo Yoga Class' })}
-              className="btn btn-primary btn-lg"
+              className="btn btn-primary btn-lg footer-cta-btn"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '10px',
+                padding: '14px 32px',
+                fontSize: '15px',
+                fontWeight: 800,
+                borderRadius: '9999px',
+                boxShadow: '0 8px 24px -4px rgba(194, 94, 26, 0.6)',
+              }}
             >
               <Sparkles size={18} style={{ color: '#FDE68A' }} />
               <span>Book Free Demo Class</span>
@@ -426,10 +444,19 @@ export default function Footer({ onOpenBooking, onOpenStudentPortal, onOpenAdmin
             grid-template-columns: 1fr 1fr !important;
             gap: 32px !important;
           }
+        }
+        @media (max-width: 640px) {
           .footer-cta-banner {
-            flex-direction: column !important;
-            text-align: center !important;
-            align-items: center !important;
+            padding: 30px 16px !important;
+            border-radius: 20px !important;
+            margin-bottom: 40px !important;
+          }
+          .footer-cta-btn {
+            width: 100% !important;
+            max-width: 320px !important;
+            padding: 13px 18px !important;
+            font-size: 14px !important;
+            justify-content: center !important;
           }
         }
         @media (max-width: 580px) {
