@@ -151,14 +151,14 @@ export default function ClassSchedule({ onSelectBatch }) {
           </div>
 
           {/* Timezone Converter */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <div className="schedule-tz-converter" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <span style={{ fontSize: '13px', fontWeight: 700, color: 'var(--text-muted)' }}>
               Convert:
             </span>
             <select
               value={selectedTz}
               onChange={(e) => setSelectedTz(e.target.value)}
-              className="form-select"
+              className="form-select schedule-tz-select"
               style={{
                 padding: '8px 14px',
                 fontSize: '13px',
@@ -493,7 +493,21 @@ export default function ClassSchedule({ onSelectBatch }) {
           }
           .schedule-control-bar {
             flex-direction: column !important;
-            align-items: flex-start !important;
+            align-items: center !important;
+            text-align: center !important;
+            padding: 16px 14px !important;
+          }
+          .schedule-control-bar > div:first-child {
+            justify-content: center !important;
+          }
+          .schedule-tz-converter {
+            width: 100% !important;
+            justify-content: center !important;
+            margin: 6px auto 0 !important;
+          }
+          .schedule-tz-select {
+            max-width: 260px !important;
+            text-align: center !important;
           }
         }
       `}</style>

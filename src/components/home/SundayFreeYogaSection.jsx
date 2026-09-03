@@ -69,45 +69,25 @@ export default function SundayFreeYogaSection({ onOpenBooking }) {
           </p>
 
           {/* Timezone Converter Pill Centered */}
-          <div
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '12px',
-              marginTop: '16px',
-              padding: '8px 20px',
-              backgroundColor: '#FFFFFF',
-              borderRadius: '9999px',
-              border: '1px solid rgba(194, 94, 26, 0.2)',
-              boxShadow: 'var(--shadow-sm)',
-              flexWrap: 'wrap',
-              justifyContent: 'center',
-            }}
-          >
-            <Globe size={16} style={{ color: 'var(--primary)' }} />
-            <span style={{ fontSize: '13.5px', fontWeight: 700, color: 'var(--text-main)' }}>
-              Select Timezone:
-            </span>
-            <select
-              value={selectedTz}
-              onChange={(e) => setSelectedTz(e.target.value)}
-              style={{
-                border: '1px solid var(--primary)',
-                padding: '4px 10px',
-                borderRadius: '8px',
-                fontSize: '13px',
-                fontWeight: 700,
-                color: 'var(--primary-dark)',
-                backgroundColor: 'var(--primary-50)',
-                cursor: 'pointer',
-              }}
-            >
-              {TIMEZONE_OPTIONS.map((tz) => (
-                <option key={tz.code} value={tz.code}>
-                  {tz.flag} {tz.code} ({tz.name})
-                </option>
-              ))}
-            </select>
+          <div className="sunday-tz-wrapper">
+            <div className="sunday-tz-pill">
+              <div className="sunday-tz-label">
+                <Globe size={16} style={{ color: 'var(--primary)', flexShrink: 0 }} />
+                <span>Select Timezone:</span>
+              </div>
+              <select
+                value={selectedTz}
+                onChange={(e) => setSelectedTz(e.target.value)}
+                className="sunday-tz-select"
+                aria-label="Select Timezone"
+              >
+                {TIMEZONE_OPTIONS.map((tz) => (
+                  <option key={tz.code} value={tz.code}>
+                    {tz.flag} {tz.code} ({tz.name})
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
         </div>
 
@@ -306,6 +286,82 @@ export default function SundayFreeYogaSection({ onOpenBooking }) {
       </div>
 
       <style>{`
+        .sunday-tz-wrapper {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          margin: 18px auto 0;
+          box-sizing: border-box;
+        }
+        .sunday-tz-pill {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 12px;
+          padding: 8px 20px;
+          background-color: #FFFFFF;
+          border-radius: 9999px;
+          border: 1.5px solid rgba(194, 94, 26, 0.22);
+          box-shadow: var(--shadow-sm);
+          box-sizing: border-box;
+          max-width: 100%;
+          margin: 0 auto;
+        }
+        .sunday-tz-label {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 13.5px;
+          font-weight: 700;
+          color: var(--text-main);
+          white-space: nowrap;
+          flex-shrink: 0;
+        }
+        .sunday-tz-select {
+          border: 1.5px solid var(--primary);
+          padding: 6px 12px;
+          border-radius: 10px;
+          font-size: 13px;
+          font-weight: 700;
+          color: var(--primary-dark);
+          background-color: var(--primary-50);
+          cursor: pointer;
+          outline: none;
+          max-width: 260px;
+          box-sizing: border-box;
+        }
+        @media (max-width: 640px) {
+          .sunday-tz-wrapper {
+            padding: 0 10px;
+            margin-top: 14px;
+          }
+          .sunday-tz-pill {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-align: center !important;
+            width: 100% !important;
+            max-width: 320px !important;
+            border-radius: 20px !important;
+            padding: 12px 16px !important;
+            gap: 10px !important;
+            margin: 0 auto !important;
+          }
+          .sunday-tz-label {
+            justify-content: center !important;
+            font-size: 13px !important;
+          }
+          .sunday-tz-select {
+            width: 100% !important;
+            max-width: 100% !important;
+            text-align: center !important;
+            padding: 8px 12px !important;
+            font-size: 13px !important;
+            border-radius: 12px !important;
+          }
+        }
         @media (max-width: 940px) {
           .sunday-footer-card {
             flex-direction: column !important;
