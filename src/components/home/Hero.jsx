@@ -216,7 +216,7 @@ export default function Hero({ onOpenBooking }) {
 
             {/* Main Arch Frame */}
             <div
-              className="nicepage-arch"
+              className="nicepage-arch hero-arch-frame"
               style={{
                 maxWidth: '420px',
                 width: '100%',
@@ -224,18 +224,20 @@ export default function Hero({ onOpenBooking }) {
               }}
             >
               <img
-                src="/images/rohit-splits-ganges.jpg"
-                alt="Rohit - Online Yoga Teacher from Rishikesh performing Hanumanasana split by Ganges River"
+                src="/images/rohit-arm-balance-ashram.jpg"
+                alt="Rohit Kumar - Online Yoga Teacher from Rishikesh performing advanced arm balance asana"
+                className="hero-main-img"
                 style={{
                   width: '100%',
                   height: '510px',
                   objectFit: 'cover',
-                  objectPosition: 'center 30%',
+                  objectPosition: 'center 45%',
                 }}
               />
 
               {/* Bottom Image Label */}
               <div
+                className="hero-img-label"
                 style={{
                   position: 'absolute',
                   bottom: 0,
@@ -258,7 +260,7 @@ export default function Hero({ onOpenBooking }) {
 
             {/* Floating Badge 1: Live Interactive Batch */}
             <div
-              className="animate-float"
+              className="animate-float hero-floating-badge-1"
               style={{
                 position: 'absolute',
                 top: '30px',
@@ -302,7 +304,7 @@ export default function Hero({ onOpenBooking }) {
 
             {/* Floating Badge 2: Sunday Free Available */}
             <div
-              className="animate-float-delayed"
+              className="animate-float-delayed hero-floating-badge-2"
               style={{
                 position: 'absolute',
                 bottom: '25px',
@@ -417,13 +419,98 @@ export default function Hero({ onOpenBooking }) {
           .hero-grid > div:first-child > div {
             justify-content: center !important;
           }
+          .hero-image-wrapper {
+            margin: 0 auto !important;
+            width: 100% !important;
+            max-width: 440px !important;
+          }
           .hero-stats-grid {
             grid-template-columns: repeat(2, 1fr) !important;
           }
         }
         @media (max-width: 540px) {
+          .hero-image-wrapper {
+            max-width: 330px !important;
+          }
+          .hero-arch-frame {
+            max-width: 320px !important;
+            border-width: 5px !important;
+          }
+          .hero-main-img {
+            height: 420px !important;
+          }
+          .hero-floating-badge-1 {
+            top: 15px !important;
+            left: -8px !important;
+            padding: 8px 12px !important;
+            border-radius: 14px !important;
+            gap: 8px !important;
+          }
+          .hero-floating-badge-1 svg {
+            width: 15px !important;
+            height: 15px !important;
+          }
+          .hero-floating-badge-1 > div:first-child {
+            width: 30px !important;
+            height: 30px !important;
+          }
+          .hero-floating-badge-1 > div:last-child > div:first-child {
+            font-size: 11px !important;
+          }
+          .hero-floating-badge-1 > div:last-child > div:last-child {
+            font-size: 9.5px !important;
+          }
+          .hero-floating-badge-2 {
+            bottom: 18px !important;
+            right: -8px !important;
+            padding: 8px 12px !important;
+            border-radius: 14px !important;
+            gap: 8px !important;
+          }
+          .hero-floating-badge-2 svg {
+            width: 15px !important;
+            height: 15px !important;
+          }
+          .hero-floating-badge-2 > div:first-child {
+            width: 30px !important;
+            height: 30px !important;
+          }
+          .hero-floating-badge-2 > div:last-child > div:first-child {
+            font-size: 11px !important;
+          }
+          .hero-floating-badge-2 > div:last-child > div:last-child {
+            font-size: 9.5px !important;
+          }
+          .hero-img-label {
+            padding: 16px 14px !important;
+          }
+          .hero-img-label h3 {
+            font-size: 17px !important;
+          }
+          .hero-img-label span {
+            font-size: 10px !important;
+          }
           .hero-stats-grid {
             grid-template-columns: 1fr !important;
+          }
+        }
+        @media (max-width: 380px) {
+          .hero-image-wrapper {
+            max-width: 290px !important;
+          }
+          .hero-arch-frame {
+            max-width: 280px !important;
+          }
+          .hero-main-img {
+            height: 370px !important;
+          }
+          .hero-floating-badge-1 {
+            left: 0px !important;
+            top: 10px !important;
+          }
+          .hero-floating-badge-2 {
+            right: 0px !important;
+            bottom: 12px !important;
           }
         }
       `}</style>
