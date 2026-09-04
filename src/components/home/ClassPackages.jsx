@@ -231,15 +231,15 @@ export default function ClassPackages({ onSelectPackage }) {
         {/* Guarantee Banner Symmetrically Centered */}
         <div
           style={{
-            maxWidth: '820px',
-            margin: '48px auto 0',
+            maxWidth: '860px',
+            margin: '44px auto 0',
             backgroundColor: '#FFFFFF',
             borderRadius: '20px',
             padding: '22px 28px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            border: '1.5px solid rgba(194, 94, 26, 0.12)',
+            border: '1.5px solid rgba(194, 94, 26, 0.14)',
             boxShadow: 'var(--shadow-sm)',
             textAlign: 'left',
           }}
@@ -278,6 +278,57 @@ export default function ClassPackages({ onSelectPackage }) {
           >
             Try Free Demo
           </a>
+        </div>
+
+        {/* 4-Pillar Prospective Student Confidence Grid */}
+        <div
+          style={{
+            maxWidth: '860px',
+            margin: '24px auto 0',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))',
+            gap: '14px',
+          }}
+        >
+          <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.7)', borderRadius: '16px', padding: '14px 16px', border: '1px solid rgba(194, 94, 26, 0.1)', textAlign: 'left' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '13px', fontWeight: 800, color: 'var(--text-main)', marginBottom: '4px' }}>
+              <ShieldCheck size={16} color="#16A34A" />
+              <span>Zero Risk Trial</span>
+            </div>
+            <div style={{ fontSize: '11.5px', color: 'var(--text-muted)', lineHeight: 1.4 }}>
+              Experience the full 60-minute live class free before paying a single dollar.
+            </div>
+          </div>
+
+          <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.7)', borderRadius: '16px', padding: '14px 16px', border: '1px solid rgba(194, 94, 26, 0.1)', textAlign: 'left' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '13px', fontWeight: 800, color: 'var(--text-main)', marginBottom: '4px' }}>
+              <Video size={16} color="var(--primary)" />
+              <span>Live Posture Check</span>
+            </div>
+            <div style={{ fontSize: '11.5px', color: 'var(--text-muted)', lineHeight: 1.4 }}>
+              Rohit observes your camera and offers personal verbal cues so you stay safe.
+            </div>
+          </div>
+
+          <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.7)', borderRadius: '16px', padding: '14px 16px', border: '1px solid rgba(194, 94, 26, 0.1)', textAlign: 'left' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '13px', fontWeight: 800, color: 'var(--text-main)', marginBottom: '4px' }}>
+              <Clock size={16} color="#D97706" />
+              <span>Flexible Timings</span>
+            </div>
+            <div style={{ fontSize: '11.5px', color: 'var(--text-muted)', lineHeight: 1.4 }}>
+              Switch between morning & evening batches if your schedule changes.
+            </div>
+          </div>
+
+          <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.7)', borderRadius: '16px', padding: '14px 16px', border: '1px solid rgba(194, 94, 26, 0.1)', textAlign: 'left' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '13px', fontWeight: 800, color: 'var(--text-main)', marginBottom: '4px' }}>
+              <Calendar size={16} color="var(--primary)" />
+              <span>HD Replay Access</span>
+            </div>
+            <div style={{ fontSize: '11.5px', color: 'var(--text-muted)', lineHeight: 1.4 }}>
+              Missed a session? Watch high-definition class recordings anytime.
+            </div>
+          </div>
         </div>
       </div>
 

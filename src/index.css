@@ -576,3 +576,154 @@ h1, h2, h3, h4, h5, h6 {
 ::-webkit-scrollbar-thumb:hover {
   background: #A74A0E;
 }
+
+/* ==========================================================================
+   PROSPECTIVE STUDENT UI/UX & CONVERSION ENHANCEMENTS
+   ========================================================================== */
+
+/* Live Pulse Animation */
+.live-pulse-dot {
+  width: 9px;
+  height: 9px;
+  background-color: #22C55E;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.75);
+}
+
+.live-pulse-dot::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border-radius: 50%;
+  border: 1.5px solid #22C55E;
+  animation: livePing 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes livePing {
+  75%, 100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+/* Floating Glass Badges */
+.glass-badge {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 12px 28px -6px rgba(35, 22, 13, 0.18), 0 4px 10px rgba(0, 0, 0, 0.04);
+  border-radius: 18px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: floatSubtle 5s ease-in-out infinite alternate;
+}
+
+.glass-badge:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 18px 36px -8px rgba(194, 94, 26, 0.28);
+}
+
+@keyframes floatSubtle {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-8px); }
+}
+
+/* Countdown Digit Boxes */
+.countdown-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(35, 22, 13, 0.05);
+  border: 1px solid rgba(194, 94, 26, 0.18);
+  border-radius: 12px;
+  padding: 6px 10px;
+  min-width: 48px;
+}
+
+.countdown-box .num {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--primary);
+  font-family: var(--font-heading);
+  line-height: 1;
+}
+
+.countdown-box .label {
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 3px;
+}
+
+/* Interactive Matcher Options */
+.matcher-option-card {
+  background: #FFFFFF;
+  border: 2px solid rgba(194, 94, 26, 0.12);
+  border-radius: 18px;
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-align: left;
+  user-select: none;
+}
+
+.matcher-option-card:hover {
+  border-color: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  background: #FFFBF7;
+}
+
+.matcher-option-card.active {
+  border-color: var(--primary);
+  background: linear-gradient(135deg, #FFF9F3 0%, #FDF4EB 100%);
+  box-shadow: 0 10px 24px -4px rgba(194, 94, 26, 0.22);
+}
+
+/* Transformation Roadmap Steps */
+.roadmap-step-card {
+  background: #FFFFFF;
+  border-radius: 22px;
+  padding: 28px 24px;
+  border: 1.5px solid rgba(194, 94, 26, 0.12);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.roadmap-step-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--primary);
+  box-shadow: var(--shadow-lg);
+}
+
+.roadmap-step-card.active-step {
+  border-color: var(--primary);
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFF8F2 100%);
+  box-shadow: 0 14px 34px -6px rgba(194, 94, 26, 0.2);
+}
+
+@media (max-width: 768px) {
+  .hero-studio-pulse {
+    flex-direction: column !important;
+    gap: 12px !important;
+    align-items: flex-start !important;
+    padding: 14px 18px !important;
+  }
+}
+

@@ -1,8 +1,43 @@
-import React from 'react';
-import { Sparkles, Calendar, ArrowRight, ShieldCheck, Star, Users, Video, Clock, MapPin, Award, CheckCircle2, Sun } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Sparkles, Calendar, ArrowRight, ShieldCheck, Star, Users, Video, Clock, MapPin, Award, CheckCircle2, Sun, Play, X } from 'lucide-react';
 import { BRAND, HERO_STATS } from '../../data/yogaData';
 
 export default function Hero({ onOpenBooking }) {
+  const [rishikeshTime, setRishikeshTime] = useState('');
+  const [countdown, setCountdown] = useState({ hours: '04', minutes: '28', seconds: '45' });
+  const [previewOpen, setPreviewOpen] = useState(false);
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      try {
+        const timeStr = now.toLocaleTimeString('en-US', {
+          timeZone: 'Asia/Kolkata',
+          hour: 'numeric',
+          minute: '2-digit',
+          hour12: true,
+        });
+        setRishikeshTime(timeStr);
+      } catch (e) {
+        setRishikeshTime('5:30 PM IST');
+      }
+
+      // Next session countdown simulation (realistic real-time tick)
+      const sec = 59 - now.getSeconds();
+      const min = (59 - now.getMinutes()) % 60;
+      const hr = (23 - now.getHours() + 6) % 12;
+      setCountdown({
+        hours: hr < 10 ? `0${hr}` : `${hr}`,
+        minutes: min < 10 ? `0${min}` : `${min}`,
+        seconds: sec < 10 ? `0${sec}` : `${sec}`,
+      });
+    };
+
+    updateTime();
+    const timer = setInterval(updateTime, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
   const scrollToPricing = (e) => {
     e.preventDefault();
     const pricingEl = document.getElementById('pricing');
@@ -37,6 +72,77 @@ export default function Hero({ onOpenBooking }) {
       }}
     >
       <div className="container-custom">
+        {/* Prospective Live Studio Pulse & Real-Time Batch Countdown */}
+        <div
+          className="hero-studio-pulse"
+          style={{
+            backgroundColor: 'rgba(255, 255, 255, 0.95)',
+            backdropFilter: 'blur(12px)',
+            borderRadius: '20px',
+            padding: '12px 22px',
+            border: '1.5px solid rgba(194, 94, 26, 0.16)',
+            boxShadow: '0 8px 24px -4px rgba(69, 26, 3, 0.08)',
+            marginBottom: '32px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '16px',
+          }}
+        >
+          {/* Left: Studio Live Status */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <span className="live-pulse-dot" />
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span style={{ fontSize: '13px', fontWeight: 800, color: 'var(--primary-dark)' }}>
+                  Rishikesh Studio Live: {rishikeshTime || '5:30 PM IST'}
+                </span>
+                <span style={{ fontSize: '11px', backgroundColor: '#FEF3C7', color: '#B45309', padding: '2px 8px', borderRadius: '9999px', fontWeight: 700 }}>
+                  India (IST)
+                </span>
+              </div>
+              <div style={{ fontSize: '11.5px', color: 'var(--text-muted)' }}>
+                Direct from World Capital of Yoga • 1-on-1 Camera Corrections
+              </div>
+            </div>
+          </div>
+
+          {/* Right: Next Batch Countdown & Urgent Availability */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span style={{ fontSize: '12px', fontWeight: 700, color: 'var(--text-muted)' }}>
+                Next Live Batch In:
+              </span>
+              <div style={{ display: 'flex', gap: '6px' }}>
+                <div className="countdown-box"><span className="num">{countdown.hours}</span><span className="label">HRS</span></div>
+                <div className="countdown-box"><span className="num">{countdown.minutes}</span><span className="label">MIN</span></div>
+                <div className="countdown-box"><span className="num">{countdown.seconds}</span><span className="label">SEC</span></div>
+              </div>
+            </div>
+
+            <button
+              onClick={scrollToDemo}
+              style={{
+                backgroundColor: 'var(--primary)',
+                color: '#FFFFFF',
+                fontSize: '12.5px',
+                fontWeight: 800,
+                padding: '9px 18px',
+                borderRadius: '9999px',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                transition: 'all 0.2s ease',
+                boxShadow: '0 4px 12px rgba(194, 94, 26, 0.3)',
+              }}
+            >
+              <Sparkles size={14} style={{ color: '#FDE68A' }} />
+              <span>Free Demo (3 Spots Left)</span>
+            </button>
+          </div>
+        </div>
+
         <div
           style={{
             display: 'grid',
@@ -143,6 +249,42 @@ export default function Hero({ onOpenBooking }) {
               >
                 <span>Schedule</span>
               </a>
+
+              {/* Watch Practice Preview Trigger */}
+              <button
+                type="button"
+                onClick={() => setPreviewOpen(true)}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  fontSize: '13.5px',
+                  fontWeight: 700,
+                  color: 'var(--primary)',
+                  padding: '10px 14px',
+                  borderRadius: '9999px',
+                  backgroundColor: 'var(--primary-50)',
+                  border: '1px solid var(--primary-100)',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease',
+                }}
+              >
+                <div
+                  style={{
+                    width: '24px',
+                    height: '24px',
+                    borderRadius: '50%',
+                    backgroundColor: 'var(--primary)',
+                    color: '#FFFFFF',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <Play size={11} fill="#FFFFFF" />
+                </div>
+                <span>Class Preview (30s)</span>
+              </button>
             </div>
 
             {/* Teacher Mini Callout Card */}
@@ -345,6 +487,45 @@ export default function Hero({ onOpenBooking }) {
                 </div>
               </div>
             </div>
+
+            {/* Floating Badge 3: 1-on-1 Camera Correction Promise */}
+            <div
+              className="glass-badge"
+              style={{
+                position: 'absolute',
+                top: '52%',
+                right: '-24px',
+                padding: '10px 16px',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '10px',
+                zIndex: 11,
+              }}
+            >
+              <div
+                style={{
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '50%',
+                  backgroundColor: '#DCFCE7',
+                  color: '#15803D',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0,
+                }}
+              >
+                <ShieldCheck size={18} />
+              </div>
+              <div style={{ textAlign: 'left' }}>
+                <div style={{ fontSize: '12px', fontWeight: 800, color: 'var(--text-main)' }}>
+                  1-on-1 Camera Correction
+                </div>
+                <div style={{ fontSize: '10.5px', color: '#16A34A', fontWeight: 700 }}>
+                  Real-time Zoom posture tips
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -395,6 +576,143 @@ export default function Hero({ onOpenBooking }) {
           ))}
         </div>
       </div>
+
+      {/* 30-Second Practice Preview Modal */}
+      {previewOpen && (
+        <div
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 9999,
+            backgroundColor: 'rgba(35, 22, 13, 0.75)',
+            backdropFilter: 'blur(8px)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '20px',
+            animation: 'fadeIn 0.25s ease',
+          }}
+          onClick={() => setPreviewOpen(false)}
+        >
+          <div
+            style={{
+              backgroundColor: '#FFFFFF',
+              borderRadius: '26px',
+              maxWidth: '560px',
+              width: '100%',
+              overflow: 'hidden',
+              boxShadow: '0 25px 60px -10px rgba(0, 0, 0, 0.4)',
+              border: '2px solid rgba(194, 94, 26, 0.2)',
+              position: 'relative',
+              animation: 'slideInUp 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                padding: '20px 24px',
+                borderBottom: '1px solid rgba(194, 94, 26, 0.12)',
+                backgroundColor: 'var(--primary-50)',
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <Sparkles size={18} color="var(--primary)" />
+                <h3 style={{ fontSize: '17px', fontWeight: 800, color: 'var(--text-main)', margin: 0 }}>
+                  Live Class Glimpse from Rishikesh
+                </h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => setPreviewOpen(false)}
+                style={{
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '50%',
+                  backgroundColor: 'rgba(35, 22, 13, 0.08)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                  color: 'var(--text-main)',
+                }}
+              >
+                <X size={18} />
+              </button>
+            </div>
+
+            {/* Modal Media & Content */}
+            <div style={{ padding: '24px' }}>
+              <div
+                style={{
+                  position: 'relative',
+                  borderRadius: '16px',
+                  overflow: 'hidden',
+                  marginBottom: '20px',
+                  boxShadow: 'var(--shadow-md)',
+                }}
+              >
+                <img
+                  src="/images/rohit-splits-ganges.jpg"
+                  alt="Rohit Yoga in Rishikesh"
+                  style={{ width: '100%', height: '260px', objectFit: 'cover' }}
+                />
+                <div
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: 'linear-gradient(to top, rgba(35, 22, 13, 0.8) 0%, transparent 60%)',
+                    display: 'flex',
+                    alignItems: 'flex-end',
+                    padding: '18px 20px',
+                  }}
+                >
+                  <div style={{ color: '#FFFFFF' }}>
+                    <div style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#FDE68A' }}>
+                      Ganges Valley, Rishikesh
+                    </div>
+                    <div style={{ fontSize: '16px', fontWeight: 800 }}>
+                      Authentic Master Lineage • Daily Live Interactive Zoom
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '22px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13.5px', color: 'var(--text-main)' }}>
+                  <CheckCircle2 size={16} color="#16A34A" />
+                  <span>Small interactive batches (max 15 students) for personalized attention</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13.5px', color: 'var(--text-main)' }}>
+                  <CheckCircle2 size={16} color="#16A34A" />
+                  <span>Verbal posture corrections given in real time through your Zoom camera</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13.5px', color: 'var(--text-main)' }}>
+                  <CheckCircle2 size={16} color="#16A34A" />
+                  <span>Suitable for complete beginners, stiff bodies, and intermediate yogis</span>
+                </div>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setPreviewOpen(false);
+                  scrollToDemo({ preventDefault: () => {} });
+                }}
+                className="btn btn-primary"
+                style={{ width: '100%', padding: '14px', fontSize: '15px' }}
+              >
+                <Sparkles size={17} style={{ color: '#FDE68A' }} />
+                <span>Experience It Live — Book Free Demo</span>
+                <ArrowRight size={17} />
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       <style>{`
         .hero-stat-box:hover {

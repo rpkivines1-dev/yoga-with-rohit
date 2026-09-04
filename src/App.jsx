@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import Navbar from './components/layout/Navbar';
 import Hero from './components/home/Hero';
 import SundayFreeYogaSection from './components/home/SundayFreeYogaSection';
+import ProspectiveMatcher from './components/home/ProspectiveMatcher';
 import About from './components/home/About';
 import CertificatesSection from './components/home/CertificatesSection';
 import FreeDemoSection from './components/home/FreeDemoSection';
 import ClassPackages from './components/home/ClassPackages';
 import ClassSchedule from './components/home/ClassSchedule';
+import TransformationRoadmap from './components/home/TransformationRoadmap';
 import HowItWorks from './components/home/HowItWorks';
 import BenefitsOfYoga from './components/home/BenefitsOfYoga';
 import AsanaGallery from './components/home/AsanaGallery';
@@ -79,6 +81,9 @@ export default function App() {
         {/* 2. Sunday Free Community Yoga Section */}
         <SundayFreeYogaSection onOpenBooking={handleOpenBooking} />
 
+        {/* 2.5 Prospective Student Interactive Class & Level Matcher */}
+        <ProspectiveMatcher onOpenBooking={handleOpenBooking} />
+
         {/* 3. About Yoga Teacher Rohit */}
         <About onOpenBooking={handleOpenBooking} />
 
@@ -96,6 +101,9 @@ export default function App() {
 
         {/* 7. Class Schedule (Traditional Hatha & Ashtanga Vinyasa + Timezone Converter) */}
         <ClassSchedule onSelectBatch={handleSelectBatch} />
+
+        {/* 7.5 Prospective Student 30-Day Transformation Roadmap */}
+        <TransformationRoadmap onOpenBooking={handleOpenBooking} />
 
         {/* 8. How It Works (4 Steps) */}
         <HowItWorks onOpenBooking={handleOpenBooking} />
