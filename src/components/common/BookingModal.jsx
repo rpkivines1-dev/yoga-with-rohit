@@ -329,8 +329,8 @@ export default function BookingModal({ isOpen, onClose, initialData = {}, onSucc
                     {formData.packageType.includes('Monthly')
                       ? '$50.00 (12 Live Classes Included)'
                       : formData.packageType.includes('Daily')
-                      ? '$5.00 (Single Class Pass)'
-                      : '$0.00 (Free Demo Session)'}
+                        ? '$5.00 (Single Class Pass)'
+                        : '$0.00 (Free Demo Session)'}
                   </div>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', color: '#16A34A', fontWeight: 700 }}>
@@ -358,10 +358,10 @@ export default function BookingModal({ isOpen, onClose, initialData = {}, onSucc
                     {isSubmitting
                       ? 'Processing Verification...'
                       : formData.packageType.includes('Monthly')
-                      ? 'Pay $50 & Activate 12-Class Package'
-                      : formData.packageType.includes('Daily')
-                      ? 'Pay $5 & Reserve Spot'
-                      : 'Confirm Free Booking'}
+                        ? 'Pay $50 & Activate 12-Class Package'
+                        : formData.packageType.includes('Daily')
+                          ? 'Pay $5 & Reserve Spot'
+                          : 'Confirm Free Booking'}
                   </span>
                 </button>
               </div>

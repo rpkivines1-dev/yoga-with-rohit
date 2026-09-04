@@ -1,0 +1,6 @@
+# Allow all search engine crawlers
+User-agent: *
+Allow: /
+
+# Sitemap URL
+Sitemap: https://www.yogawithrohit.com/sitemap.xml
