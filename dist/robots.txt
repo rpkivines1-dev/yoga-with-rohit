@@ -2,5 +2,12 @@
 User-agent: *
 Allow: /
 
-# Sitemap URL
+# Disallow private portals, administrative tools, and internal APIs
+Disallow: /admin
+Disallow: /student
+Disallow: /dashboard
+Disallow: /checkout
+Disallow: /api/
+
+# Official Sitemap Location
 Sitemap: https://www.yogawithrohit.com/sitemap.xml

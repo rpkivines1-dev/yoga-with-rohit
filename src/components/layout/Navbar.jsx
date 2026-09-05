@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
   Sparkles,
   Menu,
@@ -15,6 +16,7 @@ import {
   DollarSign,
   Mail,
   ShieldCheck,
+  BookOpen,
 } from 'lucide-react';
 import { BRAND } from '../../data/yogaData';
 
@@ -22,6 +24,8 @@ export default function Navbar({ onOpenBooking, onOpenStudentPortal, onOpenAdmin
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -67,22 +71,27 @@ export default function Navbar({ onOpenBooking, onOpenStudentPortal, onOpenAdmin
   }, [mobileMenuOpen]);
 
   const navLinks = [
-    { name: 'Home', href: '#home', icon: Home },
-    { name: 'Certificates', href: '#certificates', icon: Award },
-    { name: 'Class Schedule', href: '#schedule', icon: Calendar },
-    { name: 'Pricing', href: '#pricing', icon: DollarSign },
-    { name: 'Free Demo Class', href: '#free-demo', icon: Sparkles, isSpecial: true },
-
-    { name: 'Contact', href: '#contact', icon: Mail },
+    { name: 'Home', path: '/', href: '#home', icon: Home },
+    { name: 'Online Classes', path: '/online-yoga-classes', icon: Video },
+    { name: 'Schedule', path: '/schedule', href: '#schedule', icon: Calendar },
+    { name: 'Pricing', path: '/pricing', href: '#pricing', icon: DollarSign },
+    { name: 'About', path: '/about', href: '#about', icon: Award },
+    { name: 'FAQ', path: '/faq', href: '#faq', icon: Sparkles },
+    { name: 'Blog', path: '/blog', icon: BookOpen },
+    { name: 'Contact', path: '/contact', href: '#contact', icon: Mail },
   ];
 
-  const handleNavClick = (e, href) => {
+  const handleNavClick = (e, link) => {
     e.preventDefault();
     setMobileMenuOpen(false);
-    const target = document.querySelector(href);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
+    if (location.pathname === '/' && link.href) {
+      const target = document.querySelector(link.href);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
     }
+    navigate(link.path);
   };
 
   return (
@@ -113,9 +122,9 @@ export default function Navbar({ onOpenBooking, onOpenStudentPortal, onOpenAdmin
           }}
         >
           {/* Brand Logo & Title */}
-          <a
-            href="#home"
-            onClick={(e) => handleNavClick(e, '#home')}
+          <Link
+            to="/"
+            onClick={() => setMobileMenuOpen(false)}
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -176,45 +185,45 @@ export default function Navbar({ onOpenBooking, onOpenStudentPortal, onOpenAdmin
                 Live Online Yoga
               </span>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Navigation Links */}
           <nav
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: '16px',
+              gap: '14px',
             }}
             className="desktop-nav"
           >
             {navLinks.map((link) => {
-              const isActive = activeSection === link.href.replace('#', '');
+              const isActive = location.pathname === link.path;
               return (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
-                  onClick={(e) => handleNavClick(e, link.href)}
+                  to={link.path}
+                  onClick={(e) => handleNavClick(e, link)}
                   style={{
                     fontSize: '13.5px',
-                    fontWeight: (link.isSpecial || isActive) ? 700 : 500,
-                    color: link.isSpecial ? 'var(--accent)' : (isActive ? 'var(--primary-dark)' : 'var(--text-muted)'),
+                    fontWeight: isActive ? 700 : 500,
+                    color: isActive ? 'var(--primary-dark)' : 'var(--text-muted)',
                     transition: 'all 0.2s ease',
                     position: 'relative',
                     padding: '6px 2px',
                     display: 'flex',
                     alignItems: 'center',
                     gap: '5px',
+                    textDecoration: 'none',
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.color = 'var(--primary)';
                   }}
                   onMouseLeave={(e) => {
-                    if (!isActive && !link.isSpecial) {
+                    if (!isActive) {
                       e.currentTarget.style.color = 'var(--text-muted)';
                     }
                   }}
                 >
-                  {link.isSpecial && <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: 'var(--accent)' }}></span>}
                   {link.name}
                   {isActive && (
                     <span
@@ -229,7 +238,7 @@ export default function Navbar({ onOpenBooking, onOpenStudentPortal, onOpenAdmin
                       }}
                     />
                   )}
-                </a>
+                </Link>
               );
             })}
           </nav>
@@ -410,19 +419,19 @@ export default function Navbar({ onOpenBooking, onOpenStudentPortal, onOpenAdmin
         >
           {navLinks.map((link) => {
             const Icon = link.icon;
-            const isActive = activeSection === link.href.replace('#', '');
+            const isActive = location.pathname === link.path;
             return (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
+                to={link.path}
+                onClick={(e) => handleNavClick(e, link)}
                 style={{
                   padding: '11px 14px',
                   borderRadius: '12px',
                   fontSize: '14.5px',
-                  fontWeight: (link.isSpecial || isActive) ? 700 : 600,
-                  color: link.isSpecial ? 'var(--accent)' : (isActive ? 'var(--primary-dark)' : 'var(--text-main)'),
-                  backgroundColor: isActive ? 'rgba(194, 94, 26, 0.1)' : (link.isSpecial ? 'var(--accent-50)' : 'transparent'),
+                  fontWeight: isActive ? 700 : 600,
+                  color: isActive ? 'var(--primary-dark)' : 'var(--text-main)',
+                  backgroundColor: isActive ? 'rgba(194, 94, 26, 0.1)' : 'transparent',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
@@ -432,11 +441,11 @@ export default function Navbar({ onOpenBooking, onOpenStudentPortal, onOpenAdmin
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  {Icon && <Icon size={17} style={{ color: link.isSpecial ? 'var(--accent)' : 'var(--primary)' }} />}
+                  {Icon && <Icon size={17} style={{ color: 'var(--primary)' }} />}
                   <span>{link.name}</span>
                 </div>
                 <ArrowRight size={15} opacity={0.4} />
-              </a>
+              </Link>
             );
           })}
         </div>

@@ -186,9 +186,9 @@ export default function Hero({ onOpenBooking }) {
                 marginBottom: '20px',
               }}
             >
-              Balance Your Mind, <br />
+              Online Yoga Classes <br />
               <span className="font-serif" style={{ fontStyle: 'italic', fontWeight: 600, color: 'var(--primary)' }}>
-                Elevate Your Spirit
+                with Rohit
               </span>
             </h1>
 
@@ -202,7 +202,7 @@ export default function Hero({ onOpenBooking }) {
                 maxWidth: '540px',
               }}
             >
-              Experience live interactive <strong>online yoga classes</strong> guided by Rohit, a master <strong>online yoga teacher from Rishikesh</strong>. Choose between <strong>Traditional Hatha</strong> & <strong>Ashtanga Vinyasa</strong> programs.
+              Join live <strong>online yoga classes with Rohit</strong> and practice <strong>Traditional Hatha Yoga</strong> and <strong>Ashtanga Vinyasa Primary Series</strong> from anywhere. Personalized posture guidance direct from Rishikesh.
             </p>
 
             {/* Action Buttons Group */}

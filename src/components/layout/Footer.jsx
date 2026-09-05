@@ -1,5 +1,6 @@
 import React from 'react';
-import { Sparkles, Phone, MessageCircle, Mail, Heart, Globe, ArrowUp, ArrowRight, Award } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Sparkles, Phone, MessageCircle, Mail, Heart, Globe, ArrowUp, ArrowRight, Award, Calendar, DollarSign, BookOpen, HelpCircle } from 'lucide-react';
 import { InstagramIcon } from '../common/Icons';
 import { BRAND } from '../../data/yogaData';
 
@@ -264,129 +265,140 @@ export default function Footer({ onOpenBooking, onOpenStudentPortal, onOpenAdmin
             </div>
           </div>
 
-          {/* Col 2: Quick Links */}
+          {/* Col 2: Online Yoga Classes */}
           <div>
-            <h4 style={{ fontSize: '16px', fontWeight: 800, color: '#FFFFFF', marginBottom: '20px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-              Quick Links
+            <h4 style={{ fontSize: '15px', fontWeight: 800, color: '#FFFFFF', marginBottom: '18px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+              Online Yoga Classes
             </h4>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              {navLinks.slice(0, 6).map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
-                    style={{
-                      fontSize: '13.5px',
-                      color: 'rgba(255, 255, 255, 0.72)',
-                      textDecoration: 'none',
-                      transition: 'color 0.2s',
-                      display: 'inline-block',
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.color = 'var(--primary-light)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.color = 'rgba(255, 255, 255, 0.72)';
-                    }}
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '9px' }}>
+              <li>
+                <Link to="/online-yoga-classes" style={{ fontSize: '13.5px', color: 'rgba(255, 255, 255, 0.75)', textDecoration: 'none', transition: 'color 0.2s' }}>
+                  Online Yoga Classes Guide
+                </Link>
+              </li>
+              <li>
+                <Link to="/hatha-yoga-online-classes" style={{ fontSize: '13.5px', color: 'rgba(255, 255, 255, 0.75)', textDecoration: 'none', transition: 'color 0.2s' }}>
+                  Hatha Yoga Online Classes
+                </Link>
+              </li>
+              <li>
+                <Link to="/ashtanga-yoga-online" style={{ fontSize: '13.5px', color: 'rgba(255, 255, 255, 0.75)', textDecoration: 'none', transition: 'color 0.2s' }}>
+                  Ashtanga Yoga Online
+                </Link>
+              </li>
+              <li>
+                <Link to="/online-yoga-classes-for-beginners" style={{ fontSize: '13.5px', color: 'rgba(255, 255, 255, 0.75)', textDecoration: 'none', transition: 'color 0.2s' }}>
+                  Online Yoga for Beginners
+                </Link>
+              </li>
+              <li>
+                <Link to="/live-yoga-classes-online" style={{ fontSize: '13.5px', color: 'rgba(255, 255, 255, 0.75)', textDecoration: 'none', transition: 'color 0.2s' }}>
+                  Live Yoga Classes Online
+                </Link>
+              </li>
+              <li>
+                <Link to="/schedule" style={{ fontSize: '13.5px', color: 'rgba(255, 255, 255, 0.75)', textDecoration: 'none', transition: 'color 0.2s' }}>
+                  Class Schedule & Batches
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Col 3: Programs & Pricing */}
+          {/* Col 3: Tuition & Programs */}
           <div>
-            <h4 style={{ fontSize: '16px', fontWeight: 800, color: '#FFFFFF', marginBottom: '20px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-              Yoga Programs
+            <h4 style={{ fontSize: '15px', fontWeight: 800, color: '#FFFFFF', marginBottom: '18px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+              Tuition & Programs
             </h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
               <div>
-                <a
-                  href="#schedule"
-                  onClick={(e) => handleNavClick(e, '#schedule')}
-                  style={{ fontSize: '14px', fontWeight: 700, color: '#FFFFFF', display: 'block' }}
-                >
-                  Traditional Hatha Yoga
-                </a>
-                <span style={{ fontSize: '12.5px', color: 'var(--primary-light)' }}>6:30, 7:45, 9:00 AM EST</span>
-              </div>
-
-              <div>
-                <a
-                  href="#schedule"
-                  onClick={(e) => handleNavClick(e, '#schedule')}
-                  style={{ fontSize: '14px', fontWeight: 700, color: '#FFFFFF', display: 'block' }}
-                >
-                  Ashtanga Vinyasa Primary
-                </a>
-                <span style={{ fontSize: '12.5px', color: '#FDE68A' }}>7:30, 8:45, 10:00 PM EST</span>
-              </div>
-
-              <div>
-                <a
-                  href="#pricing"
-                  onClick={(e) => handleNavClick(e, '#pricing')}
-                  style={{ fontSize: '14px', fontWeight: 700, color: '#FFFFFF', display: 'block' }}
-                >
+                <Link to="/pricing" style={{ fontSize: '13.5px', fontWeight: 700, color: '#FFFFFF', textDecoration: 'none' }}>
                   Monthly Yoga Package
-                </a>
-                <span style={{ fontSize: '12.5px', color: '#FDE68A' }}>$50 / Month (12 Classes • Mon, Wed, Fri)</span>
+                </Link>
+                <span style={{ fontSize: '12px', color: '#FDE68A', display: 'block' }}>$50 / Month (12 Classes • M/W/F)</span>
               </div>
 
               <div>
-                <a
-                  href="#pricing"
-                  onClick={(e) => handleNavClick(e, '#pricing')}
-                  style={{ fontSize: '14px', fontWeight: 700, color: '#FFFFFF', display: 'block' }}
+                <Link to="/pricing" style={{ fontSize: '13.5px', fontWeight: 700, color: '#FFFFFF', textDecoration: 'none' }}>
+                  Daily Yoga Class Pass
+                </Link>
+                <span style={{ fontSize: '12px', color: 'rgba(255, 255, 255, 0.75)', display: 'block' }}>$5 / Single Class Drop-in</span>
+              </div>
+
+              <div>
+                <Link to="/free-yoga-demo" style={{ fontSize: '13.5px', fontWeight: 700, color: 'var(--primary-light)', textDecoration: 'none' }}>
+                  Book Free Demo Class ($0)
+                </Link>
+                <span style={{ fontSize: '12px', color: 'rgba(255, 255, 255, 0.75)', display: 'block' }}>60-Min Live Zoom Experience</span>
+              </div>
+
+              <div style={{ paddingTop: '6px' }}>
+                <button
+                  onClick={onOpenStudentPortal}
+                  style={{ fontSize: '13px', color: 'rgba(255, 255, 255, 0.75)', background: 'none', border: 'none', padding: 0, cursor: 'pointer', textAlign: 'left' }}
                 >
-                  Daily Yoga Class
-                </a>
-                <span style={{ fontSize: '12.5px', color: 'rgba(255, 255, 255, 0.72)' }}>$5 / Single Class</span>
+                  Student Portal & Zoom Meeting →
+                </button>
+              </div>
+
+              <div>
+                <button
+                  onClick={onOpenAdminScheduler}
+                  style={{ fontSize: '12px', color: 'rgba(255, 255, 255, 0.5)', background: 'none', border: 'none', padding: 0, cursor: 'pointer', textAlign: 'left' }}
+                >
+                  Admin Class Scheduler →
+                </button>
               </div>
             </div>
           </div>
 
-          {/* Col 4: Contact Information */}
+          {/* Col 4: Guides & Company */}
           <div>
-            <h4 style={{ fontSize: '16px', fontWeight: 800, color: '#FFFFFF', marginBottom: '20px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-              Contact Information
+            <h4 style={{ fontSize: '15px', fontWeight: 800, color: '#FFFFFF', marginBottom: '18px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+              Guides & Contact
             </h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', fontSize: '14px', color: 'rgba(255, 255, 255, 0.75)' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <Phone size={16} style={{ color: '#FDE68A', flexShrink: 0 }} />
-                <a href={`tel:${BRAND.phone}`} style={{ color: '#FFFFFF', fontWeight: 600 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '13.5px', color: 'rgba(255, 255, 255, 0.75)' }}>
+              <div>
+                <Link to="/about" style={{ color: 'rgba(255, 255, 255, 0.75)', textDecoration: 'none' }}>
+                  About Rohit (500-HR Certified)
+                </Link>
+              </div>
+              <div>
+                <Link to="/blog" style={{ color: 'rgba(255, 255, 255, 0.75)', textDecoration: 'none' }}>
+                  Yoga Blog & Tutorials (10 Guides)
+                </Link>
+              </div>
+              <div>
+                <Link to="/faq" style={{ color: 'rgba(255, 255, 255, 0.75)', textDecoration: 'none' }}>
+                  Frequently Asked Questions
+                </Link>
+              </div>
+              <div>
+                <Link to="/contact" style={{ color: 'rgba(255, 255, 255, 0.75)', textDecoration: 'none' }}>
+                  Contact Yoga With Rohit
+                </Link>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '6px' }}>
+                <Phone size={14} style={{ color: '#FDE68A', flexShrink: 0 }} />
+                <a href={`tel:${BRAND.phone}`} style={{ color: '#FFFFFF', fontWeight: 600, textDecoration: 'none' }}>
                   {BRAND.phone}
                 </a>
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <MessageCircle size={16} style={{ color: '#25D366', flexShrink: 0 }} />
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <MessageCircle size={14} style={{ color: '#25D366', flexShrink: 0 }} />
                 <a
                   href={BRAND.whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ color: '#FFFFFF', fontWeight: 600 }}
+                  style={{ color: '#FFFFFF', fontWeight: 600, textDecoration: 'none' }}
                 >
-                  WhatsApp: +91 8077570122
+                  WhatsApp Support
                 </a>
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <InstagramIcon size={16} style={{ color: '#E1306C', flexShrink: 0 }} />
-                <a
-                  href={BRAND.instagramLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ color: '#FFFFFF', fontWeight: 600 }}
-                >
-                  @panchrohit1943
-                </a>
-              </div>
-
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <Globe size={16} style={{ color: '#FDE68A', flexShrink: 0 }} />
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <Globe size={14} style={{ color: '#FDE68A', flexShrink: 0 }} />
                 <span>Rishikesh, Uttarakhand, India</span>
               </div>
             </div>

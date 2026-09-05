@@ -1,12 +1,202 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- 1. Homepage -->
   <url>
     <loc>https://www.yogawithrohit.com/</loc>
-    <lastmod>2026-09-04</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.yogawithrohit.com/images/rohit-splits-ganges.jpg</image:loc>
+      <image:title>Rohit - Lead Online Yoga Teacher from Rishikesh</image:title>
+      <image:caption>Authentic Online Yoga Classes guided directly by Rohit from Rishikesh, India</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.yogawithrohit.com/images/rohit-arm-balance-ashram.jpg</image:loc>
+      <image:title>Rohit Kumar Yoga Posture - Arm Balance</image:title>
+      <image:caption>500-Hour Yoga Alliance Certified Master Teacher from Rishikesh</image:caption>
+    </image:image>
   </url>
+
+  <!-- 2. Primary Keyword Pillar Page: Online Yoga Classes -->
+  <url>
+    <loc>https://www.yogawithrohit.com/online-yoga-classes</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 3. Online Yoga Classes for Beginners -->
+  <url>
+    <loc>https://www.yogawithrohit.com/online-yoga-classes-for-beginners</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 4. Hatha Yoga Online Classes -->
+  <url>
+    <loc>https://www.yogawithrohit.com/hatha-yoga-online-classes</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 5. Ashtanga Yoga Online -->
+  <url>
+    <loc>https://www.yogawithrohit.com/ashtanga-yoga-online</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 6. Live Yoga Classes Online -->
+  <url>
+    <loc>https://www.yogawithrohit.com/live-yoga-classes-online</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 7. Schedule Page -->
+  <url>
+    <loc>https://www.yogawithrohit.com/schedule</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 8. Pricing Page -->
+  <url>
+    <loc>https://www.yogawithrohit.com/pricing</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 9. Free Yoga Demo Page -->
+  <url>
+    <loc>https://www.yogawithrohit.com/free-yoga-demo</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 10. About Page -->
+  <url>
+    <loc>https://www.yogawithrohit.com/about</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 11. Contact Page -->
+  <url>
+    <loc>https://www.yogawithrohit.com/contact</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 12. FAQ Page -->
+  <url>
+    <loc>https://www.yogawithrohit.com/faq</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 13. Blog Hub -->
+  <url>
+    <loc>https://www.yogawithrohit.com/blog</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 14. Blog Post 1 -->
+  <url>
+    <loc>https://www.yogawithrohit.com/blog/online-yoga-classes-for-beginners-complete-guide</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 15. Blog Post 2 -->
+  <url>
+    <loc>https://www.yogawithrohit.com/blog/hatha-yoga-vs-ashtanga-yoga-differences-benefits</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 16. Blog Post 3 -->
+  <url>
+    <loc>https://www.yogawithrohit.com/blog/live-vs-recorded-yoga-classes-why-real-time-feedback-matters</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 17. Blog Post 4 -->
+  <url>
+    <loc>https://www.yogawithrohit.com/blog/home-yoga-space-setup-camera-lighting-props</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 18. Blog Post 5 -->
+  <url>
+    <loc>https://www.yogawithrohit.com/blog/yoga-for-back-pain-posture-spine-health</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 19. Blog Post 6 -->
+  <url>
+    <loc>https://www.yogawithrohit.com/blog/pranayama-breathwork-stress-relief-nervous-system</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 20. Blog Post 7 -->
+  <url>
+    <loc>https://www.yogawithrohit.com/blog/ashtanga-vinyasa-primary-series-breakdown</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 21. Blog Post 8 -->
+  <url>
+    <loc>https://www.yogawithrohit.com/blog/building-consistent-morning-yoga-routine</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 22. Blog Post 9 -->
+  <url>
+    <loc>https://www.yogawithrohit.com/blog/how-online-yoga-adjustments-work-safely</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 23. Blog Post 10 -->
+  <url>
+    <loc>https://www.yogawithrohit.com/blog/yoga-for-flexibility-hamstrings-hips-shoulders</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
