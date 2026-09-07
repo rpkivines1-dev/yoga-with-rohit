@@ -332,210 +332,23 @@ export default function Hero({ onOpenBooking }) {
             </div>
           </div>
 
-          {/* Right Hero Column: Arched Picture Frame Composition */}
+          {/* Right Hero Column: Pure Meditating Teacher Rohit Image (No Borders, No Badges, Pure Cutout) */}
           <div
+            className="hero-image-column"
             style={{
               position: 'relative',
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
+              width: '100%',
             }}
           >
-            {/* Background Decorative Offset Arch */}
-            <div
-              style={{
-                position: 'absolute',
-                top: '-12px',
-                right: '12px',
-                width: '88%',
-                height: '100%',
-                borderRadius: '240px 240px 24px 24px',
-                backgroundColor: 'var(--primary-100)',
-                zIndex: 0,
-                transform: 'rotate(2.5deg)',
-              }}
+            <img
+              src="/images/rohit-meditation-hero.png"
+              srcSet="/images/rohit-meditation-hero.png 1x, /images/rohit-meditation-transparent.png 2x"
+              alt="Rohit Kumar - Lead Yoga Teacher from Rishikesh in Meditative Sukhasana"
+              className="hero-meditation-pure-img"
             />
-
-            {/* Main Arch Frame */}
-            <div
-              className="nicepage-arch hero-arch-frame"
-              style={{
-                maxWidth: '420px',
-                width: '100%',
-                zIndex: 1,
-                background: 'radial-gradient(ellipse at 50% 38%, #FFFDF7 0%, #FEF3C7 55%, #F5EBE1 100%)',
-                overflow: 'hidden',
-                position: 'relative',
-              }}
-            >
-              {/* Animated Luminous Solar Aura Pulse Glow */}
-              <div className="hero-meditation-aura-glow" />
-
-              {/* Meditating Rohit High-Resolution Transparent PNG with Pranayama Breathing Animation */}
-              <img
-                src="/images/rohit-meditation-transparent.png"
-                alt="Rohit Kumar - Online Yoga Teacher from Rishikesh in meditation posture with golden aura"
-                className="hero-main-img hero-meditation-animate"
-                style={{
-                  width: '100%',
-                  height: '510px',
-                  objectFit: 'contain',
-                  objectPosition: 'center 45%',
-                  position: 'relative',
-                  zIndex: 1,
-                }}
-              />
-
-              {/* Bottom Image Label */}
-              <div
-                className="hero-img-label"
-                style={{
-                  position: 'absolute',
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  padding: '22px 20px',
-                  background: 'linear-gradient(to top, rgba(35, 22, 13, 0.94) 0%, rgba(35, 22, 13, 0.35) 65%, transparent 100%)',
-                  color: '#FFFFFF',
-                  textAlign: 'left',
-                  zIndex: 2,
-                }}
-              >
-                <span style={{ fontSize: '11px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#FDE68A' }}>
-                  Authentic Teacher from Rishikesh
-                </span>
-                <h3 style={{ fontSize: '19px', fontWeight: 800, color: '#FFFFFF', margin: '2px 0 0' }}>
-                  Rohit Kumar
-                </h3>
-              </div>
-            </div>
-
-            {/* Floating Badge 1: Live Interactive Batch */}
-            <div
-              className="animate-float hero-floating-badge-1"
-              style={{
-                position: 'absolute',
-                top: '30px',
-                left: '-15px',
-                backgroundColor: 'rgba(255, 255, 255, 0.96)',
-                backdropFilter: 'blur(12px)',
-                padding: '12px 18px',
-                borderRadius: '18px',
-                boxShadow: 'var(--shadow-lg)',
-                border: '1.5px solid rgba(194, 94, 26, 0.2)',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '12px',
-                zIndex: 10,
-              }}
-            >
-              <div
-                style={{
-                  width: '38px',
-                  height: '38px',
-                  borderRadius: '10px',
-                  background: 'linear-gradient(135deg, #C25E1A, #A74A0E)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#FFFFFF',
-                  flexShrink: 0,
-                }}
-              >
-                <Video size={18} />
-              </div>
-              <div style={{ textAlign: 'left' }}>
-                <div style={{ fontSize: '13px', fontWeight: 800, color: 'var(--primary-dark)' }}>
-                  Live Online Yoga Class
-                </div>
-                <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
-                  6 Daily Batches (Morning & Evening)
-                </div>
-              </div>
-            </div>
-
-            {/* Floating Badge 2: Sunday Free Available */}
-            <div
-              className="animate-float-delayed hero-floating-badge-2"
-              style={{
-                position: 'absolute',
-                bottom: '25px',
-                right: '-15px',
-                backgroundColor: 'rgba(255, 255, 255, 0.96)',
-                backdropFilter: 'blur(12px)',
-                padding: '12px 18px',
-                borderRadius: '18px',
-                boxShadow: 'var(--shadow-lg)',
-                border: '1.5px solid rgba(217, 119, 6, 0.3)',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '12px',
-                zIndex: 10,
-              }}
-            >
-              <div
-                style={{
-                  width: '38px',
-                  height: '38px',
-                  borderRadius: '10px',
-                  background: 'linear-gradient(135deg, #D97706, #B45309)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#FFFFFF',
-                  flexShrink: 0,
-                }}
-              >
-                <Sun size={18} />
-              </div>
-              <div style={{ textAlign: 'left' }}>
-                <div style={{ fontSize: '13.5px', fontWeight: 800, color: 'var(--text-main)' }}>
-                  Sunday Free Class ($0)
-                </div>
-                <div style={{ fontSize: '11px', color: 'var(--primary)', fontWeight: 700 }}>
-                  Open to Everyone Worldwide
-                </div>
-              </div>
-            </div>
-
-            {/* Floating Badge 3: 1-on-1 Camera Correction Promise */}
-            <div
-              className="glass-badge"
-              style={{
-                position: 'absolute',
-                top: '52%',
-                right: '-24px',
-                padding: '10px 16px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '10px',
-                zIndex: 11,
-              }}
-            >
-              <div
-                style={{
-                  width: '32px',
-                  height: '32px',
-                  borderRadius: '50%',
-                  backgroundColor: '#DCFCE7',
-                  color: '#15803D',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0,
-                }}
-              >
-                <ShieldCheck size={18} />
-              </div>
-              <div style={{ textAlign: 'left' }}>
-                <div style={{ fontSize: '12px', fontWeight: 800, color: 'var(--text-main)' }}>
-                  1-on-1 Camera Correction
-                </div>
-                <div style={{ fontSize: '10.5px', color: '#16A34A', fontWeight: 700 }}>
-                  Real-time Zoom posture tips
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -725,48 +538,32 @@ export default function Hero({ onOpenBooking }) {
       )}
 
       <style>{`
-        @keyframes meditationFloat {
+        @keyframes meditationPureFloat {
           0%, 100% {
             transform: translateY(0px) scale(1);
-            filter: drop-shadow(0 10px 24px rgba(217, 119, 6, 0.22));
+            filter: drop-shadow(0 14px 28px rgba(194, 94, 26, 0.16));
           }
           50% {
-            transform: translateY(-9px) scale(1.02);
-            filter: drop-shadow(0 20px 38px rgba(245, 158, 11, 0.42));
+            transform: translateY(-12px) scale(1.02);
+            filter: drop-shadow(0 24px 44px rgba(194, 94, 26, 0.28));
           }
         }
-        .hero-meditation-animate {
-          animation: meditationFloat 6s ease-in-out infinite;
+        .hero-meditation-pure-img {
+          width: 100%;
+          max-width: 520px;
+          height: auto;
+          object-fit: contain;
+          display: block;
+          margin: 0 auto;
+          animation: meditationPureFloat 6s ease-in-out infinite;
           transform-origin: center bottom;
           will-change: transform, filter;
-          transition: transform 0.3s ease;
+          transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+          user-select: none;
         }
-        .hero-arch-frame:hover .hero-meditation-animate {
-          filter: drop-shadow(0 24px 44px rgba(245, 158, 11, 0.52));
-        }
-        @keyframes auraPulse {
-          0%, 100% {
-            transform: translate(-50%, -50%) scale(0.92);
-            opacity: 0.65;
-          }
-          50% {
-            transform: translate(-50%, -50%) scale(1.12);
-            opacity: 0.95;
-          }
-        }
-        .hero-meditation-aura-glow {
-          position: absolute;
-          top: 36%;
-          left: 50%;
-          width: 280px;
-          height: 280px;
-          border-radius: 50%;
-          background: radial-gradient(circle, rgba(251, 191, 36, 0.55) 0%, rgba(245, 158, 11, 0.28) 50%, rgba(217, 119, 6, 0) 75%);
-          transform: translate(-50%, -50%);
-          pointer-events: none;
-          z-index: 0;
-          animation: auraPulse 4.5s ease-in-out infinite;
-          filter: blur(14px);
+        .hero-meditation-pure-img:hover {
+          transform: translateY(-16px) scale(1.035);
+          filter: drop-shadow(0 30px 52px rgba(194, 94, 26, 0.36));
         }
 
         .hero-stat-box:hover {
@@ -791,9 +588,12 @@ export default function Hero({ onOpenBooking }) {
           .hero-grid > div:first-child > div {
             justify-content: center !important;
           }
-          .hero-image-wrapper {
+          .hero-image-column {
             margin: 0 auto !important;
             width: 100% !important;
+            max-width: 460px !important;
+          }
+          .hero-meditation-pure-img {
             max-width: 440px !important;
           }
           .hero-stats-grid {
@@ -801,88 +601,22 @@ export default function Hero({ onOpenBooking }) {
           }
         }
         @media (max-width: 540px) {
-          .hero-image-wrapper {
-            max-width: 330px !important;
+          .hero-image-column {
+            max-width: 350px !important;
           }
-          .hero-arch-frame {
-            max-width: 320px !important;
-            border-width: 5px !important;
-          }
-          .hero-main-img {
-            height: 420px !important;
-          }
-          .hero-floating-badge-1 {
-            top: 15px !important;
-            left: -8px !important;
-            padding: 8px 12px !important;
-            border-radius: 14px !important;
-            gap: 8px !important;
-          }
-          .hero-floating-badge-1 svg {
-            width: 15px !important;
-            height: 15px !important;
-          }
-          .hero-floating-badge-1 > div:first-child {
-            width: 30px !important;
-            height: 30px !important;
-          }
-          .hero-floating-badge-1 > div:last-child > div:first-child {
-            font-size: 11px !important;
-          }
-          .hero-floating-badge-1 > div:last-child > div:last-child {
-            font-size: 9.5px !important;
-          }
-          .hero-floating-badge-2 {
-            bottom: 18px !important;
-            right: -8px !important;
-            padding: 8px 12px !important;
-            border-radius: 14px !important;
-            gap: 8px !important;
-          }
-          .hero-floating-badge-2 svg {
-            width: 15px !important;
-            height: 15px !important;
-          }
-          .hero-floating-badge-2 > div:first-child {
-            width: 30px !important;
-            height: 30px !important;
-          }
-          .hero-floating-badge-2 > div:last-child > div:first-child {
-            font-size: 11px !important;
-          }
-          .hero-floating-badge-2 > div:last-child > div:last-child {
-            font-size: 9.5px !important;
-          }
-          .hero-img-label {
-            padding: 16px 14px !important;
-          }
-          .hero-img-label h3 {
-            font-size: 17px !important;
-          }
-          .hero-img-label span {
-            font-size: 10px !important;
+          .hero-meditation-pure-img {
+            max-width: 340px !important;
           }
           .hero-stats-grid {
             grid-template-columns: 1fr !important;
           }
         }
         @media (max-width: 380px) {
-          .hero-image-wrapper {
+          .hero-image-column {
             max-width: 290px !important;
           }
-          .hero-arch-frame {
+          .hero-meditation-pure-img {
             max-width: 280px !important;
-          }
-          .hero-main-img {
-            height: 370px !important;
-          }
-          .hero-floating-badge-1 {
-            left: 0px !important;
-            top: 10px !important;
-          }
-          .hero-floating-badge-2 {
-            right: 0px !important;
-            bottom: 12px !important;
           }
         }
       `}</style>
