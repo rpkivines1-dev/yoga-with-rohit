@@ -344,8 +344,8 @@ export default function Hero({ onOpenBooking }) {
             }}
           >
             <img
-              src="/images/rohit-meditation-hero.png"
-              srcSet="/images/rohit-meditation-hero.png 1x, /images/rohit-meditation-transparent.png 2x"
+              src="/images/rohit-meditation-pure.png"
+              srcSet="/images/rohit-meditation-pure.png 1x, /images/rohit-meditation-pure-2x.png 2x"
               alt="Rohit Kumar - Lead Yoga Teacher from Rishikesh in Meditative Sukhasana"
               className="hero-meditation-pure-img"
             />

@@ -25,122 +25,23 @@ export default function About({ onOpenBooking }) {
           }}
           className="about-grid"
         >
-          {/* Left Column: Nicepage Overlapping Image Composition */}
-          <div style={{ position: 'relative' }}>
-            {/* Main Arch Frame */}
-            <div
-              className="nicepage-arch"
-              style={{
-                maxWidth: '460px',
-                width: '100%',
-                margin: '0 auto',
-              }}
-            >
-              <img
-                src="/images/rohit-meditation-namaste.jpg"
-                alt="Rohit - Certified Online Yoga Teacher from Rishikesh in Pranamasana Meditation by Holy Ganges River"
-                style={{
-                  width: '100%',
-                  height: '540px',
-                  objectFit: 'cover',
-                  objectPosition: 'center 20%',
-                }}
-              />
-
-              {/* Bottom Image Caption */}
-              <div
-                style={{
-                  position: 'absolute',
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  padding: '24px 20px',
-                  background: 'linear-gradient(to top, rgba(35, 22, 13, 0.95) 0%, rgba(35, 22, 13, 0.3) 60%, transparent 100%)',
-                  color: '#FFFFFF',
-                  textAlign: 'left',
-                }}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '4px' }}>
-                  <span style={{ fontSize: '11px', fontWeight: 800, color: '#FDE68A', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-                    Authentic Teacher from Rishikesh
-                  </span>
-                  <div style={{ display: 'flex', color: '#F59E0B' }}>
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={12} fill="#F59E0B" />
-                    ))}
-                  </div>
-                </div>
-                <h3 style={{ fontSize: '19px', fontWeight: 800, color: '#FFFFFF', margin: 0 }}>
-                  Rohit • Lead Online Yoga Teacher
-                </h3>
-              </div>
-            </div>
-
-            {/* Nicepage Overlapping Circular Card: Waterfall Meditation */}
-            <div
-              className="animate-float"
-              style={{
-                position: 'absolute',
-                top: '-15px',
-                right: '-15px',
-                width: '150px',
-                height: '150px',
-                borderRadius: '28px',
-                overflow: 'hidden',
-                border: '5px solid #FFFFFF',
-                boxShadow: 'var(--shadow-lg)',
-                backgroundColor: '#FFF',
-                zIndex: 2,
-              }}
-            >
-              <img
-                src="/images/rohit-waterfall-meditation.jpg"
-                alt="Sacred Waterfall Stream Meditation by Rohit in Rishikesh"
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-              />
-            </div>
-
-            {/* Floating Trophy Badge */}
-            <div
-              className="animate-float-delayed"
-              style={{
-                position: 'absolute',
-                bottom: '30px',
-                left: '-15px',
-                backgroundColor: '#FFFFFF',
-                borderRadius: '18px',
-                padding: '12px 18px',
-                boxShadow: 'var(--shadow-lg)',
-                border: '1.5px solid rgba(194, 94, 26, 0.2)',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '10px',
-                zIndex: 2,
-              }}
-            >
-              <div
-                style={{
-                  width: '36px',
-                  height: '36px',
-                  borderRadius: '10px',
-                  backgroundColor: 'var(--primary-50)',
-                  color: 'var(--primary)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                <Trophy size={20} />
-              </div>
-              <div style={{ textAlign: 'left' }}>
-                <div style={{ fontSize: '13px', fontWeight: 800, color: 'var(--primary-dark)' }}>
-                  Award of Honor
-                </div>
-                <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
-                  Garhwal Cup Yoga 2025
-                </div>
-              </div>
-            </div>
+          {/* Left Column: Pure Meditating Teacher Rohit in Namaste (No Borders, No Badges, Pure Cutout) */}
+          <div
+            className="about-image-column"
+            style={{
+              position: 'relative',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: '100%',
+            }}
+          >
+            <img
+              src="/images/rohit-namaste-pure.png"
+              srcSet="/images/rohit-namaste-pure.png 1x, /images/rohit-namaste-pure-2x.png 2x"
+              alt="Rohit Kumar - Online Yoga Teacher from Rishikesh in Pranamasana Namaste Meditation"
+              className="about-meditation-pure-img"
+            />
           </div>
 
           {/* Right Column: Bio Content & Nicepage Pillars */}
@@ -330,10 +231,45 @@ export default function About({ onOpenBooking }) {
       )}
 
       <style>{`
+        @keyframes namastePureFloat {
+          0%, 100% {
+            transform: translateY(0px) scale(1);
+            filter: drop-shadow(0 14px 28px rgba(194, 94, 26, 0.15));
+          }
+          50% {
+            transform: translateY(-12px) scale(1.02);
+            filter: drop-shadow(0 24px 44px rgba(194, 94, 26, 0.26));
+          }
+        }
+        .about-meditation-pure-img {
+          width: 100%;
+          max-width: 450px;
+          height: auto;
+          object-fit: contain;
+          display: block;
+          margin: 0 auto;
+          animation: namastePureFloat 6.5s ease-in-out infinite;
+          transform-origin: center bottom;
+          will-change: transform, filter;
+          transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+          user-select: none;
+        }
+        .about-meditation-pure-img:hover {
+          transform: translateY(-16px) scale(1.035);
+          filter: drop-shadow(0 32px 54px rgba(194, 94, 26, 0.35));
+        }
+
         @media (max-width: 920px) {
           .about-grid {
             grid-template-columns: 1fr !important;
             gap: 40px !important;
+          }
+          .about-image-column {
+            margin: 0 auto !important;
+            max-width: 420px !important;
+          }
+          .about-meditation-pure-img {
+            max-width: 380px !important;
           }
         }
         @media (max-width: 768px) {
@@ -354,6 +290,22 @@ export default function About({ onOpenBooking }) {
             margin: 0 auto !important;
             display: inline-flex !important;
             align-items: center !important;
+          }
+        }
+        @media (max-width: 540px) {
+          .about-image-column {
+            max-width: 330px !important;
+          }
+          .about-meditation-pure-img {
+            max-width: 310px !important;
+          }
+        }
+        @media (max-width: 380px) {
+          .about-image-column {
+            max-width: 280px !important;
+          }
+          .about-meditation-pure-img {
+            max-width: 260px !important;
           }
         }
       `}</style>
