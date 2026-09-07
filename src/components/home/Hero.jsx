@@ -363,17 +363,26 @@ export default function Hero({ onOpenBooking }) {
                 maxWidth: '420px',
                 width: '100%',
                 zIndex: 1,
+                background: 'radial-gradient(ellipse at 50% 38%, #FFFDF7 0%, #FEF3C7 55%, #F5EBE1 100%)',
+                overflow: 'hidden',
+                position: 'relative',
               }}
             >
+              {/* Animated Luminous Solar Aura Pulse Glow */}
+              <div className="hero-meditation-aura-glow" />
+
+              {/* Meditating Rohit High-Resolution Transparent PNG with Pranayama Breathing Animation */}
               <img
-                src="/images/rohit-arm-balance-ashram.jpg"
-                alt="Rohit Kumar - Online Yoga Teacher from Rishikesh performing advanced arm balance asana"
-                className="hero-main-img"
+                src="/images/rohit-meditation-transparent.png"
+                alt="Rohit Kumar - Online Yoga Teacher from Rishikesh in meditation posture with golden aura"
+                className="hero-main-img hero-meditation-animate"
                 style={{
                   width: '100%',
                   height: '510px',
-                  objectFit: 'cover',
+                  objectFit: 'contain',
                   objectPosition: 'center 45%',
+                  position: 'relative',
+                  zIndex: 1,
                 }}
               />
 
@@ -386,9 +395,10 @@ export default function Hero({ onOpenBooking }) {
                   left: 0,
                   right: 0,
                   padding: '22px 20px',
-                  background: 'linear-gradient(to top, rgba(35, 22, 13, 0.92) 0%, rgba(35, 22, 13, 0.2) 60%, transparent 100%)',
+                  background: 'linear-gradient(to top, rgba(35, 22, 13, 0.94) 0%, rgba(35, 22, 13, 0.35) 65%, transparent 100%)',
                   color: '#FFFFFF',
                   textAlign: 'left',
+                  zIndex: 2,
                 }}
               >
                 <span style={{ fontSize: '11px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#FDE68A' }}>
@@ -715,6 +725,50 @@ export default function Hero({ onOpenBooking }) {
       )}
 
       <style>{`
+        @keyframes meditationFloat {
+          0%, 100% {
+            transform: translateY(0px) scale(1);
+            filter: drop-shadow(0 10px 24px rgba(217, 119, 6, 0.22));
+          }
+          50% {
+            transform: translateY(-9px) scale(1.02);
+            filter: drop-shadow(0 20px 38px rgba(245, 158, 11, 0.42));
+          }
+        }
+        .hero-meditation-animate {
+          animation: meditationFloat 6s ease-in-out infinite;
+          transform-origin: center bottom;
+          will-change: transform, filter;
+          transition: transform 0.3s ease;
+        }
+        .hero-arch-frame:hover .hero-meditation-animate {
+          filter: drop-shadow(0 24px 44px rgba(245, 158, 11, 0.52));
+        }
+        @keyframes auraPulse {
+          0%, 100% {
+            transform: translate(-50%, -50%) scale(0.92);
+            opacity: 0.65;
+          }
+          50% {
+            transform: translate(-50%, -50%) scale(1.12);
+            opacity: 0.95;
+          }
+        }
+        .hero-meditation-aura-glow {
+          position: absolute;
+          top: 36%;
+          left: 50%;
+          width: 280px;
+          height: 280px;
+          border-radius: 50%;
+          background: radial-gradient(circle, rgba(251, 191, 36, 0.55) 0%, rgba(245, 158, 11, 0.28) 50%, rgba(217, 119, 6, 0) 75%);
+          transform: translate(-50%, -50%);
+          pointer-events: none;
+          z-index: 0;
+          animation: auraPulse 4.5s ease-in-out infinite;
+          filter: blur(14px);
+        }
+
         .hero-stat-box:hover {
           transform: translateY(-4px);
           box-shadow: var(--shadow-md);
