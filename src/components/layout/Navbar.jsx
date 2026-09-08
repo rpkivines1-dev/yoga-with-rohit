@@ -116,10 +116,11 @@ export default function Navbar({ onOpenBooking, onOpenStudentPortal, onOpenAdmin
         <div
           className="container-custom"
           style={{
+            maxWidth: '1280px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            gap: '12px',
+            gap: 'clamp(8px, 1.2vw, 16px)',
           }}
         >
           {/* Brand Logo & Title */}
@@ -193,7 +194,8 @@ export default function Navbar({ onOpenBooking, onOpenStudentPortal, onOpenAdmin
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: '14px',
+              gap: 'clamp(6px, 1vw, 13px)',
+              flexShrink: 1,
             }}
             className="desktop-nav"
           >
@@ -205,16 +207,17 @@ export default function Navbar({ onOpenBooking, onOpenStudentPortal, onOpenAdmin
                   to={link.path}
                   onClick={(e) => handleNavClick(e, link)}
                   style={{
-                    fontSize: '13.5px',
+                    fontSize: '13px',
                     fontWeight: isActive ? 700 : 500,
                     color: isActive ? 'var(--primary-dark)' : 'var(--text-muted)',
                     transition: 'all 0.2s ease',
                     position: 'relative',
-                    padding: '6px 2px',
-                    display: 'flex',
+                    padding: '8px 5px',
+                    display: 'inline-flex',
                     alignItems: 'center',
-                    gap: '5px',
+                    whiteSpace: 'nowrap',
                     textDecoration: 'none',
+                    lineHeight: 1,
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.color = 'var(--primary)';
@@ -231,8 +234,8 @@ export default function Navbar({ onOpenBooking, onOpenStudentPortal, onOpenAdmin
                       style={{
                         position: 'absolute',
                         bottom: 0,
-                        left: 0,
-                        right: 0,
+                        left: '4px',
+                        right: '4px',
                         height: '2.5px',
                         backgroundColor: 'var(--primary)',
                         borderRadius: '2px',
@@ -255,7 +258,8 @@ export default function Navbar({ onOpenBooking, onOpenStudentPortal, onOpenAdmin
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
-                padding: '7px 12px',
+                height: '36px',
+                padding: '0 13px',
                 fontSize: '12.5px',
                 fontWeight: 800,
                 borderColor: 'var(--primary)',
@@ -263,11 +267,11 @@ export default function Navbar({ onOpenBooking, onOpenStudentPortal, onOpenAdmin
                 backgroundColor: '#FFFFFF',
                 borderRadius: '8px',
                 flexShrink: 0,
+                whiteSpace: 'nowrap',
               }}
             >
-              <Video size={14} style={{ color: 'var(--primary)' }} />
-              <span className="nav-myclasses-text-full">My Classes</span>
-              <span className="nav-myclasses-text-short">Classes</span>
+              <Video size={14} style={{ color: 'var(--primary)', flexShrink: 0 }} />
+              <span className="nav-myclasses-text">My Classes</span>
             </button>
 
             {/* Admin Scheduler Button - Hidden on mobile, visible on desktop */}
@@ -287,12 +291,13 @@ export default function Navbar({ onOpenBooking, onOpenStudentPortal, onOpenAdmin
                 color: 'var(--primary)',
                 cursor: 'pointer',
                 transition: 'all 0.2s ease',
+                flexShrink: 0,
               }}
             >
               <Settings size={16} />
             </button>
 
-            {/* Book Free Demo CTA - Hidden on narrow screens, available in drawer */}
+            {/* Book Free Demo CTA */}
             <button
               onClick={() => onOpenBooking({ plan: 'demo', title: 'Free Demo Yoga Class' })}
               className="nav-demo-btn btn btn-primary btn-sm animate-pulse-glow"
@@ -300,11 +305,14 @@ export default function Navbar({ onOpenBooking, onOpenStudentPortal, onOpenAdmin
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '5px',
-                padding: '7px 14px',
+                height: '36px',
+                padding: '0 14px',
                 fontSize: '12.5px',
                 fontWeight: 800,
                 boxShadow: '0 6px 18px -3px rgba(194, 94, 26, 0.4)',
                 borderRadius: '8px',
+                whiteSpace: 'nowrap',
+                flexShrink: 0,
               }}
             >
               <Sparkles size={14} style={{ color: '#FDE68A' }} />
@@ -317,9 +325,9 @@ export default function Navbar({ onOpenBooking, onOpenStudentPortal, onOpenAdmin
               aria-label="Open Navigation Menu"
               className="mobile-menu-btn"
               style={{
-                width: '40px',
-                height: '40px',
-                borderRadius: '10px',
+                width: '36px',
+                height: '36px',
+                borderRadius: '8px',
                 backgroundColor: 'var(--primary-50)',
                 color: 'var(--primary)',
                 display: 'none',
@@ -328,9 +336,10 @@ export default function Navbar({ onOpenBooking, onOpenStudentPortal, onOpenAdmin
                 border: '1.5px solid rgba(194, 94, 26, 0.25)',
                 cursor: 'pointer',
                 transition: 'all 0.2s ease',
+                flexShrink: 0,
               }}
             >
-              <Menu size={22} />
+              <Menu size={20} />
             </button>
           </div>
         </div>
@@ -582,6 +591,13 @@ export default function Navbar({ onOpenBooking, onOpenStudentPortal, onOpenAdmin
           }
         }
 
+        /* Large Tablet / Small Desktop: hide demo button to keep nav links spacious & aligned */
+        @media (max-width: 1200px) {
+          .nav-demo-btn {
+            display: none !important;
+          }
+        }
+
         /* Tablet breakpoint: hide admin button from top navbar */
         @media (max-width: 900px) {
           .nav-admin-btn {
@@ -589,7 +605,7 @@ export default function Navbar({ onOpenBooking, onOpenStudentPortal, onOpenAdmin
           }
         }
 
-        /* Small Tablet & Large Mobile: hide "Book Free Demo" button from top navbar */
+        /* Small Tablet & Mobile: hide demo button from top navbar */
         @media (max-width: 720px) {
           .nav-demo-btn {
             display: none !important;
@@ -609,42 +625,17 @@ export default function Navbar({ onOpenBooking, onOpenStudentPortal, onOpenAdmin
             height: 34px !important;
           }
           .nav-logo-icon svg {
-            width: 19px !important;
-            height: 19px !important;
-          }
-        .nav-myclasses-text-short {
-          display: none;
-        }
-
-        /* Standard Mobile: compact logo and clean title */
-        @media (max-width: 540px) {
-          .nav-brand-title {
-            font-size: 16px !important;
-          }
-          .nav-brand-subtitle {
-            font-size: 9.5px !important;
-          }
-          .nav-logo-icon {
-            width: 34px !important;
-            height: 34px !important;
-          }
-          .nav-logo-icon svg {
-            width: 19px !important;
-            height: 19px !important;
-          }
-          .nav-myclasses-text-full {
-            display: none !important;
-          }
-          .nav-myclasses-text-short {
-            display: inline !important;
+            width: 18px !important;
+            height: 18px !important;
           }
           .nav-myclasses-btn {
-            padding: 6px 10px !important;
+            padding: 0 10px !important;
             font-size: 12px !important;
+            height: 34px !important;
           }
         }
 
-        /* Very narrow phones (< 380px): compact text */
+        /* Very narrow phones (< 380px): icon-only for My Classes */
         @media (max-width: 380px) {
           .nav-brand-title {
             font-size: 14px !important;
@@ -652,11 +643,11 @@ export default function Navbar({ onOpenBooking, onOpenStudentPortal, onOpenAdmin
           .nav-brand-subtitle {
             display: none !important;
           }
-          .nav-myclasses-text-short, .nav-myclasses-text-full {
+          .nav-myclasses-text {
             display: none !important;
           }
           .nav-myclasses-btn {
-            padding: 6px !important;
+            padding: 0 !important;
             width: 34px !important;
             height: 34px !important;
             justify-content: center !important;
