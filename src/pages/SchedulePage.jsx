@@ -19,7 +19,7 @@ export default function SchedulePage({ onSelectBatch, onOpenBooking }) {
       <SEOHead
         title="Live Online Yoga Class Schedule | Traditional Hatha & Ashtanga | Yoga With Rohit"
         description="View our complete live online yoga class schedule. Morning Traditional Hatha (6:30, 7:45, 9:00 AM EST) and Evening Ashtanga (7:30, 8:45, 10:00 PM EST) on M/W/F."
-        canonicalUrl="https://www.yogawithrohit.com/schedule"
+        canonicalUrl="https://yogawithrohit.com/schedule"
         keywords="Online yoga schedule, live yoga class timings, Hatha yoga schedule, Ashtanga yoga schedule EST, online yoga timetable"
         breadcrumbs={breadcrumbs}
       />

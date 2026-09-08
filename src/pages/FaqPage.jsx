@@ -79,7 +79,7 @@ export default function FaqPage({ onOpenBooking }) {
       <SEOHead
         title="Frequently Asked Questions | Online Yoga Classes | Yoga With Rohit"
         description="Find answers to all frequently asked questions about live online yoga classes, beginner suitability, class schedules, Zoom links, and transparent $5/$50 tuition."
-        canonicalUrl="https://www.yogawithrohit.com/faq"
+        canonicalUrl="https://yogawithrohit.com/faq"
         keywords="Online yoga FAQ, yoga class questions, how online yoga works, yoga cost FAQ, beginner yoga FAQ"
         breadcrumbs={breadcrumbs}
         faqSchema={getFaqSchema(faqs)}

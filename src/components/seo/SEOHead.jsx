@@ -9,15 +9,16 @@ import {
 import { trackPageView } from '../../utils/analytics';
 
 export default function SEOHead({
-  title = 'Online Yoga Classes with Rohit | Yoga With Rohit',
+  title = 'Online Yoga Classes | Live Hatha & Ashtanga | Yoga With Rohit',
   description = 'Join live online yoga classes with Rohit. Practice Traditional Hatha Yoga & Ashtanga Vinyasa Primary Series taught directly from Rishikesh. Free demo available.',
-  canonicalUrl = 'https://www.yogawithrohit.com/',
-  keywords = 'online yoga classes, live online yoga classes, online yoga classes for beginners, Hatha yoga online classes, Ashtanga yoga online',
+  canonicalUrl = 'https://yogawithrohit.com/',
+  keywords = 'online yoga classes, live online yoga classes, online yoga classes for beginners, Hatha yoga online classes, Ashtanga yoga online, free online yoga class',
   ogType = 'website',
-  image = 'https://www.yogawithrohit.com/images/rohit-splits-ganges.jpg',
+  image = 'https://yogawithrohit.com/images/rohit-splits-ganges.jpg',
   breadcrumbs = null,
   schema = null,
   faqSchema = null,
+  noIndex = false,
 }) {
   useEffect(() => {
     // 1. Title
@@ -34,12 +35,17 @@ export default function SEOHead({
       element.setAttribute('content', content);
     };
 
-    // 2. Standard SEO Meta
+    // 2. Standard SEO Meta & Robots Control
     setMetaTag('name', 'description', description);
     if (keywords) {
       setMetaTag('name', 'keywords', keywords);
     }
-    setMetaTag('name', 'robots', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
+    
+    if (noIndex) {
+      setMetaTag('name', 'robots', 'noindex, nofollow');
+    } else {
+      setMetaTag('name', 'robots', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
+    }
 
     // 3. Canonical Link Tag
     let canonicalLink = document.querySelector('link[rel="canonical"]');
@@ -66,50 +72,52 @@ export default function SEOHead({
     setMetaTag('name', 'twitter:url', canonicalUrl);
     setMetaTag('name', 'twitter:image', image);
 
-    // 6. JSON-LD Structured Data Graph
-    const graph = [
-      getWebSiteSchema(),
-      getOrganizationSchema(),
-      getPersonSchema(),
-      ...getCourseSchema(),
-    ];
+    // 6. JSON-LD Structured Data Graph (Only for indexable pages)
+    if (!noIndex) {
+      const graph = [
+        getWebSiteSchema(),
+        getOrganizationSchema(),
+        getPersonSchema(),
+        ...getCourseSchema(),
+      ];
 
-    if (breadcrumbs && breadcrumbs.length > 0) {
-      graph.push(getBreadcrumbSchema(breadcrumbs));
-    }
-
-    if (faqSchema) {
-      graph.push(faqSchema);
-    }
-
-    if (schema) {
-      if (Array.isArray(schema)) {
-        graph.push(...schema);
-      } else {
-        graph.push(schema);
+      if (breadcrumbs && breadcrumbs.length > 0) {
+        graph.push(getBreadcrumbSchema(breadcrumbs));
       }
-    }
 
-    const structuredData = {
-      '@context': 'https://schema.org',
-      '@graph': graph,
-    };
+      if (faqSchema) {
+        graph.push(faqSchema);
+      }
 
-    let scriptTag = document.getElementById('dynamic-seo-schema');
-    if (!scriptTag) {
-      scriptTag = document.createElement('script');
-      scriptTag.id = 'dynamic-seo-schema';
-      scriptTag.type = 'application/ld+json';
-      document.head.appendChild(scriptTag);
+      if (schema) {
+        if (Array.isArray(schema)) {
+          graph.push(...schema);
+        } else {
+          graph.push(schema);
+        }
+      }
+
+      const structuredData = {
+        '@context': 'https://schema.org',
+        '@graph': graph,
+      };
+
+      let scriptTag = document.getElementById('dynamic-seo-schema');
+      if (!scriptTag) {
+        scriptTag = document.createElement('script');
+        scriptTag.id = 'dynamic-seo-schema';
+        scriptTag.type = 'application/ld+json';
+        document.head.appendChild(scriptTag);
+      }
+      scriptTag.textContent = JSON.stringify(structuredData, null, 2);
     }
-    scriptTag.textContent = JSON.stringify(structuredData, null, 2);
 
     // 7. Analytics Page View Hook
     trackPageView(canonicalUrl, title);
 
     // Scroll to top smoothly on route change
     window.scrollTo({ top: 0, behavior: 'instant' });
-  }, [title, description, canonicalUrl, keywords, ogType, image, breadcrumbs, schema, faqSchema]);
+  }, [title, description, canonicalUrl, keywords, ogType, image, breadcrumbs, schema, faqSchema, noIndex]);
 
   return null;
 }

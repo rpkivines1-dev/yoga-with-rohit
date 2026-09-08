@@ -19,7 +19,7 @@ export default function AboutPage({ onOpenBooking }) {
       <SEOHead
         title="About Rohit | Master Online Yoga Teacher from Rishikesh | Yoga With Rohit"
         description="Learn about Rohit, a 500-Hour Yoga Alliance Certified Master Yoga Teacher from Rishikesh, India. Discover his traditional lineage, teaching philosophy, and live online classes."
-        canonicalUrl="https://www.yogawithrohit.com/about"
+        canonicalUrl="https://yogawithrohit.com/about"
         keywords="About Rohit yoga teacher, Rishikesh yoga master, 500 hour yoga teacher, online yoga instructor India, Yoga With Rohit background"
         breadcrumbs={breadcrumbs}
       />

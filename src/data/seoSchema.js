@@ -1,14 +1,15 @@
 // ==========================================================================
 // STRUCTURED DATA (JSON-LD) GENERATORS — YOGA WITH ROHIT
 // Strictly compliant with schema.org & Google Search Central Guidelines
+// Preferred Canonical Domain: https://yogawithrohit.com
 // ==========================================================================
 
 export const getOrganizationSchema = () => ({
   '@type': 'Organization',
-  '@id': 'https://www.yogawithrohit.com/#organization',
+  '@id': 'https://yogawithrohit.com/#organization',
   name: 'Yoga With Rohit',
-  url: 'https://www.yogawithrohit.com/',
-  logo: 'https://www.yogawithrohit.com/images/rohit-splits-ganges.jpg',
+  url: 'https://yogawithrohit.com/',
+  logo: 'https://yogawithrohit.com/images/rohit-splits-ganges.jpg',
   telephone: '+91-8077570122',
   sameAs: [
     'https://www.instagram.com/panchrohit1943/'
@@ -23,11 +24,11 @@ export const getOrganizationSchema = () => ({
 
 export const getPersonSchema = () => ({
   '@type': 'Person',
-  '@id': 'https://www.yogawithrohit.com/#teacher-rohit',
+  '@id': 'https://yogawithrohit.com/#teacher-rohit',
   name: 'Rohit',
   jobTitle: 'Lead Online Yoga Teacher from Rishikesh',
   description: 'Rohit is a 500-hour master certified online yoga teacher from Rishikesh, India, specializing in traditional Hatha, Ashtanga Vinyasa, Pranayama, and personalized anatomical posture alignment.',
-  url: 'https://www.yogawithrohit.com/about',
+  url: 'https://yogawithrohit.com/about',
   sameAs: [
     'https://www.instagram.com/panchrohit1943/'
   ],
@@ -43,12 +44,12 @@ export const getPersonSchema = () => ({
 
 export const getWebSiteSchema = () => ({
   '@type': 'WebSite',
-  '@id': 'https://www.yogawithrohit.com/#website',
-  url: 'https://www.yogawithrohit.com/',
+  '@id': 'https://yogawithrohit.com/#website',
+  url: 'https://yogawithrohit.com/',
   name: 'Yoga With Rohit',
   description: 'Online Yoga Classes with Rohit - Live interactive Traditional Hatha & Ashtanga Yoga from Rishikesh.',
   publisher: {
-    '@id': 'https://www.yogawithrohit.com/#organization'
+    '@id': 'https://yogawithrohit.com/#organization'
   }
 });
 
@@ -58,20 +59,20 @@ export const getBreadcrumbSchema = (items) => ({
     '@type': 'ListItem',
     position: index + 1,
     name: item.name,
-    item: item.url.startsWith('http') ? item.url : `https://www.yogawithrohit.com${item.url}`
+    item: item.url.startsWith('http') ? item.url : `https://yogawithrohit.com${item.url}`
   }))
 });
 
 export const getCourseSchema = () => [
   {
     '@type': 'Course',
-    '@id': 'https://www.yogawithrohit.com/#hatha-yoga-course',
+    '@id': 'https://yogawithrohit.com/#hatha-yoga-course',
     name: 'Live Traditional Hatha Yoga Online Classes',
     description: 'Daily interactive online Hatha yoga classes focusing on classical asanas, pranayama, and mindful alignment taught live by Rohit from Rishikesh.',
     provider: {
       '@type': 'Organization',
       name: 'Yoga With Rohit',
-      sameAs: 'https://www.yogawithrohit.com/'
+      sameAs: 'https://yogawithrohit.com/'
     },
     hasCourseInstance: {
       '@type': 'CourseInstance',
@@ -93,33 +94,44 @@ export const getCourseSchema = () => [
         name: 'Free Demo Online Yoga Class',
         price: '0',
         priceCurrency: 'USD',
-        availability: 'https://schema.org/InStock'
+        availability: 'https://schema.org/InStock',
+        url: 'https://yogawithrohit.com/free-online-yoga-class'
+      },
+      {
+        '@type': 'Offer',
+        name: 'Sunday Free Community Yoga Class',
+        price: '0',
+        priceCurrency: 'USD',
+        availability: 'https://schema.org/InStock',
+        url: 'https://yogawithrohit.com/free-online-yoga-class'
       },
       {
         '@type': 'Offer',
         name: 'Daily Online Yoga Class Pass',
         price: '5',
         priceCurrency: 'USD',
-        availability: 'https://schema.org/InStock'
+        availability: 'https://schema.org/InStock',
+        url: 'https://yogawithrohit.com/pricing'
       },
       {
         '@type': 'Offer',
         name: 'Monthly Online Yoga Package (12 Classes)',
         price: '50',
         priceCurrency: 'USD',
-        availability: 'https://schema.org/InStock'
+        availability: 'https://schema.org/InStock',
+        url: 'https://yogawithrohit.com/pricing'
       }
     ]
   },
   {
     '@type': 'Course',
-    '@id': 'https://www.yogawithrohit.com/#ashtanga-yoga-course',
+    '@id': 'https://yogawithrohit.com/#ashtanga-yoga-course',
     name: 'Live Ashtanga Vinyasa Primary Series Online',
     description: 'Dynamic synchronized breath-and-movement practice following the classical Ashtanga Primary Series taught live via Zoom.',
     provider: {
       '@type': 'Organization',
       name: 'Yoga With Rohit',
-      sameAs: 'https://www.yogawithrohit.com/'
+      sameAs: 'https://yogawithrohit.com/'
     },
     hasCourseInstance: {
       '@type': 'CourseInstance',
@@ -133,7 +145,25 @@ export const getCourseSchema = () => [
         '@type': 'Person',
         name: 'Rohit'
       }
-    }
+    },
+    offers: [
+      {
+        '@type': 'Offer',
+        name: 'Free Demo Online Yoga Class',
+        price: '0',
+        priceCurrency: 'USD',
+        availability: 'https://schema.org/InStock',
+        url: 'https://yogawithrohit.com/free-online-yoga-class'
+      },
+      {
+        '@type': 'Offer',
+        name: 'Monthly Online Yoga Package (12 Classes)',
+        price: '50',
+        priceCurrency: 'USD',
+        availability: 'https://schema.org/InStock',
+        url: 'https://yogawithrohit.com/pricing'
+      }
+    ]
   }
 ];
 
@@ -147,4 +177,27 @@ export const getFaqSchema = (faqs) => ({
       text: f.answer
     }
   }))
+});
+
+export const getArticleSchema = (post) => ({
+  '@type': 'BlogPosting',
+  '@id': `https://yogawithrohit.com/blog/${post.slug}#article`,
+  headline: post.title,
+  description: post.excerpt,
+  datePublished: post.date,
+  dateModified: post.date,
+  inLanguage: 'en-US',
+  mainEntityOfPage: `https://yogawithrohit.com/blog/${post.slug}`,
+  author: {
+    '@type': 'Person',
+    name: 'Rohit',
+    jobTitle: 'Lead Online Yoga Teacher from Rishikesh',
+    url: 'https://yogawithrohit.com/about'
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Yoga With Rohit',
+    url: 'https://yogawithrohit.com/',
+    logo: 'https://yogawithrohit.com/images/rohit-splits-ganges.jpg'
+  }
 });

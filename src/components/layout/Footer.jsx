@@ -297,6 +297,11 @@ export default function Footer({ onOpenBooking, onOpenStudentPortal, onOpenAdmin
                 </Link>
               </li>
               <li>
+                <Link to="/free-online-yoga-class" style={{ fontSize: '13.5px', color: '#FDE68A', fontWeight: 700, textDecoration: 'none', transition: 'color 0.2s' }}>
+                  Free Online Yoga Class
+                </Link>
+              </li>
+              <li>
                 <Link to="/schedule" style={{ fontSize: '13.5px', color: 'rgba(255, 255, 255, 0.75)', textDecoration: 'none', transition: 'color 0.2s' }}>
                   Class Schedule & Batches
                 </Link>
@@ -325,7 +330,7 @@ export default function Footer({ onOpenBooking, onOpenStudentPortal, onOpenAdmin
               </div>
 
               <div>
-                <Link to="/free-yoga-demo" style={{ fontSize: '13.5px', fontWeight: 700, color: 'var(--primary-light)', textDecoration: 'none' }}>
+                <Link to="/free-online-yoga-class" style={{ fontSize: '13.5px', fontWeight: 700, color: 'var(--primary-light)', textDecoration: 'none' }}>
                   Book Free Demo Class ($0)
                 </Link>
                 <span style={{ fontSize: '12px', color: 'rgba(255, 255, 255, 0.75)', display: 'block' }}>60-Min Live Zoom Experience</span>

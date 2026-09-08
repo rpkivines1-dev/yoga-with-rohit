@@ -18,7 +18,7 @@ export default function OnlineYogaClassesPage({ onOpenBooking }) {
       <SEOHead
         title="Online Yoga Classes | Live Yoga Classes Online | Yoga With Rohit"
         description="Experience authentic live online yoga classes taught directly from Rishikesh. Practice Traditional Hatha Yoga & Ashtanga Vinyasa with 1-on-1 posture corrections. Book your free demo."
-        canonicalUrl="https://www.yogawithrohit.com/online-yoga-classes"
+        canonicalUrl="https://yogawithrohit.com/online-yoga-classes"
         keywords="Online yoga classes, live yoga classes online, online yoga practice, yoga classes from home, virtual yoga classes, online yoga teacher"
         breadcrumbs={breadcrumbs}
       />

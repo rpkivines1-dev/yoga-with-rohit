@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../components/seo/SEOHead';
 import PageBanner from '../components/common/PageBanner';
-import { Sparkles, CheckCircle2, ArrowRight, Clock, Calendar, ShieldCheck, Sun, Heart, Flame } from 'lucide-react';
+import { getFaqSchema } from '../data/seoSchema';
+import { Sparkles, CheckCircle2, ArrowRight, Clock, Calendar, ShieldCheck, Sun, Heart, Flame, ChevronDown, ChevronUp } from 'lucide-react';
 
 export default function HathaYogaPage({ onOpenBooking }) {
+  const [openFaq, setOpenFaq] = useState(0);
+
   const handleDemoClick = () => {
     onOpenBooking({
       plan: 'demo',
@@ -20,22 +23,46 @@ export default function HathaYogaPage({ onOpenBooking }) {
     { name: 'Hatha Yoga Online Classes', url: '/hatha-yoga-online-classes' },
   ];
 
+  const hathaFaqs = [
+    {
+      question: 'What is Traditional Hatha Yoga?',
+      answer: 'Traditional Hatha Yoga is the classical foundational science of yoga from Rishikesh. "Ha" represents solar vital energy and "Tha" represents lunar calming awareness. In our online classes, Rohit emphasizes steady held postures (asanas), deep diaphragmatic breathing (pranayama), and mindful spinal alignment to balance the body and quiet the mind.'
+    },
+    {
+      question: 'Are Hatha yoga online classes suitable for complete beginners?',
+      answer: 'Yes, absolutely. Classical Hatha yoga is celebrated worldwide as the best style for beginners because postures are held with patience rather than rushed through in fast transitions. Rohit watches your camera feed and offers gentle modifications for stiff hips, tight hamstrings, or sensitive joints.'
+    },
+    {
+      question: 'What is the weekly schedule for online Hatha yoga classes?',
+      answer: 'Classes run three days per week every Monday, Wednesday, and Friday across three morning Eastern Standard Time (EST) options: 6:30 AM EST (Sunrise Alignment), 7:45 AM EST (Morning Vitality Flow), and 9:00 AM EST (Gentle Alignment).'
+    },
+    {
+      question: 'How much do Hatha yoga online classes cost?',
+      answer: 'We provide a 100% Free Demo Class ($0) so you can experience Rohit’s teaching risk-free. Ongoing tuition is transparent: $5 for a single daily drop-in class pass, or $50 per month for our full 12-class package with live camera corrections and WhatsApp support.'
+    },
+    {
+      question: 'What equipment do I need for an online Hatha class?',
+      answer: 'You only need a non-slip yoga mat, comfortable stretchable clothing, and a device with a working camera (laptop, tablet, or smartphone) placed 6 to 8 feet away so your full body is visible.'
+    }
+  ];
+
   return (
     <>
       <SEOHead
-        title="Hatha Yoga Online Classes | Traditional Hatha Yoga | Yoga With Rohit"
-        description="Join authentic Hatha yoga online classes with Rohit from Rishikesh. Practice classical asana alignment, restorative pranayama, and mindful movement on Monday, Wednesday & Friday."
-        canonicalUrl="https://www.yogawithrohit.com/hatha-yoga-online-classes"
-        keywords="Hatha yoga online classes, traditional Hatha yoga, online Hatha yoga, Hatha yoga classes live, Rishikesh Hatha yoga"
+        title="Hatha Yoga Online Classes | Live Traditional Hatha Yoga"
+        description="Join authentic live Hatha yoga online classes with Rohit from Rishikesh. Practice classical asana alignment, restorative pranayama, and mindful movement on M/W/F."
+        canonicalUrl="https://yogawithrohit.com/hatha-yoga-online-classes"
+        keywords="Hatha yoga online classes, traditional Hatha yoga, online Hatha yoga, live Hatha yoga classes, Rishikesh Hatha yoga, Hatha yoga classes online"
         breadcrumbs={breadcrumbs}
+        faqSchema={getFaqSchema(hathaFaqs)}
       />
 
       <PageBanner
         badge="Classical Rishikesh Lineage"
-        title="Hatha Yoga Online Classes"
+        title="Live Hatha Yoga Online Classes"
         subtitle="Experience classical Traditional Hatha Yoga directly from Rishikesh. Discover steady postures, mindful breathwork, spinal decompression, and deep inner balance."
         breadcrumbs={breadcrumbs}
-        ctaText="Book Free Demo"
+        ctaText="Book Free Hatha Demo"
         onCtaClick={handleDemoClick}
       />
 
@@ -98,31 +125,31 @@ export default function HathaYogaPage({ onOpenBooking }) {
                 <Sparkles size={16} style={{ color: '#FDE68A' }} />
                 <span>Book Free Demo</span>
               </button>
-              <Link to="/schedule" className="btn btn-outline" style={{ padding: '13px 22px' }}>
-                <span>View Class Schedule</span>
+              <Link to="/schedule" className="btn btn-outline" style={{ padding: '13px 20px' }}>
+                View Full Interactive Schedule
               </Link>
             </div>
           </section>
 
-          {/* Section 3: Typical Class Structure */}
+          {/* Section 3: Structure of a Hatha Class */}
           <section style={{ marginBottom: '48px' }}>
             <h2 style={{ fontSize: 'clamp(24px, 3.2vw, 32px)', color: 'var(--text-main)', marginBottom: '16px' }}>
-              Structure of a Live Hatha Yoga Session
+              Structure of a 60-Minute Hatha Yoga Class
             </h2>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start', backgroundColor: '#FAF6F0', padding: '20px', borderRadius: '16px' }}>
                 <span className="nicepage-number-pill" style={{ flexShrink: 0 }}>1</span>
                 <div>
-                  <h3 style={{ fontSize: '16px', fontWeight: 800, color: 'var(--text-main)', margin: '0 0 4px' }}>Centering & Sukshma Vyayama (Joint Freeing)</h3>
-                  <p style={{ fontSize: '14px', color: 'var(--text-muted)', margin: 0, lineHeight: 1.55 }}>Opening breath awareness to transition into your body, followed by rotational movements for the neck, shoulders, wrists, and knees.</p>
+                  <h3 style={{ fontSize: '16px', fontWeight: 800, color: 'var(--text-main)', margin: '0 0 4px' }}>Breath Centering & Sacred Chanting</h3>
+                  <p style={{ fontSize: '14px', color: 'var(--text-muted)', margin: 0, lineHeight: 1.55 }}>Opening invocation and diaphragmatic breath awareness to calm the nervous system and arrive fully on the mat.</p>
                 </div>
               </div>
 
               <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start', backgroundColor: '#FAF6F0', padding: '20px', borderRadius: '16px' }}>
                 <span className="nicepage-number-pill" style={{ flexShrink: 0 }}>2</span>
                 <div>
-                  <h3 style={{ fontSize: '16px', fontWeight: 800, color: 'var(--text-main)', margin: '0 0 4px' }}>Surya Namaskars (Sun Salutations)</h3>
-                  <p style={{ fontSize: '14px', color: 'var(--text-muted)', margin: 0, lineHeight: 1.55 }}>Classical 12-step sun salutations to warm the cardiovascular system and gently lengthen the spine and hamstrings.</p>
+                  <h3 style={{ fontSize: '16px', fontWeight: 800, color: 'var(--text-main)', margin: '0 0 4px' }}>Joint Lubrication & Warm-Up (Sukshma Vyayama)</h3>
+                  <p style={{ fontSize: '14px', color: 'var(--text-muted)', margin: 0, lineHeight: 1.55 }}>Therapeutic micro-movements to awaken synovial fluid in the neck, shoulders, spine, hips, and ankles safely.</p>
                 </div>
               </div>
 
@@ -160,18 +187,73 @@ export default function HathaYogaPage({ onOpenBooking }) {
             </ul>
           </section>
 
-          {/* Section 5: Related Links & CTAs */}
-          <div style={{ backgroundColor: '#FAF6F0', padding: '28px', borderRadius: '20px', textAlign: 'center', border: '1px solid rgba(194, 94, 26, 0.12)' }}>
-            <h3 style={{ fontSize: '18px', fontWeight: 800, color: 'var(--text-main)', marginBottom: '8px' }}>
-              Looking for a More Dynamic, Athletic Practice?
+          {/* Section 5: Visible FAQs */}
+          <section style={{ marginBottom: '48px' }}>
+            <h2 style={{ fontSize: 'clamp(22px, 3vw, 28px)', color: 'var(--text-main)', marginBottom: '18px' }}>
+              Frequently Asked Questions About Hatha Yoga Online
+            </h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              {hathaFaqs.map((faq, idx) => {
+                const isOpen = openFaq === idx;
+                return (
+                  <div
+                    key={idx}
+                    style={{
+                      border: '1.5px solid rgba(194, 94, 26, 0.14)',
+                      borderRadius: '16px',
+                      overflow: 'hidden',
+                      backgroundColor: '#FAF6F0',
+                    }}
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setOpenFaq(isOpen ? -1 : idx)}
+                      style={{
+                        width: '100%',
+                        padding: '16px 20px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        textAlign: 'left',
+                        fontWeight: 800,
+                        fontSize: '15px',
+                        color: 'var(--text-main)',
+                        background: 'none',
+                        border: 'none',
+                        cursor: 'pointer',
+                      }}
+                    >
+                      <span>{faq.question}</span>
+                      {isOpen ? <ChevronUp size={18} color="var(--primary)" /> : <ChevronDown size={18} color="var(--text-muted)" />}
+                    </button>
+                    {isOpen && (
+                      <div style={{ padding: '0 20px 16px', fontSize: '14.5px', color: 'var(--text-muted)', lineHeight: 1.65 }}>
+                        {faq.answer}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+
+          {/* Section 6: Internal Links & Contextual CTAs */}
+          <div style={{ backgroundColor: '#FAF6F0', padding: '32px', borderRadius: '22px', border: '1.5px solid rgba(194, 94, 26, 0.14)' }}>
+            <h3 style={{ fontSize: '19px', fontWeight: 800, color: 'var(--text-main)', marginBottom: '10px' }}>
+              Ready to Deepen Your Online Practice?
             </h3>
-            <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '18px' }}>
-              Explore our evening <Link to="/ashtanga-yoga-online" style={{ color: 'var(--primary)', fontWeight: 700, textDecoration: 'underline' }}>Ashtanga Yoga Online Classes</Link> or review our <Link to="/pricing" style={{ color: 'var(--primary)', fontWeight: 700, textDecoration: 'underline' }}>$5 Daily & $50 Monthly Pricing</Link>.
+            <p style={{ fontSize: '14.5px', color: 'var(--text-muted)', marginBottom: '18px', lineHeight: 1.65 }}>
+              Try a <Link to="/free-online-yoga-class" style={{ color: 'var(--primary)', fontWeight: 700, textDecoration: 'underline' }}>Free Online Yoga Class</Link> this Sunday or schedule your weekday demo. You can also view our full <Link to="/schedule" style={{ color: 'var(--primary)', fontWeight: 700, textDecoration: 'underline' }}>Class Schedule</Link>, read our <Link to="/pricing" style={{ color: 'var(--primary)', fontWeight: 700, textDecoration: 'underline' }}>Pricing & Packages</Link>, explore <Link to="/live-yoga-classes-online" style={{ color: 'var(--primary)', fontWeight: 700, textDecoration: 'underline' }}>Live Yoga Classes Online</Link>, or check out our dynamic evening <Link to="/ashtanga-yoga-online" style={{ color: 'var(--primary)', fontWeight: 700, textDecoration: 'underline' }}>Ashtanga Yoga Online</Link>.
             </p>
-            <button onClick={handleDemoClick} className="btn btn-primary" style={{ padding: '12px 24px' }}>
-              <span>Book Your Free Hatha Demo</span>
-              <ArrowRight size={16} />
-            </button>
+            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+              <button onClick={handleDemoClick} className="btn btn-primary" style={{ padding: '12px 24px' }}>
+                <Sparkles size={16} style={{ color: '#FDE68A' }} />
+                <span>Book Free Hatha Demo</span>
+              </button>
+              <Link to="/pricing" className="btn btn-outline" style={{ padding: '12px 20px' }}>
+                View Monthly Package ($50)
+              </Link>
+            </div>
           </div>
 
         </div>

@@ -45,7 +45,7 @@ export default function PricingPage({ onSelectPackage, onOpenBooking }) {
       <SEOHead
         title="Yoga Class Pricing | $5 Daily & $50 Monthly | Yoga With Rohit"
         description="Transparent and affordable online yoga tuition. $5 per daily class or $50 monthly package for 12 live interactive classes (M/W/F). Free demo available."
-        canonicalUrl="https://www.yogawithrohit.com/pricing"
+        canonicalUrl="https://yogawithrohit.com/pricing"
         keywords="Yoga class pricing, online yoga cost, $5 yoga class, $50 monthly yoga, affordable online yoga, yoga tuition"
         breadcrumbs={breadcrumbs}
         faqSchema={getFaqSchema(pricingFaqs)}

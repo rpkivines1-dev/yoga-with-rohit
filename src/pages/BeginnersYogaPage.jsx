@@ -47,7 +47,7 @@ export default function BeginnersYogaPage({ onOpenBooking }) {
       <SEOHead
         title="Online Yoga Classes for Beginners | Yoga With Rohit"
         description="Discover gentle, step-by-step online yoga classes for beginners with Rohit. Learn safe posture alignment, breathing, and flexibility at your own pace from home."
-        canonicalUrl="https://www.yogawithrohit.com/online-yoga-classes-for-beginners"
+        canonicalUrl="https://yogawithrohit.com/online-yoga-classes-for-beginners"
         keywords="Online yoga classes for beginners, beginner yoga online, learn yoga at home, yoga for stiff bodies, beginner Hatha yoga"
         breadcrumbs={breadcrumbs}
         faqSchema={getFaqSchema(beginnerFaqs)}
@@ -226,10 +226,13 @@ export default function BeginnersYogaPage({ onOpenBooking }) {
             </div>
           </section>
 
-          {/* Final Beginner CTA */}
-          <div style={{ textAlign: 'center', paddingTop: '20px', borderTop: '1px solid rgba(194, 94, 26, 0.1)' }}>
-            <p style={{ fontSize: '15px', color: 'var(--text-muted)', marginBottom: '16px' }}>
-              Explore our <Link to="/schedule" style={{ color: 'var(--primary)', fontWeight: 700, textDecoration: 'underline' }}>Class Schedule</Link> or learn more about our <Link to="/pricing" style={{ color: 'var(--primary)', fontWeight: 700, textDecoration: 'underline' }}>$50 Monthly Package (12 Classes)</Link>.
+          {/* Final Beginner CTA & Internal Links */}
+          <div style={{ textAlign: 'center', paddingTop: '28px', borderTop: '1px solid rgba(194, 94, 26, 0.1)' }}>
+            <h3 style={{ fontSize: '18px', fontWeight: 800, color: 'var(--text-main)', marginBottom: '14px' }}>
+              Recommended Next Steps for Beginners:
+            </h3>
+            <p style={{ fontSize: '15px', color: 'var(--text-muted)', maxWidth: '720px', margin: '0 auto 20px', lineHeight: 1.7 }}>
+              Ready to start? Join our <Link to="/free-online-yoga-class" style={{ color: 'var(--primary)', fontWeight: 700, textDecoration: 'underline' }}>Free Online Yoga Class</Link> this Sunday or try a weekday demo in our <Link to="/hatha-yoga-online-classes" style={{ color: 'var(--primary)', fontWeight: 700, textDecoration: 'underline' }}>Hatha Yoga Online Classes</Link>. You can also view our complete <Link to="/schedule" style={{ color: 'var(--primary)', fontWeight: 700, textDecoration: 'underline' }}>Live Class Schedule</Link> and read why <Link to="/live-yoga-classes-online" style={{ color: 'var(--primary)', fontWeight: 700, textDecoration: 'underline' }}>Live Yoga Classes Online</Link> keep beginners safer than recorded videos.
             </p>
           </div>
 

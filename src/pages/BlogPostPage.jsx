@@ -3,6 +3,7 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import SEOHead from '../components/seo/SEOHead';
 import PageBanner from '../components/common/PageBanner';
 import { BLOG_POSTS } from '../data/blogData';
+import { getArticleSchema } from '../data/seoSchema';
 import { Clock, Calendar, ArrowLeft, ArrowRight, Sparkles, CheckCircle2, User, Share2 } from 'lucide-react';
 
 export default function BlogPostPage({ onOpenBooking }) {
@@ -27,10 +28,11 @@ export default function BlogPostPage({ onOpenBooking }) {
       <SEOHead
         title={`${post.title} | Yoga With Rohit`}
         description={post.excerpt}
-        canonicalUrl={`https://www.yogawithrohit.com/blog/${post.slug}`}
+        canonicalUrl={`https://yogawithrohit.com/blog/${post.slug}`}
         keywords={post.primaryKeyword}
         ogType="article"
         breadcrumbs={breadcrumbs}
+        schema={getArticleSchema(post)}
       />
 
       <PageBanner
@@ -135,6 +137,11 @@ export default function BlogPostPage({ onOpenBooking }) {
               <li>
                 <Link to="/pricing" style={{ color: 'var(--primary)', fontWeight: 700, textDecoration: 'underline' }}>
                   Transparent Pricing: $5 Daily & $50 Monthly (12 Classes)
+                </Link>
+              </li>
+              <li>
+                <Link to="/free-online-yoga-class" style={{ color: 'var(--primary)', fontWeight: 700, textDecoration: 'underline' }}>
+                  Free Online Yoga Class: Join Our Sunday Community Class ($0)
                 </Link>
               </li>
             </ul>

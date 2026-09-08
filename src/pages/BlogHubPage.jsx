@@ -15,7 +15,7 @@ export default function BlogHubPage() {
       <SEOHead
         title="Yoga Guides & Online Class Articles | Yoga With Rohit"
         description="Explore practical guides, beginner tutorials, and traditional yogic wisdom written by Rohit, a master yoga teacher from Rishikesh."
-        canonicalUrl="https://www.yogawithrohit.com/blog"
+        canonicalUrl="https://yogawithrohit.com/blog"
         keywords="Yoga blog, online yoga guides, beginner yoga articles, Hatha yoga tutorials, Ashtanga yoga guide"
         breadcrumbs={breadcrumbs}
       />
@@ -100,9 +100,9 @@ export default function BlogHubPage() {
             <p style={{ fontSize: '15px', color: 'rgba(255, 255, 255, 0.85)', maxWidth: '560px', margin: '0 auto 22px' }}>
               Join Rohit live from Rishikesh. Try a full 60-minute interactive demo class with zero commitment.
             </p>
-            <Link to="/free-yoga-demo" className="btn btn-primary" style={{ backgroundColor: 'var(--primary)', color: '#FFFFFF' }}>
+            <Link to="/free-online-yoga-class" className="btn btn-primary" style={{ backgroundColor: 'var(--primary)', color: '#FFFFFF' }}>
               <Sparkles size={16} style={{ color: '#FDE68A' }} />
-              <span>Book Free Demo Class</span>
+              <span>Join a Free Online Yoga Class</span>
               <ArrowRight size={16} />
             </Link>
           </div>

@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../components/seo/SEOHead';
 import PageBanner from '../components/common/PageBanner';
-import { Sparkles, CheckCircle2, ArrowRight, Video, XCircle, Clock, ShieldCheck, HeartHandshake, Compass } from 'lucide-react';
+import { getFaqSchema } from '../data/seoSchema';
+import { Sparkles, CheckCircle2, ArrowRight, Video, XCircle, Clock, ShieldCheck, HeartHandshake, Compass, ChevronDown, ChevronUp } from 'lucide-react';
 
 export default function LiveYogaClassesPage({ onOpenBooking }) {
+  const [openFaq, setOpenFaq] = useState(0);
+
   const handleDemoClick = () => {
     onOpenBooking({ plan: 'demo', title: 'Free Demo Live Online Yoga Class' });
   };
@@ -14,19 +17,47 @@ export default function LiveYogaClassesPage({ onOpenBooking }) {
     { name: 'Live Yoga Classes Online', url: '/live-yoga-classes-online' },
   ];
 
+  const liveFaqs = [
+    {
+      question: 'How do live yoga classes online differ from pre-recorded workout videos?',
+      answer: 'Live online yoga classes give you real-time two-way interaction. Rohit observes your postures, spinal curvature, and breath rhythm through your camera feed, delivering personalized corrections immediately. Unlike pre-recorded videos, live classes provide accountability, prevent common injuries, and let you ask questions before and after class.'
+    },
+    {
+      question: 'What platform is used for the live classes?',
+      answer: 'Classes run on Zoom and Google Meet. Both platforms deliver high-definition two-way audio and video with low latency. You receive secure direct links via email and WhatsApp 30 minutes before each class.'
+    },
+    {
+      question: 'Do I need to keep my camera on during the live session?',
+      answer: 'We strongly encourage keeping your video enabled so Rohit can offer personalized alignment cues and ensure your physical safety. However, if you prefer privacy on any given day, you may keep your camera off and simply follow the audio-visual demonstration.'
+    },
+    {
+      question: 'What is the schedule for live online classes?',
+      answer: 'Live classes run Monday, Wednesday, and Friday across multiple morning and evening Eastern Standard Time (EST) batches: Morning Hatha at 6:30 AM, 7:45 AM, and 9:00 AM EST; Evening Ashtanga at 7:30 PM, 8:45 PM, and 10:00 PM EST.'
+    },
+    {
+      question: 'What is the tuition for live yoga classes online?',
+      answer: 'We believe genuine yoga instruction should be accessible to all. We offer a 100% Free Demo Class ($0). Regular tuition is just $5 for a single class pass or $50 per month for the complete 12-class live package ($4.17 per class).'
+    },
+    {
+      question: 'How do I join my first free live yoga class?',
+      answer: 'Simply click any "Book Free Demo" button or visit our Sunday Free Yoga Class page. Pick your preferred batch, complete the 1-minute registration form, and you will instantly receive your meeting link and preparation checklist.'
+    }
+  ];
+
   return (
     <>
       <SEOHead
-        title="Live Yoga Classes Online | Real-Time Zoom Yoga | Yoga With Rohit"
-        description="Experience genuine interactive live yoga classes online. Real-time posture corrections, teacher accountability, and structured M/W/F schedule from Rishikesh."
-        canonicalUrl="https://www.yogawithrohit.com/live-yoga-classes-online"
-        keywords="Live yoga classes online, interactive online yoga, live stream yoga classes, Zoom yoga classes, real-time yoga teacher"
+        title="Live Yoga Classes Online | Practice Live With Rohit"
+        description="Experience genuine interactive live yoga classes online with Rohit. Real-time posture corrections, teacher accountability, and structured M/W/F schedule from Rishikesh."
+        canonicalUrl="https://yogawithrohit.com/live-yoga-classes-online"
+        keywords="Live yoga classes online, interactive online yoga, live stream yoga classes, Zoom yoga classes, real-time yoga teacher, online yoga classes"
         breadcrumbs={breadcrumbs}
+        faqSchema={getFaqSchema(liveFaqs)}
       />
 
       <PageBanner
         badge="Two-Way Interactive Video"
-        title="Live Yoga Classes Online"
+        title="Live Yoga Classes Online With Rohit"
         subtitle="Discover why live interactive yoga transforms your consistency and safety far beyond recorded video libraries. Experience real-time posture adjustments directly with Rohit."
         breadcrumbs={breadcrumbs}
         ctaText="Try a Live Class Free"
@@ -121,8 +152,58 @@ export default function LiveYogaClassesPage({ onOpenBooking }) {
             </div>
           </section>
 
-          {/* Section 3: Navigation Hub to All Core Pages */}
-          <section style={{ backgroundColor: '#FAF6F0', borderRadius: '24px', padding: '36px', border: '1.5px solid rgba(194, 94, 26, 0.16)', marginBottom: '32px' }}>
+          {/* Section 3: Visible FAQs */}
+          <section style={{ marginBottom: '48px' }}>
+            <h2 style={{ fontSize: 'clamp(22px, 3vw, 28px)', color: 'var(--text-main)', marginBottom: '18px' }}>
+              Frequently Asked Questions About Live Yoga Classes Online
+            </h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              {liveFaqs.map((faq, idx) => {
+                const isOpen = openFaq === idx;
+                return (
+                  <div
+                    key={idx}
+                    style={{
+                      border: '1.5px solid rgba(194, 94, 26, 0.14)',
+                      borderRadius: '16px',
+                      overflow: 'hidden',
+                      backgroundColor: '#FAF6F0',
+                    }}
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setOpenFaq(isOpen ? -1 : idx)}
+                      style={{
+                        width: '100%',
+                        padding: '16px 20px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        textAlign: 'left',
+                        fontWeight: 800,
+                        fontSize: '15px',
+                        color: 'var(--text-main)',
+                        background: 'none',
+                        border: 'none',
+                        cursor: 'pointer',
+                      }}
+                    >
+                      <span>{faq.question}</span>
+                      {isOpen ? <ChevronUp size={18} color="var(--primary)" /> : <ChevronDown size={18} color="var(--text-muted)" />}
+                    </button>
+                    {isOpen && (
+                      <div style={{ padding: '0 20px 16px', fontSize: '14.5px', color: 'var(--text-muted)', lineHeight: 1.65 }}>
+                        {faq.answer}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+
+          {/* Section 4: Navigation Hub to All Core Pages */}
+          <section style={{ backgroundColor: '#FAF6F0', borderRadius: '24px', padding: '36px', border: '1.5px solid rgba(194, 94, 26, 0.16)' }}>
             <h2 style={{ fontSize: '24px', color: 'var(--text-main)', marginBottom: '12px', textAlign: 'center' }}>
               Explore Our Live Programs & Schedule
             </h2>
@@ -141,6 +222,11 @@ export default function LiveYogaClassesPage({ onOpenBooking }) {
                 <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Evening Batches (EST)</span>
               </Link>
 
+              <Link to="/online-yoga-classes-for-beginners" style={{ backgroundColor: '#FFFFFF', padding: '18px', borderRadius: '16px', textAlign: 'center', border: '1px solid rgba(194, 94, 26, 0.14)', display: 'block', transition: 'all 0.2s' }}>
+                <h3 style={{ fontSize: '15px', fontWeight: 800, color: 'var(--primary)', margin: '0 0 4px' }}>Beginners Guide</h3>
+                <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Foundational Yoga</span>
+              </Link>
+
               <Link to="/schedule" style={{ backgroundColor: '#FFFFFF', padding: '18px', borderRadius: '16px', textAlign: 'center', border: '1px solid rgba(194, 94, 26, 0.14)', display: 'block', transition: 'all 0.2s' }}>
                 <h3 style={{ fontSize: '15px', fontWeight: 800, color: 'var(--primary)', margin: '0 0 4px' }}>Class Schedule</h3>
                 <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Timezone Converter</span>
@@ -153,9 +239,9 @@ export default function LiveYogaClassesPage({ onOpenBooking }) {
             </div>
 
             <div style={{ textAlign: 'center' }}>
-              <Link to="/free-yoga-demo" className="btn btn-primary" style={{ padding: '14px 28px', fontSize: '15px' }}>
+              <Link to="/free-online-yoga-class" className="btn btn-primary" style={{ padding: '14px 28px', fontSize: '15px' }}>
                 <Sparkles size={16} style={{ color: '#FDE68A' }} />
-                <span>Book Your Free Online Yoga Demo</span>
+                <span>Join a Free Online Yoga Class</span>
                 <ArrowRight size={16} />
               </Link>
             </div>

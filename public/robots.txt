@@ -1,13 +1,34 @@
-# Allow all search engine crawlers
+# ==============================================================================
+# ROBOTS.TXT — YOGA WITH ROHIT
+# Canonical Domain: https://yogawithrohit.com
+# ==============================================================================
+
 User-agent: *
 Allow: /
+Allow: /src/
+Allow: /images/
+Allow: /assets/
 
-# Disallow private portals, administrative tools, and internal APIs
+# Disallow private administrative portals, student dashboards, and payment flows
 Disallow: /admin
-Disallow: /student
+Disallow: /admin/
 Disallow: /dashboard
+Disallow: /dashboard/
+Disallow: /student-dashboard
+Disallow: /student-dashboard/
+Disallow: /login
+Disallow: /login/
+Disallow: /register
+Disallow: /register/
+Disallow: /payment
+Disallow: /payment/
 Disallow: /checkout
+Disallow: /checkout/
+Disallow: /private-class-links
+Disallow: /private-class-links/
+Disallow: /meeting-links
+Disallow: /meeting-links/
 Disallow: /api/
 
-# Official Sitemap Location
-Sitemap: https://www.yogawithrohit.com/sitemap.xml
+# Canonical XML Sitemap
+Sitemap: https://yogawithrohit.com/sitemap.xml

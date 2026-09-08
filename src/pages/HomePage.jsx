@@ -26,10 +26,10 @@ export default function HomePage({
   return (
     <>
       <SEOHead
-        title="Online Yoga Classes with Rohit | Yoga With Rohit"
-        description="Join live online yoga classes with Rohit. Practice Traditional Hatha Yoga and Ashtanga Vinyasa Primary Series from Rishikesh, India. Free demo class available."
-        canonicalUrl="https://www.yogawithrohit.com/"
-        keywords="Online yoga classes, live online yoga classes, online yoga classes with Rohit, online yoga classes for beginners, Hatha yoga online classes, Ashtanga yoga online"
+        title="Online Yoga Classes | Live Hatha & Ashtanga | Yoga With Rohit"
+        description="Join live online yoga classes with Rohit from Rishikesh, India. Practice Traditional Hatha Yoga and Ashtanga Vinyasa Primary Series. Book your free demo class today."
+        canonicalUrl="https://yogawithrohit.com/"
+        keywords="Online yoga classes, live online yoga classes, free online yoga class, online yoga classes for beginners, Hatha yoga online classes, Ashtanga yoga online"
       />
 
       <main style={{ flex: 1 }}>

@@ -75,6 +75,7 @@ export default function Navbar({ onOpenBooking, onOpenStudentPortal, onOpenAdmin
     { name: 'Online Classes', path: '/online-yoga-classes', icon: Video },
     { name: 'Schedule', path: '/schedule', href: '#schedule', icon: Calendar },
     { name: 'Pricing', path: '/pricing', href: '#pricing', icon: DollarSign },
+    { name: 'Free Class', path: '/free-online-yoga-class', href: '#sunday-free', icon: Sparkles },
     { name: 'About', path: '/about', href: '#about', icon: Award },
     { name: 'FAQ', path: '/faq', href: '#faq', icon: Sparkles },
     { name: 'Blog', path: '/blog', icon: BookOpen },

@@ -23,7 +23,7 @@ export default function ContactPage() {
       <SEOHead
         title="Contact Yoga With Rohit | Phone, WhatsApp & Inquiries"
         description="Get in touch with Rohit for online yoga class schedules, private sessions, and batch inquiries. Call or WhatsApp +91 8077570122 or message on Instagram."
-        canonicalUrl="https://www.yogawithrohit.com/contact"
+        canonicalUrl="https://yogawithrohit.com/contact"
         keywords="Contact Yoga With Rohit, Rohit yoga teacher phone, WhatsApp yoga teacher, Rishikesh yoga inquiries"
         breadcrumbs={breadcrumbs}
       />

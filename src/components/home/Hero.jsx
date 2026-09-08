@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Sparkles, Calendar, ArrowRight, ShieldCheck, Star, Users, Video, Clock, MapPin, Award, CheckCircle2, Sun, Play, X } from 'lucide-react';
 import { BRAND, HERO_STATS } from '../../data/yogaData';
 
@@ -186,9 +187,9 @@ export default function Hero({ onOpenBooking }) {
                 marginBottom: '20px',
               }}
             >
-              Online Yoga Classes <br />
+              Live Online Yoga Classes <br />
               <span className="font-serif" style={{ fontStyle: 'italic', fontWeight: 600, color: 'var(--primary)' }}>
-                with Rohit
+                With Rohit
               </span>
             </h1>
 
@@ -287,6 +288,93 @@ export default function Hero({ onOpenBooking }) {
               </button>
             </div>
 
+            {/* Quick SEO Class Pills */}
+            <div
+              style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: '8px',
+                marginBottom: '28px',
+                fontSize: '12px',
+              }}
+            >
+              <Link
+                to="/free-online-yoga-class"
+                style={{
+                  color: 'var(--primary)',
+                  backgroundColor: 'var(--primary-50)',
+                  border: '1px solid var(--primary-100)',
+                  borderRadius: '9999px',
+                  padding: '5px 13px',
+                  textDecoration: 'none',
+                  fontWeight: 700,
+                  transition: 'all 0.2s',
+                }}
+              >
+                Free Online Yoga Class →
+              </Link>
+              <Link
+                to="/online-yoga-classes-for-beginners"
+                style={{
+                  color: 'var(--text-muted)',
+                  backgroundColor: '#FFFFFF',
+                  border: '1px solid rgba(194, 94, 26, 0.15)',
+                  borderRadius: '9999px',
+                  padding: '5px 13px',
+                  textDecoration: 'none',
+                  fontWeight: 600,
+                  transition: 'all 0.2s',
+                }}
+              >
+                Beginners Yoga
+              </Link>
+              <Link
+                to="/hatha-yoga-online-classes"
+                style={{
+                  color: 'var(--text-muted)',
+                  backgroundColor: '#FFFFFF',
+                  border: '1px solid rgba(194, 94, 26, 0.15)',
+                  borderRadius: '9999px',
+                  padding: '5px 13px',
+                  textDecoration: 'none',
+                  fontWeight: 600,
+                  transition: 'all 0.2s',
+                }}
+              >
+                Hatha Yoga
+              </Link>
+              <Link
+                to="/ashtanga-yoga-online"
+                style={{
+                  color: 'var(--text-muted)',
+                  backgroundColor: '#FFFFFF',
+                  border: '1px solid rgba(194, 94, 26, 0.15)',
+                  borderRadius: '9999px',
+                  padding: '5px 13px',
+                  textDecoration: 'none',
+                  fontWeight: 600,
+                  transition: 'all 0.2s',
+                }}
+              >
+                Ashtanga Yoga
+              </Link>
+              <Link
+                to="/live-yoga-classes-online"
+                style={{
+                  color: 'var(--text-muted)',
+                  backgroundColor: '#FFFFFF',
+                  border: '1px solid rgba(194, 94, 26, 0.15)',
+                  borderRadius: '9999px',
+                  padding: '5px 13px',
+                  textDecoration: 'none',
+                  fontWeight: 600,
+                  transition: 'all 0.2s',
+                }}
+              >
+                Live Zoom Classes
+              </Link>
+            </div>
+
             {/* Teacher Mini Callout Card */}
             <div
               style={{
@@ -348,6 +436,10 @@ export default function Hero({ onOpenBooking }) {
               srcSet="/images/rohit-meditation-pure.png 1x, /images/rohit-meditation-pure-2x.png 2x"
               alt="Rohit Kumar - Lead Yoga Teacher from Rishikesh in Meditative Sukhasana"
               className="hero-meditation-pure-img"
+              loading="eager"
+              fetchPriority="high"
+              width="520"
+              height="542"
             />
           </div>
         </div>

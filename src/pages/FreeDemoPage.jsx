@@ -52,7 +52,7 @@ export default function FreeDemoPage({ onOpenBooking, showToast, setStudentPorta
       <SEOHead
         title="Free Online Yoga Demo Class | Try Yoga with Rohit | Yoga With Rohit"
         description="Book your 100% free online yoga demo class with Rohit from Rishikesh. Experience live posture feedback via Zoom. No credit card required."
-        canonicalUrl="https://www.yogawithrohit.com/free-yoga-demo"
+        canonicalUrl="https://yogawithrohit.com/free-online-yoga-class"
         keywords="Free yoga demo, free online yoga class, try online yoga, yoga class demo, free Zoom yoga class"
         breadcrumbs={breadcrumbs}
       />

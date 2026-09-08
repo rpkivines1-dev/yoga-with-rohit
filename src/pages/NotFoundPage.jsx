@@ -9,7 +9,8 @@ export default function NotFoundPage() {
       <SEOHead
         title="Page Not Found (404) | Yoga With Rohit"
         description="The requested page could not be found. Explore our live online yoga classes, schedule, pricing, or book a free demo session with Rohit."
-        canonicalUrl="https://www.yogawithrohit.com/404"
+        canonicalUrl="https://yogawithrohit.com/404"
+        noIndex={true}
       />
 
       <div
@@ -140,9 +141,9 @@ export default function NotFoundPage() {
             </Link>
           </div>
 
-          <Link to="/free-yoga-demo" className="btn btn-primary">
+          <Link to="/free-online-yoga-class" className="btn btn-primary">
             <Sparkles size={16} style={{ color: '#FDE68A' }} />
-            <span>Book a Free Demo Class</span>
+            <span>Join a Free Online Yoga Class</span>
             <ArrowRight size={16} />
           </Link>
         </div>
