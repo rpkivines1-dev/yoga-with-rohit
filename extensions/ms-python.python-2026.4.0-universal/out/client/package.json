@@ -24,9 +24,7 @@
         "quickPickItemTooltip",
         "terminalDataWriteEvent",
         "terminalExecuteCommandEvent",
-        "codeActionAI",
-        "notebookReplDocument",
-        "notebookVariableProvider"
+        "notebookReplDocument"
     ],
     "author": {
         "name": "Microsoft Corporation"
